@@ -54,29 +54,12 @@
                     <a href="#">Profile</a>
                         <ul class="sous">
                             <li><a href="index.php?variable=profile.php">Profile</a></li>
-                            <li><form method="get"><a href="#" type="submit"><input type="submit" id="deconnexion" name="deconnexion">
-                                    <?php
-                                    //deconnexion
-                                    if (isset($_GET['deconnexion'])) {
-                                        if ($_GET['deconnexion'] == true) {
-                                            session_unset();
-                                            setcookie("password","");
-                                            setcookie("email","");
-                                            echo "Cookies Not Set";
-                                            header("location: index.php");
-                                        }
-                                    }
-                                    ?>
-                                    </form></a></li>
+                            <li><a href="index.php?variable=deco.php" >Log Out</a></li>
                         </ul>
                 </span>
-
-
                 </div>
             </div>
         </nav>
-
-
 
         <div class="contenue">
             <div class="center">
