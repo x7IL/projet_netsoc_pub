@@ -91,7 +91,19 @@
             header('Location: index.php?erreur=2');
         }
     }
-    mysqli_close($mysqli);
+    //gestion des messages d'erreurs
+    if (isset($_COOKIE)) {
+        if (isset($_GET['erreur'])) {
+            $err = $_GET['erreur'];
+            if ($err == 1)
+                echo "<h1>Utilisateur ou mot de passe incorrect</h1>";
+            if ($err == 2)
+                echo "<h1>le nom d'utilisateur existe deja</h1>";
+            if ($err == 3)
+                echo "<h1>les mots de passe ne correspondent pas</h1>";
+        }
+    }
+mysqli_close($mysqli);
 ?>
 
 </body>

@@ -8,6 +8,15 @@
      display: block;
      float: left;
  }
-h1{
+body h1 {
     font-family: 'Teko', sans-serif;
+}
+
+/*############ formulaire de post des messages dans profile ############*/
+
+#modif_bio .modifier{
+    border-radius: 9999px;
+}
+#modif_bio .modif_bio_submit {
+    border-radius: 9999px;
 }

@@ -9,7 +9,6 @@
 <h1>Log In</h1>
 
 <form class="formulaire_connexion" action="" method="POST">
-    <h2>Connexion</h2>
     <label><b>Nom d'utilisateur</b></label>
     <label for="email"></label><input id="email" type="email" placeholder="Entrer votre adresse mail" name="email" required>
     <br>
@@ -46,13 +45,24 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
             }
 
         }
-        header('Location: index.php?erreur=4');
+        header('Location: index.php?erreur=1');
     }
     else {
-        header('Location: index.php?erreur=5');
+        header('Location: index.php?erreur=1');
     }
 }
-
+//gestion des messages d'erreurs
+if (isset($_COOKIE)) {
+    if (isset($_GET['erreur'])) {
+        $err = $_GET['erreur'];
+        if ($err == 1)
+            echo "<h3>Utilisateur ou mot de passe incorrect</h3>";
+        if ($err == 2)
+            echo "<h3>le nom d'utilisateur existe deja</h3>";
+        if ($err == 3)
+            echo "<h3>les mots de passe ne correspondent pas</h3>";
+    }
+}
 mysqli_close($mysqli); // fermer la connexion
 ?>
 

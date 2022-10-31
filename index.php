@@ -50,13 +50,22 @@
                 }
                 ?>
 
-                <span>
-                    <a href="#">Profile</a>
-                        <ul class="sous">
-                            <li><a href="index.php?variable=profile.php">Profile</a></li>
-                            <li><a href="index.php?variable=deco.php" >Log Out</a></li>
-                        </ul>
-                </span>
+                <?php
+                if(isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
+                    $result_can = $mysqli->query("SELECT * FROM user WHERE email = '{$_COOKIE['email']}' AND password ='{$_COOKIE['password']}'");
+                    $result_can = $result_can->fetch_assoc();
+
+                    ?>
+                    <span>
+                        <a href="#">Profile</a>
+                            <ul class="sous">
+                                <li><a href="index.php?variable=profile.php">Profile</a></li>
+                                <li><a href="index.php?variable=deco.php" >Log Out</a></li>
+                            </ul>
+                    </span>
+                    <?php
+                }
+                ?>
                 </div>
             </div>
         </nav>
