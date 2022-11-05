@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Sign Up</h1>
-<form class="formulaire_inscription" action="" method="POST">
+<form class="formulaire_inscription" action="" method="POST" style="word-spacing: 2px;">
     <label><b>Nom d'utilisateur</b></label>
     <label>
         <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
@@ -47,6 +47,7 @@
     <br>
     <!--    <button onclick ="window.location='index.php?name=login.php'">Se connecter</button>-->
 </form>
+
 <?php
     //include "join_db.php";
 

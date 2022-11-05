@@ -8,7 +8,7 @@
     <body>
         <h1>Accueil</h1>
         <div id="post_message_accueil">
-            <form action="#" method="post" id="post_messages">
+            <form action="#" method="post" id="post_messages" style="margin-top: 3%; margin-bottom: 2%; background-color: #FAFAFA; border: 1px solid dodgerblue;">
 
                 <?php
                 include "function_used.php";
@@ -16,9 +16,9 @@
                     ?>
                     <div>
                         <input type="hidden" value="">
-                        <label for="message"></label><input type="text" id="message" name="message" placeholder="What's happening">
+                        <label for="message"></label><input type="text" id="message" name="message" placeholder="What's happening" style="border-radius: 9999px;">
                     </div>
-                    <input type="submit" name="post_message" id="post_message" value="Post">
+                    <input type="submit" name="post_message" id="post_message" value="Post" style="border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA">
                     <?php
                     if (isset($_POST["post_message"])) {
 
@@ -55,8 +55,13 @@
                     $username = $username->fetch_assoc();
                     $username = implode(",", $username);
                     ?>
-                    <hr/>
-                    <p>De <b><?=$username; ?> :</b><br><?=$com["post"]; ?> <br><?=$com["post_date"]; ?> <br> <?=$com["id"]; ?> </p>
+                    <div style="background-color: #FAFAFA; border: solid 1px dodgerblue; margin-top: 1%;"><b><?=$username; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0"><?=$com["post"]; ?></p>
+                        <div style="background-color: #E3E9EF;">
+                            <input type="button" value="like" style="background-color: dodgerblue;color: #FAFAFA;">
+                            <input type="button" value="comment" style="background-color: dodgerblue;color: #FAFAFA;">
+                        </div>
+
+                    </div>
 
                     <?php
 
@@ -64,7 +69,7 @@
                         if ($_COOKIE["login"] == $com["login"]){
                             ?><form action="" class="form_delete_list_comment" method="post"><?php
                             ?><input type="hidden" name="supp" value="<?php echo $com['id']?>"/>
-                            <input id="delete" name="delete" type="submit" value="Delete message"><br><?php
+                            <input id="delete" name="delete" type="submit" value="Delete message" style="border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA"><br><?php
 
                         }
                     }

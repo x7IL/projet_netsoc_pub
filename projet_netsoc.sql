@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1deb5ubuntu1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le : mar. 25 oct. 2022 à 16:00
--- Version du serveur : 10.4.21-MariaDB
--- Version de PHP : 7.4.29
+-- Host: localhost:3306
+-- Generation Time: Nov 05, 2022 at 06:10 PM
+-- Server version: 8.0.31-0ubuntu0.22.04.1
+-- PHP Version: 8.1.2-1ubuntu2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,125 +18,139 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `projet_netsoc`
+-- Database: `projet_netsoc`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `post`
+-- Table structure for table `post`
 --
 
 CREATE TABLE `post` (
-                        `id` int(11) NOT NULL,
-                        `ID_user` int(11) NOT NULL,
-                        `post` text NOT NULL,
-                        `commentaires` text NOT NULL,
-                        `likes` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int NOT NULL,
+  `ID_user` int NOT NULL,
+  `post` text NOT NULL,
+  `commentaires` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `likes` int DEFAULT NULL,
+  `post_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`id`, `ID_user`, `post`, `commentaires`, `likes`, `post_date`) VALUES
+(1, 11, 'test', NULL, NULL, '2022-10-31 13:40:47');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `profile`
+-- Table structure for table `profile`
 --
 
 CREATE TABLE `profile` (
-                           `biographie` text NOT NULL,
-                           `id_user` int(11) NOT NULL,
-                           `username` varchar(30) NOT NULL,
-                           `id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `biographie` text NOT NULL,
+  `id_user` int NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `profile`
+-- Dumping data for table `profile`
 --
 
 INSERT INTO `profile` (`biographie`, `id_user`, `username`, `id`) VALUES
-                                                                      ('asdlhiasd', 4, '', 1),
-                                                                      ('asdlhiasd', 4, '', 2),
-                                                                      ('asdlhiasd', 4, 'Knup', 3),
-                                                                      ('asdlhiasd', 4, 'Knup', 4),
-                                                                      ('asdlhiasd', 1, 'wxu', 5),
-                                                                      ('asdlhiasd', 7, 'qweqwe', 6),
-                                                                      ('BIO DE GRIFFEN', 8, 'Griffen', 7),
-                                                                      ('Biographie de JULIEN', 10, 'JULIEN', 8);
+('asdlhiasd', 4, '', 1),
+('asdlhiasd', 4, '', 2),
+('asdlhiasd', 4, 'Knup', 3),
+('asdlhiasd', 4, 'Knup', 4),
+('asdlhiasd', 1, 'wxu', 5),
+('asdlhiasd', 7, 'qweqwe', 6),
+('BIO DE GRIFFEN', 8, 'Griffen', 7),
+('Biographie de JULIEN', 10, 'JULIEN', 8),
+('you want to play let s play', 11, 'griffen', 9),
+('Biographie de griffen', 12, 'griffen', 10),
+('Biographie de qwerty', 13, 'qwerty', 11);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
-                        `id` int(11) NOT NULL,
-                        `username` varchar(30) NOT NULL,
-                        `email` varchar(255) NOT NULL,
-                        `password` varchar(255) NOT NULL,
-                        `age` int(11) NOT NULL,
-                        `genre` varchar(10) NOT NULL,
-                        `Date_inscrpition` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `age` int NOT NULL,
+  `genre` varchar(10) NOT NULL,
+  `Date_inscrpition` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `age`, `genre`, `Date_inscrpition`) VALUES
-                                                                                                   (1, 'wxu', 'wx.perso@gmail.com', '344907e89b981caf221d05f597eb57a6af408f15f4dd7895bbd1b96a2938ec24a7dcf23acb94ece0b6d7b0640358bc56bdb448194b9305311aff038a834a079f', 18, 'on', '2022-10-25 13:13:46'),
-                                                                                                   (2, 'wx', 'wxu@et.esiea.fr', '2f9959b230a44678dd2dc29f037ba1159f233aa9ab183ce3a0678eaae002e5aa6f27f47144a1a4365116d3db1b58ec47896623b92d85cb2f191705daf11858b8', 22, 'on', '2022-10-25 13:20:52'),
-                                                                                                   (3, 'Jules', 'boissel@et.esiea.fr', '2f9959b230a44678dd2dc29f037ba1159f233aa9ab183ce3a0678eaae002e5aa6f27f47144a1a4365116d3db1b58ec47896623b92d85cb2f191705daf11858b8', 23, 'Gay', '2022-10-25 13:22:34'),
-                                                                                                   (4, 'Knup', 'xwilliamx.xu@gmail.com', '344907e89b981caf221d05f597eb57a6af408f15f4dd7895bbd1b96a2938ec24a7dcf23acb94ece0b6d7b0640358bc56bdb448194b9305311aff038a834a079f', 19, 'Homme', '2022-10-25 15:10:02'),
-                                                                                                   (5, 'asdxcz', 'asd@asd.fr', '344907e89b981caf221d05f597eb57a6af408f15f4dd7895bbd1b96a2938ec24a7dcf23acb94ece0b6d7b0640358bc56bdb448194b9305311aff038a834a079f', 20, 'Homme', '2022-10-25 15:13:43'),
-                                                                                                   (6, 'caxsda', 'wxu@et.esiea.frw', '344907e89b981caf221d05f597eb57a6af408f15f4dd7895bbd1b96a2938ec24a7dcf23acb94ece0b6d7b0640358bc56bdb448194b9305311aff038a834a079f', 21, 'Homme', '2022-10-25 15:15:53'),
-                                                                                                   (7, 'qweqwe', 'wx.perso@gmail.com123', '344907e89b981caf221d05f597eb57a6af408f15f4dd7895bbd1b96a2938ec24a7dcf23acb94ece0b6d7b0640358bc56bdb448194b9305311aff038a834a079f', 20, 'Homme', '2022-10-25 15:16:47'),
-                                                                                                   (8, 'Griffen', 'savadoux@et.esiea.fr', '2f9959b230a44678dd2dc29f037ba1159f233aa9ab183ce3a0678eaae002e5aa6f27f47144a1a4365116d3db1b58ec47896623b92d85cb2f191705daf11858b8', 19, 'Homme', '2022-10-25 15:43:08'),
-                                                                                                   (9, 'JULESSS', 'jules.jules@jules.fr', '2f9959b230a44678dd2dc29f037ba1159f233aa9ab183ce3a0678eaae002e5aa6f27f47144a1a4365116d3db1b58ec47896623b92d85cb2f191705daf11858b8', 24, 'Femme', '2022-10-25 15:48:21'),
-                                                                                                   (10, 'JULIEN', 'ads@asd.fr', '344907e89b981caf221d05f597eb57a6af408f15f4dd7895bbd1b96a2938ec24a7dcf23acb94ece0b6d7b0640358bc56bdb448194b9305311aff038a834a079f', 18, 'Homme', '2022-10-25 15:49:04');
+(1, 'wxu', 'wx.perso@gmail.com', '344907e89b981caf221d05f597eb57a6af408f15f4dd7895bbd1b96a2938ec24a7dcf23acb94ece0b6d7b0640358bc56bdb448194b9305311aff038a834a079f', 18, 'on', '2022-10-25 13:13:46'),
+(2, 'wx', 'wxu@et.esiea.fr', '2f9959b230a44678dd2dc29f037ba1159f233aa9ab183ce3a0678eaae002e5aa6f27f47144a1a4365116d3db1b58ec47896623b92d85cb2f191705daf11858b8', 22, 'on', '2022-10-25 13:20:52'),
+(3, 'Jules', 'boissel@et.esiea.fr', '2f9959b230a44678dd2dc29f037ba1159f233aa9ab183ce3a0678eaae002e5aa6f27f47144a1a4365116d3db1b58ec47896623b92d85cb2f191705daf11858b8', 23, 'Gay', '2022-10-25 13:22:34'),
+(4, 'Knup', 'xwilliamx.xu@gmail.com', '344907e89b981caf221d05f597eb57a6af408f15f4dd7895bbd1b96a2938ec24a7dcf23acb94ece0b6d7b0640358bc56bdb448194b9305311aff038a834a079f', 19, 'Homme', '2022-10-25 15:10:02'),
+(5, 'asdxcz', 'asd@asd.fr', '344907e89b981caf221d05f597eb57a6af408f15f4dd7895bbd1b96a2938ec24a7dcf23acb94ece0b6d7b0640358bc56bdb448194b9305311aff038a834a079f', 20, 'Homme', '2022-10-25 15:13:43'),
+(6, 'caxsda', 'wxu@et.esiea.frw', '344907e89b981caf221d05f597eb57a6af408f15f4dd7895bbd1b96a2938ec24a7dcf23acb94ece0b6d7b0640358bc56bdb448194b9305311aff038a834a079f', 21, 'Homme', '2022-10-25 15:15:53'),
+(7, 'qweqwe', 'wx.perso@gmail.com123', '344907e89b981caf221d05f597eb57a6af408f15f4dd7895bbd1b96a2938ec24a7dcf23acb94ece0b6d7b0640358bc56bdb448194b9305311aff038a834a079f', 20, 'Homme', '2022-10-25 15:16:47'),
+(8, 'Griffen', 'savadoux@et.esiea.fr', '2f9959b230a44678dd2dc29f037ba1159f233aa9ab183ce3a0678eaae002e5aa6f27f47144a1a4365116d3db1b58ec47896623b92d85cb2f191705daf11858b8', 19, 'Homme', '2022-10-25 15:43:08'),
+(9, 'JULESSS', 'jules.jules@jules.fr', '2f9959b230a44678dd2dc29f037ba1159f233aa9ab183ce3a0678eaae002e5aa6f27f47144a1a4365116d3db1b58ec47896623b92d85cb2f191705daf11858b8', 24, 'Femme', '2022-10-25 15:48:21'),
+(10, 'JULIEN', 'ads@asd.fr', '344907e89b981caf221d05f597eb57a6af408f15f4dd7895bbd1b96a2938ec24a7dcf23acb94ece0b6d7b0640358bc56bdb448194b9305311aff038a834a079f', 18, 'Homme', '2022-10-25 15:49:04'),
+(11, 'griffen', 's.b@gmail.com', '45c0a1024132bc3bab62188452276a110db75da1568b72195f0913270e2647f6ee9df2af24ffa629176952c66fd56722d9597faa6de1ba5a5a35298903d65d54', 19, 'Homme', '2022-10-26 18:43:55'),
+(12, 'griffen', 'savadoux@gmail.com', '45c0a1024132bc3bab62188452276a110db75da1568b72195f0913270e2647f6ee9df2af24ffa629176952c66fd56722d9597faa6de1ba5a5a35298903d65d54', 19, 'Homme', '2022-10-26 18:50:03'),
+(13, 'qwerty', 'qwerty@gmail.com', '45c0a1024132bc3bab62188452276a110db75da1568b72195f0913270e2647f6ee9df2af24ffa629176952c66fd56722d9597faa6de1ba5a5a35298903d65d54', 19, 'Homme', '2022-10-26 19:05:44');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `post`
+-- Indexes for table `post`
 --
 ALTER TABLE `post`
-    ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `profile`
+-- Indexes for table `profile`
 --
 ALTER TABLE `profile`
-    ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
-    ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `post`
+-- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT pour la table `profile`
+-- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT pour la table `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -55,7 +55,6 @@ html{
     text-align: center;
     font-size: 1.1em;
     border-radius: 9999px;
-
 }
 .log_in_up{
     flex-direction: row;
@@ -74,7 +73,7 @@ html{
     height: 50px;
     font-size: 25px;
     letter-spacing: 1px;
-    margin-top: 5px;
+    margin-top: 2px;
 }
 .log_in_up .button_sign_up{
     transition: 0.7s ease;
@@ -88,7 +87,7 @@ html{
     height: 50px;
     font-size: 25px;
     letter-spacing: 1px;
-    margin-top: 5px;
+    margin-top: 2px;
 }
 .log_in_up .button_log_in:hover{
     transition: 0.7s ease;
