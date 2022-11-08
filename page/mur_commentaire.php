@@ -53,51 +53,58 @@
             foreach ($coms as $com){
                 $ID_user = $com["ID_user"];
                 if ($ID_user!=NULL) {
-                    $username = $mysqli->query("SELECT username FROM profile WHERE id_user = '$ID_user'");
-                    $username = $username->fetch_assoc();
-                    $username = implode(",", $username);
-                    ?>
-                    <div style="background-color: #FAFAFA; border: solid 1px dodgerblue; margin-top: 1%;"><b style=" max-width: 99%; word-wrap: break-word; "><?=$username; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0; max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
-                        <div style="background-color: #E3E9EF;">
-                            <input type="button" value="like" style="background-color: dodgerblue;color: #FAFAFA;">
-                            <input type="button" value="comment" style="background-color: dodgerblue;color: #FAFAFA;">
-                        </div>
-
-                    </div>
-
-                    <?php
-
-                    if(isset($_COOKIE["login"])){
-                        if ($_COOKIE["login"] == $com["login"]){
-                            ?><form action="" class="form_delete_list_comment" method="post"><?php
-                            ?><input type="hidden" name="supp" value="<?php echo $com['id']?>"/>
-                            <input id="delete" name="delete" type="submit" value="Delete message" style="border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA"><br><?php
-
+                $username_proprio = $mysqli->query("SELECT username FROM profile WHERE id_user = '$ID_user'");
+                $username_proprio = $username_proprio->fetch_assoc();
+                $username_proprio = implode(",", $username_proprio);
+                ?>
+                <div style=" border: solid 1px dodgerblue; background-color: #FAFAFA; margin-top: 1%;">
+                    <div style="">
+                        <?php
+                        if ($com["id_profile_destinataire"]){
+                            $username_destinataire = $mysqli->query("SELECT username FROM profile WHERE id_user = {$com["id_profile_destinataire"]}")->fetch_assoc();
+                            ?>
+                            <b style=" max-width: 99%; word-wrap: break-word; "><?=$username_proprio; ?><i style="opacity: 0.5;"> pour </i><?= $username_destinataire["username"]; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0  max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
+                            <?php
                         }
-                    }
-                    ?></form>
+                        else{
+                            ?>
+                            <b style=" max-width: 99%; word-wrap: break-word; "><?=$username_proprio; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0  max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <div style="background-color: #E3E9EF;">
+                        <input type="button" value="like" style="background-color: dodgerblue;color: #FAFAFA;">
+                        <input type="button" value="comment" style="background-color: dodgerblue;color: #FAFAFA;">
+                    </div>
                     <?php
-                }
-            }
-            if(isset($_POST["delete"])) {
-                delete_fields('post', 'id', $_POST['supp']);//verification_db('comment', "id",  "message", $com['message'], $_COOKIE['idmessage'])
-            }
-            ?>
+
+                    if(isset($_COOKIE["username"])){
+                    if ($_COOKIE["username"] == $username_proprio){
+                    ?>
+                    <form action="#" class="form_delete_comment" method="post" ><?php
+                        ?>
+                        <input type="hidden" name="supp" value="<?php echo $com['id']?>"/>
+                        <input id="delete" name="delete" type="submit" value="Delete message" style="border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA; float:right; margin-top: -28px">
+                        <?php
+                        }
+                        }
+                        ?>
+                    </form>
+                </div>
         </div>
-
-
-
-        <?php /*
-
- va faloir boucler sur la table post donc faire une nouvelle fonction
-
-        $coms = select_com('comment');
-        ?>
-        <?php foreach ($coms as $com){?>
-                <hr/>
-                <p>Id : <b><?=$com["id"]; ?> :</b><br><?=$com["message"]; ?> :<br><?=$com["post_date"]; ?></p>
+        <?php
+        }
+        }
+        if(isset($_POST["delete"])){
+            delete_fields('post', 'id', $_POST['supp']);//verification_db('comment', "id",  "message", $com['message'], $_COOKIE['idmessage'])
+            //header("Refresh:0"); //message d'erreur
+            ?>
+            <meta http-equiv="refresh" content="0">
             <?php
         }
-        */ ?>
+        ?>
+        </div>
+        </div>
     </body>
 </html>

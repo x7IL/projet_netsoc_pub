@@ -107,13 +107,25 @@
         foreach ($coms as $com){
             $ID_user = $com["ID_user"];
             if ($ID_user!=NULL) {
-                $username = $mysqli->query("SELECT username FROM profile WHERE id_user = '$ID_user'");
-                $username = $username->fetch_assoc();
-                $username = implode(",", $username);
+                $username_proprio = $mysqli->query("SELECT username FROM profile WHERE id_user = '$ID_user'");
+                $username_proprio = $username_proprio->fetch_assoc();
+                $username_proprio = implode(",", $username_proprio);
                 ?>
                 <div style=" border: solid 1px dodgerblue; background-color: #FAFAFA; margin-top: 1%;">
                     <div style="">
-                        <b style=" max-width: 99%; word-wrap: break-word; "><?=$username; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0  max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
+                        <?php
+                        if ($com["id_profile_destinataire"]){
+                            $username_destinataire = $mysqli->query("SELECT username FROM profile WHERE id_user = {$com["id_profile_destinataire"]}")->fetch_assoc();
+                            ?>
+                            <b style=" max-width: 99%; word-wrap: break-word; "><?=$username_proprio; ?><i style="opacity: 0.5;"> pour </i><?= $username_destinataire["username"]; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0  max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
+                            <?php
+                        }
+                        else{
+                            ?>
+                            <b style=" max-width: 99%; word-wrap: break-word; "><?=$username_proprio; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0  max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
+                            <?php
+                        }
+                        ?>
                     </div>
                     <div>
                         <div style="background-color: #E3E9EF; display: block">
