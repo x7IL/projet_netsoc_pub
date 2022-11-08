@@ -14,6 +14,7 @@ function insert_fields($table, $fields) {
     return 0;
 }
 function delete_fields($table, $keys, $value) {
+
     global $mysqli;
     echo $value;
     $sql = "DELETE FROM $table WHERE $keys = $value ";

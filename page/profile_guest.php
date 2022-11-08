@@ -18,6 +18,10 @@ if($row_cnt==1){
     <?php
     echo '<h3>Biographie:</h3>';
     echo "<p style='font-size: 1.1em'>{$username['biographie']}</p>";
+    ?>
+    </div>
+        <?php
+    include('mur_commentaire.php');
 
 }
 else{

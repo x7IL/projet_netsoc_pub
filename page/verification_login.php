@@ -4,7 +4,6 @@ session_start();
 if(isset($_POST['email']) && isset($_POST['password'])) {
 
     require('join_db.php');
-    $mysqli = join_database();
 
     $email = mysqli_real_escape_string($mysqli,htmlspecialchars($_POST['email']));
     $password = $_POST['password'];

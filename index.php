@@ -6,15 +6,23 @@
         <link rel="stylesheet" href="node_modules/aos/dist/aos.css">
 
         <title>GJK</title>
-        <style>
 
-        </style>
     </head>
     <body>
     <?php
         include "get_all_files.php";
         require "join_db.php";
-        $mysqli = join_database();
+        join_database();
+
+
+        if(isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
+            $result_can = $mysqli->query("SELECT * FROM user WHERE email = '{$_COOKIE['email']}' AND password ='{$_COOKIE['password']}'");
+            $result_can = $result_can->fetch_assoc();
+        }
+        else{
+            $result_can = null;
+        }
+
         ?>
 
         <nav class="navbar navbar-expand-sm navbar-light fixed-top">
@@ -35,17 +43,15 @@
 
 
             </div>
+            <?php if($result_can) echo"<h3>Connecté sous {$result_can["username"]}</h3>";
+            ?>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav"></ul>
             </div>
+
             <div class="log_in_up">
                 <?php
-                if(isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
-                    $result_can = $mysqli->query("SELECT * FROM user WHERE email = '{$_COOKIE['email']}' AND password ='{$_COOKIE['password']}'");
-                    $result_can = $result_can->fetch_assoc();
-                }
-                else {
-                    $result_can = null;
+                if (!$result_can){
                     ?>
                     <div class="sign_up">
                         <a href="index.php?variable=sign_up.php"><input type="button" class="button_sign_up" value="Sign Up" ></a>
@@ -56,6 +62,7 @@
                     <?php
                 }
                 ?>
+
 
                 <?php
                 if(isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
@@ -75,8 +82,20 @@
                 ?>
                 </div>
         </nav>
-
         <div class="contenue">
+
+            <?php
+            if(isset($_GET['erreur'])){
+                $err = $_GET['erreur'];
+                if($err==1)
+                    echo "<h3  id='expres' style='color:black;margin-top:10%'>Utilisateur ou mot de passe incorrect</h3>";
+                if($err==2)
+                    echo "<h1 style='color:black;margin-top:10%'>le nom d'utilisateur existe deja</h1>";
+                if($err==3)
+                    echo "<h1 style='color:black;margin-top:10%'>les mots de passe ne correspondent pas</h1>";
+            }
+            ?>
+
             <div class="center">
                 <div class="inbox">
                     <div class="centre">
@@ -87,13 +106,13 @@
                         }
                         elseif(!isset($_GET['variable']) || $_GET['variable']==''){
                             $title = "mur_commentaire.php";
+                            echo "<h1>Commentaire</h1>";
                             require("page/mur_commentaire.php");
                         }
                         else{
                             $title = "ERROR 404";
                         }
                         ?>
-
 
                     </div>
                 </div>

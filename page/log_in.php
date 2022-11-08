@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <title>Log In</title>
-</head>
+
 <body>
 <h1>Log In</h1>
 
@@ -21,12 +15,8 @@
 </form>
 <?php
 
-session_start();
 if(isset($_POST['email']) && isset($_POST['password'])) {
     if ($_POST["email"] != "" && $_POST["password"] != "") {
-        $mysqli = join_database();
-
-
         $email = mysqli_real_escape_string($mysqli, htmlspecialchars($_POST['email']));
         $password = $_POST['password'];
 
@@ -36,6 +26,7 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
             $hash = hash("whirlpool", $password);
 
             if (($row['password'] == $hash)) {
+                session_start();
                 setcookie("username", $row["username"], time() + 3600);
                 setcookie("email", $_POST['email'], time() + 3600);
                 setcookie("password", $hash, time() + 3600);
@@ -52,19 +43,7 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
     }
 }
 //gestion des messages d'erreurs
-if (isset($_COOKIE)) {
-    if (isset($_GET['erreur'])) {
-        $err = $_GET['erreur'];
-        if ($err == 1)
-            echo "<h3>Utilisateur ou mot de passe incorrect</h3>";
-        if ($err == 2)
-            echo "<h3>le nom d'utilisateur existe deja</h3>";
-        if ($err == 3)
-            echo "<h3>les mots de passe ne correspondent pas</h3>";
-    }
-}
 mysqli_close($mysqli); // fermer la connexion
 ?>
 
 </body>
-</html>
