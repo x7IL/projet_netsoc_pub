@@ -112,7 +112,7 @@
                 ?>
                 <div style=" border: solid 1px dodgerblue; background-color: #FAFAFA; margin-top: 1%;">
                     <div style="">
-                        <b><?=$username; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0"><?=$com["post"]; ?></p>
+                        <b style=" max-width: 99%; word-wrap: break-word; "><?=$username; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0  max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
                     </div>
                     <div>
                         <div style="background-color: #E3E9EF; display: block">

@@ -22,11 +22,18 @@
                     <img id="image_logo" src="image/reseau-informatique-icone-cybersecurite-pour-web_116137-3699.png" alt="logo_réseau">
                     <h1>GJK</h1>
                 </div>
+            <?php
 
+            ?>
             <div class="search_bar">
-                <form name="formulaire_search" action="#" method="get">
-                    <input class="bar_search" type="text" placeholder="Search GJK 🔎" value="">
+                <form name="formulaire_search" method="get">
+                    <input type="hidden" name="variable" value="search.php">
+                    <label>
+                        <input class="bar_search" type="text" placeholder="Search GJK 🔎" name="searchVal" value="">
+                    </label> <!--onkeyup="searchq()-->
                 </form>
+
+
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav"></ul>
@@ -67,7 +74,6 @@
                 }
                 ?>
                 </div>
-            </div>
         </nav>
 
         <div class="contenue">
@@ -87,6 +93,8 @@
                             $title = "ERROR 404";
                         }
                         ?>
+
+
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 05, 2022 at 06:10 PM
+-- Generation Time: Nov 05, 2022 at 07:03 PM
 -- Server version: 8.0.31-0ubuntu0.22.04.1
 -- PHP Version: 8.1.2-1ubuntu2.6
 
@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `post` (
   `id` int NOT NULL,
   `ID_user` int NOT NULL,
-  `post` text NOT NULL,
-  `commentaires` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `post` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `commentaires` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `likes` int DEFAULT NULL,
   `post_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -50,9 +50,9 @@ INSERT INTO `post` (`id`, `ID_user`, `post`, `commentaires`, `likes`, `post_date
 --
 
 CREATE TABLE `profile` (
-  `biographie` text NOT NULL,
+  `biographie` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `id_user` int NOT NULL,
-  `username` varchar(30) NOT NULL,
+  `username` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -81,11 +81,11 @@ INSERT INTO `profile` (`biographie`, `id_user`, `username`, `id`) VALUES
 
 CREATE TABLE `user` (
   `id` int NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `username` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `age` int NOT NULL,
-  `genre` varchar(10) NOT NULL,
+  `genre` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `Date_inscrpition` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
