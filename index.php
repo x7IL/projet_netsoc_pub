@@ -87,7 +87,7 @@
                         }
                         elseif(!isset($_GET['variable']) || $_GET['variable']==''){
                             $title = "mur_commentaire.php";
-                            require ("page/$title");
+                            require("page/mur_commentaire.php");
                         }
                         else{
                             $title = "ERROR 404";
@@ -99,7 +99,6 @@
                 </div>
             </div>
         </div>
-
 
     </body>
 </html>

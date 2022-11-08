@@ -27,7 +27,9 @@
                         $id_user = $mysqli->query("SELECT id FROM user WHERE `email` = '$email'");
                         $id_user = $id_user->fetch_assoc();
                         $id_user = implode(",", $id_user);
-                        insert_fields('post', ["ID_user" => $id_user, "post" => $_POST["message"]]);  //mettre l'id user dans la requets
+
+                        $modifier_ver = str_replace("'","\'",$_POST["message"]);
+                        insert_fields('post', ["ID_user" => $id_user, "post" => $modifier_ver]);  //mettre l'id user dans la requets
                     }
                 }
                 else {

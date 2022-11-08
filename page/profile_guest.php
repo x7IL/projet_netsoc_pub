@@ -2,7 +2,7 @@
 
 
 global $mysqli;
-print_r($_GET['profile_guest']);
+//print_r($_GET['profile_guest']);
 $username = mysqli_query($mysqli,"SELECT * FROM profile WHERE username = '{$_GET['profile_guest']}'");
 $row_cnt = $username->num_rows;
 $username = $username->fetch_assoc()

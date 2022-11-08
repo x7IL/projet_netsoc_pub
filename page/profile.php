@@ -38,8 +38,9 @@
                 }
 
                 if (isset($_POST['modifier']) && isset($_POST['id'])) {
+                    $modifier_ver = str_replace("'","\'",$_POST['modifier']);
 
-                    $sql = "UPDATE profile SET biographie='{$_POST['modifier']}' WHERE id_user ='{$result_can['id']}'";
+                    $sql = "UPDATE profile SET biographie='$modifier_ver' WHERE id_user ='{$result_can['id']}'";
                     if ($mysqli->query($sql) === TRUE) {
                         header("Refresh:0");
                     } else {
