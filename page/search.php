@@ -4,7 +4,7 @@
     if (isset($_GET['searchVal'])){
         $searchq = $_GET['searchVal'];
         $searchq = preg_replace("#[^0-9a-z]#i","",$searchq);
-        $query = mysqli_query($mysqli, "SELECT * FROM user WHERE username LIKE '%".$searchq."%' LIMIT 20 OFFSET 1 ")or die("Could not search!");
+        $query = mysqli_query($mysqli, "SELECT * FROM user WHERE username LIKE '%".$searchq."%' LIMIT 20 ")or die("Could not search!");
         $count = mysqli_num_rows($query);
         if($count == 0){
             $output = '<div>No results!</div>';
