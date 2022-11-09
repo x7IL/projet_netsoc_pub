@@ -105,7 +105,7 @@
                         <?php
                         if (isset($_GET['variable']) and file_exists('page/'.$_GET['variable'])){
                             $title = $_GET['variable'];
-                            require ("page/$title");
+                            require("page/$title");
                         }
                         elseif(!isset($_GET['variable']) || $_GET['variable']==''){
                             $title = "mur_commentaire.php";
