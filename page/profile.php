@@ -28,7 +28,6 @@
                     while ($row = $result->fetch_assoc()) {
                         echo "<p style='font-size: 1.1em'>{$row['biographie']}</p>";
                     }
-
                     if (isset($_POST['modifier']) && isset($_POST['id'])) {
                         $modifier_ver = str_replace("'","\'",$_POST['modifier']);
 

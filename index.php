@@ -8,7 +8,7 @@
         <title>GJK</title>
 
     </head>
-    <body>
+    <body style="color:white">
     <?php
         include "get_all_files.php";
         require "join_db.php";
@@ -98,6 +98,12 @@
                     echo "<h1 style='color:black;margin-top:10%'>les mots de passe ne correspondent pas</h1>";
             }
             ?>
+
+            <div class="wrapper">
+                <div class="typing-demo">
+                    Vous venez d'entrer dans une zone interdite!
+                </div>
+            </div>
 
             <div class="center">
                 <div class="inbox">

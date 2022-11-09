@@ -28,6 +28,18 @@
         });
     }</script>
 
+<!--<div class='control block-cube block-input'>-->
+<!--    <input name='username' placeholder='Username' type='text'>-->
+<!--    <div class='bg-top'>-->
+<!--        <div class='bg-inner'></div>-->
+<!--    </div>-->
+<!--    <div class='bg-right'>-->
+<!--        <div class='bg-inner'></div>-->
+<!--    </div>-->
+<!--    <div class='bg'>-->
+<!--        <div class='bg-inner'></div>-->
+<!--    </div>-->
+<!--</div>-->
 <div id="post_message_accueil">
     <form action="#" method="post" id="post_messages" style="margin-top: 3%; margin-bottom: 2%; background-color: #FAFAFA;<?php if($result_can)echo "border: 1px solid dodgerblue;" ?>">
 
@@ -56,6 +68,7 @@
         }
         ?>
     </form>
+    </div>
 </div>
 <div>
     <?php
