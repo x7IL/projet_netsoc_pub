@@ -57,7 +57,6 @@
         ?>
     </form>
 </div>
-
 <div>
     <?php
 
@@ -164,7 +163,13 @@
 
     //actionnement des formulaires
     if(isset($_POST["delete"])) {
-        delete_fields('post', 'id', $_POST['supp']);//verification_db('comment', "id",  "message", $com['message'], $_COOKIE['idmessage'])
+
+        if ($mysqli->query("DELETE FROM post WHERE comment_id_destinataire= '{$_POST['supp']}'") === TRUE) {
+            echo "\nsupprimé";
+        } else {
+            echo "Error deleting record: " . $mysqli->error;
+        }
+        $mysqli->query("DELETE FROM post WHERE id = {$_POST['supp']}");
         ?>
         <meta http-equiv="refresh" content="0">
         <?php
