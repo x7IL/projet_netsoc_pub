@@ -203,4 +203,21 @@ span:hover ul { /* Affiche la dropNav au survol de la souris avec la class .drop
 
 /*############ formulaire de post des messages dans profile ############*/
 
+.formulaire_inscription label{
+    display: inline-block;
+    vertical-align: top;
+}
+.formulaire_connexion{
+    display: block;
+    float: left;
+}
+body h1 {
+    font-family: 'Teko', sans-serif;
+}
+
+/*############ formulaire de post des messages dans profile ############*/
+
+
+
+
 

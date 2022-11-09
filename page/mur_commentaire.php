@@ -43,8 +43,7 @@
             <?php
             if (isset($_POST["post_message"])) {
                 $email = $result_can['email'];
-                $id_user = $mysqli->query("SELECT id FROM user WHERE email = '$email'");
-                $id_user = implode(",", $id_user->fetch_assoc());
+                $id_user = implode(",", $mysqli->query("SELECT id FROM user WHERE email = '$email'")->fetch_assoc());
                 $modifier_ver = str_replace("'","\'",$_POST["message"]);
 //                insert_fields('post', ["ID_user" => $id_user, "post" => $modifier_ver]);  //mettre l'id user dans la requets
 
@@ -63,7 +62,8 @@
     <?php
 
     $coms = [];
-    $result = $mysqli->query("SELECT * FROM post WHERE username_source is NULL");
+
+    $result = $mysqli->query("SELECT * FROM post WHERE username_source is NULL ORDER BY post_date DESC");
     while (($line = $result->fetch_assoc()))
         $coms[] = $line;
     ?>
@@ -95,14 +95,14 @@
                     <?php } ?>
                 </div>
 
-
             <?php
+            if($result_can && $com['ID_user'] == $result_can['id']){?>
 
-            if($result_can && $com['ID_user'] == $result_can['id']){
-                ?><form action="" class="form_delete_list_comment" method="post">
-                <input type="hidden" name="supp" value="<?php echo $com['id']?>"/>
-                <input id="delete" name="delete" type="submit" value="Delete message" style="border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA"><br>
+                <form action="" class="form_delete_list_comment" method="post">
+                    <input type="hidden" name="supp" value="<?php echo $com['id']?>"/>
+                    <input id="delete" name="delete" type="submit" value="Delete message" style="border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA"><br>
                 </form>
+
                 <?php
             }
             ?>
@@ -116,10 +116,12 @@
                         <b style=" max-width: 99%; word-wrap: break-word; "><?=$row["username_source"]?> </b>
                         <i style="opacity: 0.5;"><?=$row["post_date"]; ?></i>
                         <p style="font-size: 1.2em; margin-bottom: 0; max-width: 99%; word-wrap: break-word; "><?=$row["post"]; ?></p>
-                        <button class="like_button">
-                            <span id ="icon"><i class="fa-regular fa-thumbs-up"></i></span>
-                            <span id = "count">0</span> Likes
-                        </button>
+                        <?php if($result_can){?>
+                            <button class="like_button">
+                                <span id ="icon"><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span id = "count">0</span> Likes
+                            </button>
+                        <?php } ?>
 
                         <?php if($result_can!=NULL && $row['ID_user'] == $result_can['id']){?>
                             <form action="" class="form_delete_list_comment" method="post">
@@ -151,7 +153,6 @@
     ////
 
 
-
     //actionnement des formulaires
     if(isset($_POST["delete"])) {
         delete_fields('post', 'id', $_POST['supp']);//verification_db('comment', "id",  "message", $com['message'], $_COOKIE['idmessage'])
@@ -167,8 +168,9 @@
             return null;
         }
 
-        $sql = ("INSERT INTO post (ID_user,comment_id_destinataire,post,username_source,username_dest)
-         VALUES ({$result_can['id']},{$_POST['comment_id']},'$commentaire','{$result_can['username']}','{$_POST['username_destination']}')") or die($mysqli->error);
+        $sql = ("INSERT INTO post (ID_user,comment_id_destinataire,post,username_source,username_dest) 
+            VALUES ({$result_can['id']},{$_POST['comment_id']},'$commentaire','{$result_can['username']}','{$_POST['username_destination']}')")
+        or die($mysqli->error);
 
         if ($mysqli->query($sql) === TRUE) {
             ?><meta http-equiv="refresh" content="0"><?php

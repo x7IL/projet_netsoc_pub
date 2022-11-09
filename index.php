@@ -43,8 +43,11 @@
 
 
             </div>
-            <?php if($result_can) echo"<h3>Connecté sous {$result_can["username"]}</h3>";
+
+<!--#####################################################################################################################################-->
+            <?php if($result_can) echo"<h3 style='font-family: 'Teko', sans-serif'>Connecté sous {$result_can["username"]}</h3>";
             ?>
+<!--#####################################################################################################################################-->
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav"></ul>
             </div>
