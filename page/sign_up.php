@@ -63,9 +63,10 @@
         $age = $_POST["age"];
 
         $result_can = mysqli_query($mysqli, "SELECT email FROM user WHERE email = '$email'");
+        $result_can_login = mysqli_query($mysqli, "SELECT username FROM user WHERE username = '$user'");
 
 
-        if (mysqli_num_rows($result_can) == 0) {
+        if (mysqli_num_rows($result_can) == 0 and mysqli_num_rows($result_can_login) == 0) {
             if ($repassword == $password) {
                 global $mysqli;
                 $message = "ok";
@@ -99,7 +100,7 @@
             if ($err == 1)
                 echo "<h1>Utilisateur ou mot de passe incorrect</h1>";
             if ($err == 2)
-                echo "<h1>le nom d'utilisateur existe deja</h1>";
+                echo "<h1>le nom d'utilisateur existe deja et l'adresse mail</h1>";
             if ($err == 3)
                 echo "<h1>les mots de passe ne correspondent pas</h1>";
         }
