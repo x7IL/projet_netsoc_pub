@@ -1,0 +1,153 @@
+Index: page/mur_commentaire.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\n<html lang=\"fr\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <link rel=\"stylesheet\" href=\"style.css\">\n        <title>Liste commentaires</title>\n    </head>\n    <body>\n        <h1>Accueil</h1>\n        <div id=\"post_message_accueil\">\n            <form action=\"#\" method=\"post\" id=\"post_messages\" style=\"margin-top: 3%; margin-bottom: 2%; background-color: #FAFAFA; border: 1px solid dodgerblue;\">\n\n                <?php\n                include \"function_used.php\";\n                if (isset($_COOKIE[\"email\"]) && isset($_COOKIE[\"username\"]) && isset($_COOKIE[\"password\"])) {\n                    ?>\n                    <div>\n                        <input type=\"hidden\" value=\"\">\n                        <label for=\"message\"></label><input type=\"text\" id=\"message\" name=\"message\" placeholder=\"What's happening\" style=\"border-radius: 9999px;\">\n                    </div>\n                    <input type=\"submit\" name=\"post_message\" id=\"post_message\" value=\"Post\" style=\"border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA\">\n                    <?php\n                    if (isset($_POST[\"post_message\"])) {\n\n                        $mysqli = join_database();\n                        $email = $_COOKIE[\"email\"];\n                        $id_user = $mysqli->query(\"SELECT id FROM user WHERE `email` = '$email'\");\n                        $id_user = $id_user->fetch_assoc();\n                        $id_user = implode(\",\", $id_user);\n\n                        $modifier_ver = str_replace(\"'\",\"\\'\",$_POST[\"message\"]);\n                        insert_fields('post', [\"ID_user\" => $id_user, \"post\" => $modifier_ver]);  //mettre l'id user dans la requets\n                    }\n                }\n                else {\n                    echo \"pas connecté\";\n                }\n\n                ?>\n            </form>\n        </div>\n\n        <div>\n            <?php\n\n            global $mysqli;\n            $coms = [];\n            $result = $mysqli->query(\"SELECT * FROM `post` ORDER BY post_date DESC\");\n            while (($line = $result->fetch_assoc()))\n                $coms[] = $line;\n            ?>\n            <?php\n            foreach ($coms as $com){\n                $ID_user = $com[\"ID_user\"];\n                if ($ID_user!=NULL) {\n                $username_proprio = $mysqli->query(\"SELECT username FROM profile WHERE id_user = '$ID_user'\");\n                $username_proprio = $username_proprio->fetch_assoc();\n                $username_proprio = implode(\",\", $username_proprio);\n                ?>\n                <div style=\" border: solid 1px dodgerblue; background-color: #FAFAFA; margin-top: 1%;\">\n                    <div style=\"\">\n                        <?php\n                        if ($com[\"id_profile_destinataire\"]){\n                            $username_destinataire = $mysqli->query(\"SELECT username FROM profile WHERE id_user = {$com[\"id_profile_destinataire\"]}\")->fetch_assoc();\n                            ?>\n                            <b style=\" max-width: 99%; word-wrap: break-word; \"><?=$username_proprio; ?><i style=\"opacity: 0.5;\"> pour </i><?= $username_destinataire[\"username\"]; ?> </b> <i style=\"opacity: 0.5;\"><?=$com[\"post_date\"]; ?></i><p style=\"font-size: 1.2em; margin-bottom: 0  max-width: 99%; word-wrap: break-word; \"><?=$com[\"post\"]; ?></p>\n                            <?php\n                        }\n                        else{\n                            ?>\n                            <b style=\" max-width: 99%; word-wrap: break-word; \"><?=$username_proprio; ?> </b> <i style=\"opacity: 0.5;\"><?=$com[\"post_date\"]; ?></i><p style=\"font-size: 1.2em; margin-bottom: 0  max-width: 99%; word-wrap: break-word; \"><?=$com[\"post\"]; ?></p>\n                            <?php\n                        }\n                        ?>\n                    </div>\n                    <div style=\"background-color: #E3E9EF;\">\n                        <input type=\"button\" value=\"like\" style=\"background-color: dodgerblue;color: #FAFAFA;\">\n                        <input type=\"button\" value=\"comment\" style=\"background-color: dodgerblue;color: #FAFAFA;\">\n                    </div>\n                    <?php\n\n                    if(isset($_COOKIE[\"username\"])){\n                    if ($_COOKIE[\"username\"] == $username_proprio){\n                    ?>\n                    <form action=\"#\" class=\"form_delete_comment\" method=\"post\" ><?php\n                        ?>\n                        <input type=\"hidden\" name=\"supp\" value=\"<?php echo $com['id']?>\"/>\n                        <input id=\"delete\" name=\"delete\" type=\"submit\" value=\"Delete message\" style=\"border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA; float:right; margin-top: -28px\">\n                        <?php\n                        }\n                        }\n                        ?>\n                    </form>\n                </div>\n        </div>\n        <?php\n        }\n        }\n        if(isset($_POST[\"delete\"])){\n            delete_fields('post', 'id', $_POST['supp']);//verification_db('comment', \"id\",  \"message\", $com['message'], $_COOKIE['idmessage'])\n            //header(\"Refresh:0\"); //message d'erreur\n            ?>\n            <meta http-equiv=\"refresh\" content=\"0\">\n            <?php\n        }\n        ?>\n        </div>\n        </div>\n    </body>\n</html>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/page/mur_commentaire.php b/page/mur_commentaire.php
+--- a/page/mur_commentaire.php	(revision c8795059e89f14aca56781190d75a5e1ee58cb06)
++++ b/page/mur_commentaire.php	(date 1667935416988)
+@@ -58,7 +58,7 @@
+                 $username_proprio = implode(",", $username_proprio);
+                 ?>
+                 <div style=" border: solid 1px dodgerblue; background-color: #FAFAFA; margin-top: 1%;">
+-                    <div style="">
++                    <div>
+                         <?php
+                         if ($com["id_profile_destinataire"]){
+                             $username_destinataire = $mysqli->query("SELECT username FROM profile WHERE id_user = {$com["id_profile_destinataire"]}")->fetch_assoc();
+Index: style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/*\nfont-family: 'Teko', sans-serif;\n*/\n@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Teko:wght@300&display=swap');\n\nhtml{\n    background-color: #DAE0E6;\n}\n\n\n\n/*############################## navbar ###############################*/\n.navbar {\n    position: fixed;\n    background-color: #FAFAFA;\n    opacity: 0.9;\n    flex-grow: 1;\n    flex-direction: row;\n    margin-top: 0 ;\n    align-items: center;\n    display: inline-flex;\n    right: 0;\n    left: 0;\n    top: 0;\n    height: 60px;\n}\n.logo_nom{\n    flex-direction: row;\n    align-items: center;\n    position: fixed;\n    display: inline-flex;\n\n}\n.logo_nom h1{\n    font-family: 'Teko', sans-serif;\n    font-size: 1.7em;\n    margin-top: 25px;\n}\n#image_logo{\n    height: 40px;\n    width: 40px;\n}\n.search_bar {\n    position: center;\n    margin: 0 auto;\n    max-width: 690px;\n    display: inline-flex;\n    flex-direction: row;\n    align-items: center;\n    flex-grow: 1;\n}\n.navbar .bar_search{\n    height: 40px;\n    width: 300%;\n    text-align: center;\n    font-size: 1.1em;\n    border-radius: 9999px;\n}\n.log_in_up{\n    flex-direction: row;\n    display: inline-flex;\n}\n.log_in_up .button_log_in {\n    transition: 0.7s ease;\n    border-radius: 9999px;\n    background-color: dodgerblue;\n    color: aliceblue;\n    margin-left: 10px;\n    margin-right: 30px;\n    border: 1px solid aliceblue;\n    font-family: 'Teko', sans-serif;\n    width: 110px;\n    height: 50px;\n    font-size: 25px;\n    letter-spacing: 1px;\n    margin-top: 2px;\n}\n.log_in_up .button_sign_up{\n    transition: 0.7s ease;\n    border-radius: 9999px;\n    color: dodgerblue;\n    background-color: aliceblue;\n    border: 1px solid dodgerblue;\n    margin-right: 10px;\n    font-family: 'Teko', sans-serif;\n    width: 110px;\n    height: 50px;\n    font-size: 25px;\n    letter-spacing: 1px;\n    margin-top: 2px;\n}\n.log_in_up .button_log_in:hover{\n    transition: 0.7s ease;\n    background-color: aliceblue;\n    border: 1px solid dodgerblue;\n    color: dodgerblue;\n}\n.log_in_up .button_sign_up:hover {\n    transition: 0.7s ease;\n    border: 1px solid aliceblue;\n    background-color: dodgerblue;\n    color: aliceblue;\n}\n\n/*########## menue déroulant ##########*/\nnav span{\n    width: 100%;\n    background-color: white;\n    position: sticky;\n    top: 0;\n    margin: 0 20px 0 auto;\n}\n\nspan ul{\n    list-style-type: none;\n\n}\n\nspan ul a{\n    float: left;\n    width: 25%;\n    text-align: center;\n    position: relative;\n    margin-top: -5px;\n}\n\nspan ul::after{\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\nspan a{\n    display: block;\n    text-decoration: none;\n    color: black;\n    border-bottom: 2px solid transparent;\n    padding: 10px 0;\n    font-family: 'Teko', sans-serif;\n    font-size: 25px;\n}\n\nspan a:hover{\n    color: dodgerblue;\n    border-bottom: 2px solid #1589ff;\n}\n\nspan .sous{\n    display: none;\n    box-shadow: 0 1px 2px #CCC;\n    background-color: white;\n    position: absolute;\n    width: 100%;\n    z-index: 1000;\n}\n.sous a{\n    float: none;\n    width: 100%;\n    text-align: left;\n    margin-right: 20px;\n    margin-left: -35px;\n}\n.sous a{\n    padding: 10px;\n    border-bottom: none;\n}\n\n.deroulant > a::after{\n    content:\" ▼\";\n    font-size: 12px;\n}\nspan:hover ul { /* Affiche la dropNav au survol de la souris avec la class .drop */\n    display:block !important;\n    position:absolute;\n    margin-top:5px;\n    margin-left:-10px;\n}\n\n\n/*############################## center ###############################*/\n\n.contenue{\n    margin-top: 70px;\n    text-align: center;\n    font-family: 'Teko', sans-serif;\n    letter-spacing: 1px;\n    font-size: 1.2em;\n    display: block;\n    vertical-align: top;\n}\n.center{\n    /*background-color: #FAFAFA;*/\n    /*position: center;*/\n    display: inline-block;\n    width: 60%;\n}\n.inbox{\n    /*justify-content: center;*/\n}\n.centre{\n    text-align: left;\n}\n\n/*############ formulaire de post des messages dans profile ############*/\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/style.css b/style.css
+--- a/style.css	(revision c8795059e89f14aca56781190d75a5e1ee58cb06)
++++ b/style.css	(date 1667936962746)
+@@ -187,18 +187,26 @@
+     font-size: 1.2em;
+     display: block;
+     vertical-align: top;
++    overflow: auto;
++    min-height: 200px;
+ }
+ .center{
+     /*background-color: #FAFAFA;*/
+     /*position: center;*/
+     display: inline-block;
+-    width: 60%;
++    overflow: auto;
++    min-height: 200px;
+ }
+ .inbox{
+     /*justify-content: center;*/
++    margin-top: 70px;
++    overflow: auto;
++    min-height: 200px;
+ }
+ .centre{
+     text-align: left;
++    overflow: auto;
++    min-height: 200px;
+ }
+ 
+ /*############ formulaire de post des messages dans profile ############*/
+Index: page/profile_guest.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\ninclude \"function_used.php\";\n\nglobal $mysqli;\n$username = mysqli_query($mysqli,\"SELECT * FROM profile WHERE username = '{$_GET['profile_guest']}'\");\n$row_cnt = $username->num_rows;\n$username = $username->fetch_assoc()\n?>\n\n<?php\n\nif($row_cnt==1){\n    ?>\n    <h1>Profile de <?php echo $_GET['profile_guest'] ?></h1>\n    <div>\n        <div id=\"div_bio\" style=\" border: 1px solid dodgerblue; background-color: #FAFAFA\">\n    <?php\n    echo '<h3>Biographie:</h3>';\n    echo \"<p style='font-size: 1.1em'>{$username['biographie']}</p>\";\n    ?>\n        </div>\n    </div>\n\n    <div id=\"post_message_profile\" style=\"margin-top: 3%; background-color: #FAFAFA; border: 1px solid dodgerblue;\" >\n        <form action=\"#\" method=\"post\" id=\"post_messages\">\n\n            <?php\n\n            if (isset($_COOKIE[\"email\"]) && isset($_COOKIE[\"username\"]) && isset($_COOKIE[\"password\"])) {\n                ?>\n            <div>\n                <input type=\"hidden\" value=\"\">\n                <label for=\"message\"></label><input type=\"text\" id=\"message\" name=\"message\" placeholder=\"What's happening\" style=\"border-radius: 9999px;\">\n            </div>\n            <input type=\"submit\" name=\"post_message\" id=\"post_message\" value=\"Post\" style=\"border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA\">\n            <?php\n            if (isset($_POST[\"post_message\"])) {\n\n                $mysqli = join_database();\n                $email = $_COOKIE[\"email\"];\n                $id_user = $mysqli->query(\"SELECT id FROM user WHERE `email` = '$email'\");\n                $id_user = $id_user->fetch_assoc();\n                $id_user = implode(\",\", $id_user);\n                $user_destinataire = ($mysqli->query(\"SELECT id FROM user WHERE username = '{$_GET['profile_guest']}'\"))->fetch_assoc();\n                insert_fields('post', [\"ID_user\" => $id_user, \"post\" => $_POST[\"message\"], \"id_profile_destinataire\" => $username['id_user']]);  //mettre l'id user dans la requets\n            }\n            }\n            else {\n                echo \"pas connecté\";\n            }\n\n            ?>\n            </form>\n        </div>\n\n    <div id=\"list_message_profile_recherche\" \">\n    <?php\n    $coms = [];\n    $result = $mysqli->query(\"SELECT * FROM `post` ORDER BY post_date DESC\");\n    while (($line = $result->fetch_assoc()))\n        $coms[] = $line;\n    ?>\n    <?php\n    foreach ($coms as $com){\n        $ID_user = $com[\"ID_user\"];\n        if ($ID_user!=NULL) {\n            $username_proprio = $mysqli->query(\"SELECT username FROM profile WHERE id_user = '$ID_user'\");\n            $username_proprio = $username_proprio->fetch_assoc();\n            $username_proprio = implode(\",\", $username_proprio);\n            ?>\n            <div style=\" border: solid 1px dodgerblue; background-color: #FAFAFA; margin-top: 1%;\">\n                <div style=\"\">\n                    <?php\n                    $requete_verif_destinataire = $mysqli->query(\"SELECT id_profile_destinataire FROM post WHERE id_profile_destinataire IS NOT NULL\")->fetch_assoc();\n                    if ($requete_verif_destinataire){?>\n                        <b style=\" max-width: 99%; word-wrap: break-word; \"><?=$username_proprio; ?><i style=\"opacity: 0.5;\"> pour </i><?=$username[\"username\"]; ?> </b> <i style=\"opacity: 0.5;\"><?=$com[\"post_date\"]; ?></i><p style=\"font-size: 1.2em; margin-bottom: 0  max-width: 99%; word-wrap: break-word; \"><?=$com[\"post\"]; ?></p>\n                        <?php\n                    }\n                    else{\n                        ?>\n                    <b style=\" max-width: 99%; word-wrap: break-word; \"><?=$username_proprio; ?> </b> <i style=\"opacity: 0.5;\"><?=$com[\"post_date\"]; ?></i><p style=\"font-size: 1.2em; margin-bottom: 0  max-width: 99%; word-wrap: break-word; \"><?=$com[\"post\"]; ?></p>\n                        <?php\n                    }\n                    ?>\n                </div>\n                <div>\n                    <div style=\"background-color: #E3E9EF; display: block\">\n                        <input type=\"button\" id=\"like\" value=\"like\" style=\"background-color: dodgerblue;color: #FAFAFA;\">\n                        <input type=\"button\" value=\"comment\" style=\"background-color: dodgerblue;color: #FAFAFA;\">\n                    </div>\n                    <?php\n\n                    if(isset($_COOKIE[\"username\"])){\n                    if ($_COOKIE[\"username\"] == $username){\n                    ?>\n                    <form action=\"#\" class=\"form_delete_comment\" method=\"post\" ><?php\n                        ?>\n                        <input type=\"hidden\" name=\"supp\" value=\"<?php echo $com['id']?>\"/>\n                        <input id=\"delete\" name=\"delete\" type=\"submit\" value=\"Delete message\" style=\"border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA; float:right; margin-top: -28px\">\n                        <?php\n                        }\n                        }\n                        ?>\n                    </form>\n                </div>\n            </div>\n            <?php\n        }\n    }\n    if(isset($_POST[\"delete\"])){\n        delete_fields('post', 'id', $_POST['supp']);//verification_db('comment', \"id\",  \"message\", $com['message'], $_COOKIE['idmessage'])\n        //header(\"Refresh:0\"); //message d'erreur\n        ?>\n        <meta http-equiv=\"refresh\" content=\"0\">\n        <?php\n    }\n    ?>\n    </div>\n    </div>\n            <?php\n\n}\nelse{\n    echo \"erreur\";\n}?>\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/page/profile_guest.php b/page/profile_guest.php
+--- a/page/profile_guest.php	(revision c8795059e89f14aca56781190d75a5e1ee58cb06)
++++ b/page/profile_guest.php	(date 1667935007424)
+@@ -71,38 +71,38 @@
+             <div style=" border: solid 1px dodgerblue; background-color: #FAFAFA; margin-top: 1%;">
+                 <div style="">
+                     <?php
+-                    $requete_verif_destinataire = $mysqli->query("SELECT id_profile_destinataire FROM post WHERE id_profile_destinataire IS NOT NULL")->fetch_assoc();
+-                    if ($requete_verif_destinataire){?>
+-                        <b style=" max-width: 99%; word-wrap: break-word; "><?=$username_proprio; ?><i style="opacity: 0.5;"> pour </i><?=$username["username"]; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0  max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
++                    if ($com["id_profile_destinataire"]){
++                        $username_destinataire = $mysqli->query("SELECT username FROM profile WHERE id_user = {$com["id_profile_destinataire"]}")->fetch_assoc();
++                        ?>
++                        <b style=" max-width: 99%; word-wrap: break-word; "><?=$username_proprio; ?><i style="opacity: 0.5;"> pour </i><?= $username_destinataire["username"]; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0  max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
+                         <?php
+                     }
+                     else{
+                         ?>
+-                    <b style=" max-width: 99%; word-wrap: break-word; "><?=$username_proprio; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0  max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
++                        <b style=" max-width: 99%; word-wrap: break-word; "><?=$username_proprio; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0  max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
+                         <?php
+                     }
+                     ?>
+                 </div>
+-                <div>
+-                    <div style="background-color: #E3E9EF; display: block">
+-                        <input type="button" id="like" value="like" style="background-color: dodgerblue;color: #FAFAFA;">
+-                        <input type="button" value="comment" style="background-color: dodgerblue;color: #FAFAFA;">
+-                    </div>
+-                    <?php
++                <div style="background-color: #E3E9EF;">
++                    <input type="button" value="like" style="background-color: dodgerblue;color: #FAFAFA;">
++                    <input type="button" value="comment" style="background-color: dodgerblue;color: #FAFAFA;">
++                </div>
++                <?php
+ 
+-                    if(isset($_COOKIE["username"])){
+-                    if ($_COOKIE["username"] == $username){
+-                    ?>
+-                    <form action="#" class="form_delete_comment" method="post" ><?php
+-                        ?>
+-                        <input type="hidden" name="supp" value="<?php echo $com['id']?>"/>
+-                        <input id="delete" name="delete" type="submit" value="Delete message" style="border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA; float:right; margin-top: -28px">
+-                        <?php
+-                        }
+-                        }
+-                        ?>
+-                    </form>
+-                </div>
++                if(isset($_COOKIE["username"])){
++                if ($_COOKIE["username"] == $username_proprio){
++                ?>
++                <form action="#" class="form_delete_comment" method="post" ><?php
++                    ?>
++                    <input type="hidden" name="supp" value="<?php echo $com['id']?>"/>
++                    <input id="delete" name="delete" type="submit" value="Delete message" style="border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA; float:right; margin-top: -28px">
++                    <?php
++                    }
++                    }
++                    ?>
++                </form>
++            </div>
+             </div>
+             <?php
+         }
+Index: page/style.css
+===================================================================
+diff --git a/page/style.css b/page/style.css
+deleted file mode 100644
+--- a/page/style.css	(revision c8795059e89f14aca56781190d75a5e1ee58cb06)
++++ /dev/null	(revision c8795059e89f14aca56781190d75a5e1ee58cb06)
+@@ -1,17 +0,0 @@
+-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Teko:wght@300&display=swap');
+-
+-.formulaire_inscription label{
+-    display: inline-block;
+-    vertical-align: top;
+-}
+-.formulaire_connexion{
+-     display: block;
+-     float: left;
+- }
+-body h1 {
+-    font-family: 'Teko', sans-serif;
+-}
+-
+-/*############ formulaire de post des messages dans profile ############*/
+-
+-

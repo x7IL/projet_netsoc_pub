@@ -25,7 +25,7 @@
 
         ?>
 
-        <nav class="navbar navbar-expand-sm navbar-light fixed-top">
+        <nav class="navbar navbar-expand-sm navbar-light fixed-top" style="z-index: 100">
                 <div class="logo_nom" onclick="location.href='index.php'">
                     <img id="image_logo" src="image/reseau-informatique-icone-cybersecurite-pour-web_116137-3699.png" alt="logo_réseau">
                     <h1>GJK</h1>
@@ -37,7 +37,7 @@
                 <form name="formulaire_search" method="get">
                     <input type="hidden" name="variable" value="search.php">
                     <label>
-                        <input class="bar_search" type="text" placeholder="Search GJK 🔎" name="searchVal" value="">
+                        <input class="bar_search" type="text" placeholder="Search GJK 🔎" name="searchVal" value="" style="color: #fff">
                     </label> <!--onkeyup="searchq()-->
                 </form>
 
@@ -106,25 +106,22 @@
             </div>
 
             <div class="center">
-                <div class="inbox">
-                    <div class="centre">
-                        <?php
-                        if (isset($_GET['variable']) and file_exists('page/'.$_GET['variable'])){
-                            $title = $_GET['variable'];
-                            require("page/$title");
-                        }
-                        elseif(!isset($_GET['variable']) || $_GET['variable']==''){
-                            $title = "mur_commentaire.php";
-                            echo "<h1>Commentaire</h1>";
-                            require("page/mur_commentaire.php");
-                        }
-                        else{
-                            $title = "ERROR 404";
-                        }
-                        ?>
 
-                    </div>
-                </div>
+                <?php
+                if (isset($_GET['variable']) and file_exists('page/'.$_GET['variable'])){
+                    $title = $_GET['variable'];
+                    require("page/$title");
+                }
+                elseif(!isset($_GET['variable']) || $_GET['variable']==''){
+                    $title = "mur_commentaire.php";
+                    echo "<h1>Commentaire</h1>";
+                    require("page/mur_commentaire.php");
+                }
+                else{
+                    $title = "ERROR 404";
+                }
+                ?>
+
             </div>
         </div>
 

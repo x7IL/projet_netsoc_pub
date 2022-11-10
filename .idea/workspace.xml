@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/NetSoc.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projet_Netsoc.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/join_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/join_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/mur_commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/profile_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile_guest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="SCSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.1" />
+  <component name="ProjectId" id="2GdMRNwFQIxZ9qAxlKrRRZytFD4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/griffen/PhpstormProjects/NetSoc",
+    "list.type.of.created.stylesheet": "SCSS",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/page" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="" />
+      <created>1666713998766</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666713998766</updated>
+      <workItem from="1666714000078" duration="5860000" />
+      <workItem from="1666767974756" duration="608000" />
+      <workItem from="1666775395710" duration="13000" />
+      <workItem from="1666778935874" duration="13281000" />
+      <workItem from="1666797714385" duration="6840000" />
+      <workItem from="1666871037962" duration="8641000" />
+      <workItem from="1666890559415" duration="1948000" />
+      <workItem from="1666892528190" duration="59000" />
+      <workItem from="1667038664916" duration="1557000" />
+      <workItem from="1667061340230" duration="1711000" />
+      <workItem from="1667129563242" duration="2167000" />
+      <workItem from="1667214292376" duration="11990000" />
+      <workItem from="1667235880727" duration="8692000" />
+      <workItem from="1667668499107" duration="3216000" />
+      <workItem from="1667913577917" duration="10046000" />
+      <workItem from="1667926525400" duration="10363000" />
+      <workItem from="1668000301300" duration="781000" />
+      <workItem from="1668001557613" duration="16134000" />
+      <workItem from="1668078574991" duration="10441000" />
+    </task>
+    <task id="LOCAL-00001" summary="fix color&#10;feat log out">
+      <created>1666892569914</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666892569914</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat tout le code implementé et + &#10;et graphique avancé">
+      <created>1667226460046</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667226460046</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat tout le code implementé et + &#10;et graphique avancé">
+      <created>1667668937278</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1667668937278</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat : page recherche profile">
+      <created>1667923126349</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1667923126349</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat : page recherche profile">
+      <created>1667923474850</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667923474850</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat : page recherche profile +modif sur les messages">
+      <created>1667934679984</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667934679984</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix color&#10;feat log out" />
+    <MESSAGE value="feat tout le code implementé et + &#10;et graphique avancé" />
+    <MESSAGE value="feat : page recherche profile" />
+    <MESSAGE value="feat : page recherche profile +modif sur les messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : page recherche profile +modif sur les messages" />
+  </component>
+</project>
