@@ -1,5 +1,37 @@
+<script src="https://kit.fontawesome.com/2b7511c9f5.js" crossorigin="anonymous"></script>
+<script>function like_button(){
+
+        const likeBtn = document.querySelector(".like_button"); ///
+        const iconBtn = document.querySelector('#icon');
+        const countBtn = document.querySelector('#count');
+
+        let clicked = false;
+
+        likeBtn.addEventListener("click",() =>{
+
+            if (!clicked){
+
+                clicked = true;
+
+                iconBtn.innerHTML = '<i class="fa-solid fa-thumbs-up"></i>';
+                countBtn.textContent++;
+
+            }
+            else{
+
+                clicked = false;
+                iconBtn.innerHTML = '<i class="fa-regular fa-thumbs-up"></i>';
+                countBtn.textContent--;
+
+            }
+
+        });
+    }</script>
+
 <?php
-//print_r($_GET['profile_guest']);
+
+global $mysqli;
+global $result_can;
 
 include('function_used.php');
 $username = mysqli_query($mysqli,"SELECT * FROM profile WHERE username = '{$_GET['profile_guest']}'");
@@ -10,28 +42,67 @@ $username = $username->fetch_assoc()
 
 if($row_cnt==1){
     ?>
-    <h1>Profile de <?php echo $_GET['profile_guest'] ?></h1>
-    <div>
-        <div id="div_bio" style=" border: 1px solid dodgerblue; background-color: #FAFAFA">
-            <?php
-            echo '<h3>Biographie:</h3>';
-            echo "<p style='font-size: 1.1em'>{$username['biographie']}</p>";
-            ?>
+        <div class='control block-cube block-input' style="margin-right: 5%; margin-bottom: 5%">
+            <h1 style="position: relative ; z-index: 11 ;font-size: 2em; ">Profile de <?php echo $_GET['profile_guest'] ?></h1>
+            <div>
+                <div id="div_bio" style="position: relative; z-index: 11">
+                    <?php
+                    echo '<h3>Biographie:</h3>';
+                    echo "<p style='font-size: 1.1em'>{$username['biographie']}</p>";
+                    ?>
+                </div>
+            </div>
+            <div class='bg-top'>
+                <div class='bg-inner'></div>
+            </div>
+            <div class='bg-right'>
+                <div class='bg-inner'></div>
+            </div>
+            <div class='bg'>
+                <div class='bg-inner'></div>
+            </div>
         </div>
-    </div>
 
-    <div id="post_message_profile" style="margin-top: 3%; background-color: #FAFAFA; border: 1px solid dodgerblue;" >
+
+    <div id="post_message_profile" style="margin-top: 3%" >
         <form action="#" method="post" id="post_messages">
 
             <?php
             if ($result_can) {
 
                 ?>
-                <div>
-                    <input type="hidden" value="">
-                    <label for="message"></label><input type="text" id="message" name="message" placeholder="What's happening" style="border-radius: 9999px;">
+                <div class='control block-cube block-input' style="margin-right: 5%; margin-bottom: 3%;">
+                    <div>
+                        <input type="hidden" value="">
+                        <label for="message"></label><input type="text" id="message" name="message" placeholder="What's happening" style="margin-right: 2%; margin-left: 1%; margin-top: 1%; background-color: #212121; color: #fff">
+                        <div class='bg'>
+                            <div class='bg-inner'></div>
+                        </div>
+                    </div>
+                <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%; margin-top: 3%;">
+                    <input type="submit" name="post_message" id="post_message" value="Post" style="background-color: #212121 ;color: #fff">
+                    <div class='bg-top' style="z-index: 12">
+                        <div class='bg-inner'></div>
+                    </div>
+                    <div class='bg-right' style="z-index: 12">
+                        <div class='bg-inner'></div>
+                    </div>
+                    <div class='bg'>
+                        <div class='bg-inner'></div>
+                    </div>
                 </div>
-                <input type="submit" name="post_message" id="post_message" value="Post" style="border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA">
+                    <div class='bg-top' style="z-index: 12">
+                        <div class='bg-inner'></div>
+                    </div>
+                    <div class='bg-right' style="z-index: 12">
+                        <div class='bg-inner'></div>
+                    </div>
+                    <div class='bg'>
+                        <div class='bg-inner'></div>
+                    </div>
+                </div>
+
+
                 <?php
 
                 if (isset($_POST["post_message"])) {
@@ -49,7 +120,7 @@ if($row_cnt==1){
         </form>
     </div>
 
-    <div id="list_message_profile_recherche" ">
+    <div id="list_message_profile_recherche" style=" width: 100%">
         <?php
         $coms = [];
         $result = $mysqli->query("SELECT * FROM post WHERE comment_id_destinataire IS NULL ORDER BY post_date DESC");
@@ -66,37 +137,60 @@ if($row_cnt==1){
             $username_proprio = $username_proprio->fetch_assoc();
             $username_proprio = implode(",", $username_proprio);
             ?>
-            <div style="background-color: #FAFAFA; border: solid 1px dodgerblue; margin-top: 1%;">
+            <div style="margin-top: 4%; margin-right: 2%; padding-bottom: 4%;" class='control block-cube block-input'>
             <?php
             if ($com["username_destinataire"]){
                 ?>
-                <b style=" max-width: 99%; word-wrap: break-word; "><?=$username_proprio; ?><i style="opacity: 0.5;"> pour </i><?=$com["username_destinataire"]; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
+                <post style="position : relative; z-index: 10">
+                        <b style=" max-width: 99%; word-wrap: break-word;  "><?=$username_proprio; ?><i style="opacity: 0.5;"> pour </i><?=$com["username_destinataire"]; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
+                    </post>
                 <?php
             }
             else{
                 ?>
-                <b style=" max-width: 99%; word-wrap: break-word; "><?=$username_proprio; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
+                <post style="position : relative; z-index: 10">
+                    <b style=" max-width: 99%; word-wrap: break-word; "><?=$username_proprio; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
+                </post>
                 <?php
             }
             ?>
-            <div style="background-color: #E3E9EF;">
+            <div style="background-color: #2f2f2f;">
 
                 <?php if($result_can){?>
-                    <button class="like_button">
-                        <span id ="icon"><i class="fa-regular fa-thumbs-up"></i></span>
-                        <span id = "count">0</span> Likes
+                    <button class='.like_button' style="position: relative; z-index: 11; margin-top: 2%; margin-bottom: 3%; margin-left: 1%">
+                        <div class='bg'>
+                            <div class='bg-inner'></div>
+                        </div>
+                        <div style=" position: relative; z-index: 11; color: #fff">
+                            <span id ="icon" ><i class="fa-regular fa-thumbs-up"></i></span>
+                            <span id = "count">0</span> Likes
+                        </div>
                     </button>
                     <script> like_button();</script>
 
                 <?php } ?>
             </div>
 
+
             <?php
             if($result_can && $com['ID_user'] == $result_can['id']){?>
 
                 <form action="" class="form_delete_list_comment" method="post">
-                    <input type="hidden" name="supp" value="<?php echo $com['id']?>"/>
-                    <input id="delete" name="delete" type="submit" value="Delete message" style="border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA"><br>
+                    <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%">
+                        <label>
+                            <input type="hidden" name="supp" value="<?php echo $com['id']?>"/>
+                            <input id="delete" name="delete" type="submit" value="Delete message" style="background-color: #212121; color: #fff;">
+                        </label>
+                        <div class='bg-top'>
+                            <div class='bg-inner'></div>
+                        </div>
+                        <div class='bg-right'>
+                            <div class='bg-inner'></div>
+                        </div>
+                        <div class='bg'>
+                            <div class='bg-inner'></div>
+                        </div>
+                    </div>
                 </form>
 
                 <?php
@@ -108,40 +202,106 @@ if($row_cnt==1){
         if ($res) {
             // output data of each row
             while ($row = $res->fetch_assoc()) { ?>
-                <div style="background-color: #FAFAFA; border: solid 1px dodgerblue; margin-top: 1%; margin-left: 5%;">
-                    <b style=" max-width: 99%; word-wrap: break-word; "><?=$row["username_destinataire"]?> </b>
-                    <i style="opacity: 0.5;"><?=$row["post_date"]; ?></i>
-                    <p style="font-size: 1.2em; margin-bottom: 0; max-width: 99%; word-wrap: break-word; "><?=$row["post"]; ?></p>
+                <div style="background-color: #212121; margin-top: 5%; margin-left: 5%;margin-bottom: 2%; margin-right: 2%; position: relative; z-index: 10;"  class='control block-cube block-input'>
+                    <b style=" max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?=$row["username_destinataire"]?> </b>
+                    <i style="opacity: 0.5;position: relative; z-index: 11;"><?=$row["post_date"]; ?></i>
+                    <p style="font-size: 1.2em; margin-bottom: 0; max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?=$row["post"]; ?></p>
                     <?php if($result_can){?>
-                        <button class="like_button">
-                            <span id ="icon"><i class="fa-regular fa-thumbs-up"></i></span>
-                            <span id = "count">0</span> Likes
+                        <button class='.like_button' style="position: relative; z-index: 11; margin-top: 2%; margin-bottom: 3%; margin-left: 1%">
+                            <div class='bg'>
+                                <div class='bg-inner'></div>
+                            </div>
+                            <div style=" position: relative; z-index: 11; color: #fff">
+                                <span id ="icon" ><i class="fa-regular fa-thumbs-up"></i></span>
+                                <span id = "count">0</span> Likes
+                            </div>
                         </button>
+                        <script> like_button();</script>
                     <?php } ?>
 
                     <?php if($result_can!=NULL && $row['ID_user'] == $result_can['id']){?>
                         <form action="" class="form_delete_list_comment" method="post">
-                            <input type="hidden" name="supp" value="<?php echo $row['id']?>"/>
-                            <input id="delete" name="delete" type="submit" value="Delete message" style="border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA"><br>
+                            <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+                                <label>
+                                    <input type="hidden" name="supp" value="<?php echo $row['id']?>"/>
+                                    <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
+                                </label>
+                                <div class='bg-top'>
+                                    <div class='bg-inner'></div>
+                                </div>
+                                <div class='bg-right'>
+                                    <div class='bg-inner'></div>
+                                </div>
+                                <div class='bg'>
+                                    <div class='bg-inner'></div>
+                                </div>
+                            </div>
                         </form>
                     <?php } ?>
+                    <div class='bg-top'>
+                        <div class='bg-inner'></div>
+                    </div>
+                    <div class='bg-right'>
+                        <div class='bg-inner'></div>
+                    </div>
+                    <div class='bg'>
+                        <div class='bg-inner'></div>
+                    </div>
                 </div>
 
 
                 <?php
             }
             if($result_can){?>
-                <form method="POST">
-                    <input type="hidden" name="id_dest" value="<?php echo $com['ID_user']?>"/>
-                    <input type="hidden" name="comment_id" value="<?php echo $com['id']?>"/>
-                    <input type="hidden" name="username_source2" value="<?php echo $com['username_source']?>"/>
-                    <input type="text" id="message" name="comment" placeholder="commenter" style="border-radius: 9999px;">
-                    <input type="submit" id='submit' value='valider'>
+                <form method="POST" style="display: inline-block ; margin-left: 1%; margin-top: 2%">
+                    <div class='control block-cube block-input'>
+                        <label>
+                            <input type="hidden" name="id_dest" value="<?php echo $com['ID_user']?>"/>
+                            <input type="hidden" name="comment_id" value="<?php echo $com['id']?>"/>
+                            <input type="hidden" name="username_source2" value="<?php echo $com['username_source']?>"/>
+
+                            <div>
+                                <input type="text" id="message" name="comment" placeholder="commenter" style="background-color: #212121; color: #fff; ">
+                                <div class='bg'>
+                                    <div class='bg-inner'></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <input type="submit" id='submit' value='valider' style="background-color: #212121; color: #fff; ">
+                                <div class='bg'>
+                                    <div class='bg-inner'></div>
+                                </div>
+                            </div>
+                        </label>
+
+
+                        <div class='bg-top' style="z-index: 11">
+                            <div class='bg-inner'></div>
+                        </div>
+                        <div class='bg-right' style="z-index: 11">
+                            <div class='bg-inner'></div>
+                        </div>
+                        <div class='bg' style="z-index: 1">
+                            <div class='bg-inner'></div>
+                        </div>
+
+                    </div>
+
                 </form>
                 <?php
             }
         }
         ?>
+        <div class='bg-top'>
+            <div class='bg-inner'></div>
+        </div>
+        <div class='bg-right'>
+            <div class='bg-inner'></div>
+        </div>
+        <div class='bg'>
+            <div class='bg-inner'></div>
+        </div>
         </div>
         <?php
 

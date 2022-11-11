@@ -99,12 +99,6 @@
             }
             ?>
 
-            <div class="wrapper">
-                <div class="typing-demo">
-                    Vous venez d'entrer dans une zone interdite!
-                </div>
-            </div>
-
             <div class="center">
 
                 <?php

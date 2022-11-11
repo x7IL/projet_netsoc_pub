@@ -1,6 +1,6 @@
 
 <body>
-<h1>Profile</h1>
+<h1 style="font-size: 2em">Profile</h1>
     <div>
         <?php
         global $mysqli;
@@ -13,7 +13,7 @@
         ?>
         <h2>Bonjour <?php print_r($username) ?></h2>
 
-        <div id="div_bio" style=" border: 1px solid dodgerblue; background-color: #FAFAFA">
+        <div id="div_bio" class='control block-cube block-input' style="margin-right: 5%;">
             <?php
 
             if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
@@ -24,9 +24,9 @@
 
                 if ($result) {
                     // output data of each row
-                    echo '<h3>Biographie:</h3>';
+                    echo '<h3 style="position: relative;z-index: 11 ;">Biographie:</h3>';
                     while ($row = $result->fetch_assoc()) {
-                        echo "<p style='font-size: 1.1em'>{$row['biographie']}</p>";
+                        echo "<p style='font-size: 1.1em  ; position: relative ;z-index: 11;'>{$row['biographie']}</p>";
                     }
                     if (isset($_POST['modifier']) && isset($_POST['id'])) {
                         $modifier_ver = str_replace("'","\'",$_POST['modifier']);
@@ -44,14 +44,37 @@
                     echo "Non connecté";
                 }
                 ?>
-                <form action="" id="modif_bio" method="POST">
-                    <label for="modifier"></label><input type="text" id="modifier" name="modifier" placeholder="Inserez le message à remplacer" style="border-radius: 9999px;"/>
-                    <input type="hidden" id="modif_bio_submit" name="id"  value="<?php echo $row['ID']?>" /><br>
-                    <input type="submit" value="modifier la bio" style="border-radius: 9999px; background-color: dodgerblue; color: #FAFAFA">
+                <form action="" id="modif_bio" method="POST" style="margin-left: 1%;">
+                    <div class='control block-cube block-input' style="position: relative; z-index: 11; display: inline-block ; margin-bottom: 1%">
+                        <label for="">
+                            <label for="modifier"></label><input type="text" id="modifier" name="modifier" placeholder="Inserez le message à remplacer"  style="background-color: #212121 ;color: #fff; "/>
+                            <input type="hidden" id="modif_bio_submit" name="id"  value="<?php echo $row['ID']?>" /><br>
+                            <input type="submit" value="modifier la bio"  style="background-color: #212121 ;color: #fff;">
+                            <div class='bg-top'>
+                                <div class='bg-inner'></div>
+                            </div>
+                            <div class='bg-right'>
+                                <div class='bg-inner'></div>
+                            </div>
+                            <div class='bg'>
+                                <div class='bg-inner'></div>
+                            </div>
+                        </label>
+
+                    </div>
                 </form>
                 <?php
             }
             ?>
+            <div class='bg-top'>
+                <div class='bg-inner'></div>
+            </div>
+            <div class='bg-right'>
+                <div class='bg-inner'></div>
+            </div>
+            <div class='bg'>
+                <div class='bg-inner'></div>
+            </div>
         </div>
         <div id="list_message" ">
             <?php include('page/mur_commentaire.php')?>

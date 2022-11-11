@@ -28,18 +28,12 @@
         });
     }</script>
 
-<!--<div class='control block-cube block-input'>-->
-<!--    <input name='username' placeholder='Username' type='text'>-->
-<!--    <div class='bg-top'>-->
-<!--        <div class='bg-inner'></div>-->
-<!--    </div>-->
-<!--    <div class='bg-right'>-->
-<!--        <div class='bg-inner'></div>-->
-<!--    </div>-->
-<!--    <div class='bg'>-->
-<!--        <div class='bg-inner'></div>-->
-<!--    </div>-->
-<!--</div>-->
+<div class="wrapper">
+    <div class="typing-demo" style="">
+        Vous venez d'entrer dans une zone interdite!
+    </div>
+</div>
+
 <div id="post_message_accueil">
     <form action="#" method="post" id="post_messages" style="margin-top: 3%; margin-bottom: 2%; f">
 
@@ -47,8 +41,8 @@
         include "function_used.php";
         if ($result_can) {
             ?>
-            <div class='control block-cube block-input' style="margin-right: 2%;">
-                <div>
+            <div class='control block-cube block-input' style="margin-right: 5%;">
+                <div style="margin-right: 20px">
                     <input type="hidden" value="">
                     <label for="message"></label><input type="text" id="message" name="message" placeholder="What's happening" style="margin-right: 2%; margin-left: 1%; margin-top: 1%; background-color: #212121; color: #fff">
                     <div class='bg'>
@@ -56,7 +50,7 @@
                     </div>
                 </div>
 
-                <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%; margin-top: 2%">
+                <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%; margin-top: 3%">
                     <input type="submit" name="post_message" id="post_message" value="Post" style="background-color: #212121 ;color: #fff">
                     <div class='bg-top'>
                         <div class='bg-inner'></div>
