@@ -123,7 +123,7 @@ if($row_cnt==1){
     <div id="list_message_profile_recherche" style=" width: 100%">
         <?php
         $coms = [];
-        $result = $mysqli->query("SELECT * FROM post WHERE comment_id_destinataire IS NULL ORDER BY post_date DESC");
+        $result = $mysqli->query("SELECT * FROM post WHERE username_destinataire is NULL AND username_source = '{$_GET['profile_guest']}'ORDER BY post_date DESC");
         while (($line = $result->fetch_assoc()))
             $coms[] = $line;
         ?>

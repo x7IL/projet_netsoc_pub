@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/08bebf5b-e11a-44f0-9579-a76a6528d967.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/08bebf5b-e11a-44f0-9579-a76a6528d967.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projet_Netsoc.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/mur_commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/page/mur_commentaire_guest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/join_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/join_data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/profile_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile_guest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +95,7 @@
       <workItem from="1668078574991" duration="10576000" />
       <workItem from="1668107193989" duration="2140000" />
       <workItem from="1668180695686" duration="7649000" />
+      <workItem from="1668261563687" duration="350000" />
     </task>
     <task id="LOCAL-00001" summary="fix color&#10;feat log out">
       <created>1666892569914</created>
@@ -156,6 +151,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
