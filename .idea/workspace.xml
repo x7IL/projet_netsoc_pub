@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ...">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css_code.php" beforeDir="false" afterPath="$PROJECT_DIR$/css_code.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/log_in.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/log_in.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/sign_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/sign_up.php" afterDir="false" />
-    </list>
+    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ..." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +92,7 @@
       <workItem from="1668078574991" duration="10576000" />
       <workItem from="1668107193989" duration="2140000" />
       <workItem from="1668180695686" duration="7649000" />
-      <workItem from="1668261563687" duration="20803000" />
+      <workItem from="1668261563687" duration="21132000" />
     </task>
     <task id="LOCAL-00001" summary="fix color&#10;feat log out">
       <created>1666892569914</created>
@@ -170,7 +164,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668355942032</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ...">
+      <created>1668357831616</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1668357831616</updated>
+    </task>
+    <task id="LOCAL-00012" summary="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ...">
+      <created>1668357838514</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668357838514</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,7 +212,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/css_code.php</url>
-          <line>119</line>
+          <line>139</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
