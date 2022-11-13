@@ -29,7 +29,7 @@ include "function_used.php";
         $boolean = 0;
         while($row = $res->fetch_assoc()){
             $coms2[] = $row;
-            if($row['username_destinataire'] == $guest){
+            if($row['username_destinataire'] == $guest || $com['username_destinataire'] == $guest){
                 $boolean = 1;
             }
         }
