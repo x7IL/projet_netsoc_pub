@@ -1,5 +1,5 @@
 
-<body>
+
 <h1>Log In</h1>
 
 <form class="formulaire_connexion" action="" method="POST">
@@ -46,4 +46,3 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
 mysqli_close($mysqli); // fermer la connexion
 ?>
 
-</body>

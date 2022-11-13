@@ -86,6 +86,7 @@ function affi_pour($com){
 
 //bouton like
 function like_button(){
+
     ?>
     <script src="https://kit.fontawesome.com/2b7511c9f5.js" crossorigin="anonymous"></script>
     <script>function like_button(){
@@ -126,9 +127,9 @@ function like_button(){
             <span id = "count">0</span> Likes
         </div>
     </button>
-    <script> like_button();</script>
 <?php
 }
+
 
 // guest
 function affi_sous_comment($row){

@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <title>Sign Up</title>
-</head>
-<body>
+
 <h1>Sign Up</h1>
 
     <form class="formulaire_inscription" action="" method="POST" style="word-spacing: 2px;">
@@ -13,8 +6,6 @@
         <label>
             <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
         </label>
-
-
         <br>
         <label><b>Adresse e-mail</b></label>
         <label>
@@ -56,8 +47,6 @@
 
     if (isset($_POST["password"]) && isset($_POST["username"]) && isset($_POST["repassword"]) && isset($_POST["email"])) {
         $mysqli = join_database();
-
-
         $user = $_POST["username"];
         $password = $_POST["password"];
         $repassword = $_POST["repassword"];
@@ -111,5 +100,3 @@
 mysqli_close($mysqli);
 ?>
 
-</body>
-</html>
