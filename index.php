@@ -10,11 +10,8 @@
     </head>
     <body style="color:white">
     <?php
-        include "get_all_files.php";
         require "join_db.php";
         join_database();
-
-
         if(isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
             $result_can = $mysqli->query("SELECT * FROM user WHERE email = '{$_COOKIE['email']}' AND password ='{$_COOKIE['password']}'");
             $result_can = $result_can->fetch_assoc();
@@ -22,6 +19,11 @@
         else{
             $result_can = null;
         }
+        include "get_all_files.php";
+        require "css_code.php";
+
+
+
 
         ?>
 
@@ -45,7 +47,7 @@
             </div>
 
 <!--#####################################################################################################################################-->
-            <?php if($result_can) echo"<h3 style='font-family: 'Teko', sans-serif'>Connecté sous {$result_can["username"]}</h3>";
+            <?php if($result_can) echo"<h3 style='font-family: Teko, sans-serif'>Connecté sous {$result_can["username"]}</h3>";
             ?>
 <!--#####################################################################################################################################-->
             <div class="collapse navbar-collapse">

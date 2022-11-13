@@ -8,6 +8,10 @@
     </form>
 </div>
 
+<?php
+include "function_used.php";
+?>
+
 <div id="list_message_profile_recherche" style=" width: 100%">
 
     <?php
@@ -20,7 +24,6 @@
     foreach ($coms as $com){
 
         $ID_user = $com["ID_user"];
-
         $res = $mysqli->query("SELECT * FROM post WHERE comment_id_destinataire = '{$com['id']}'");
         $coms2 = [];
         $boolean = 0;
@@ -30,7 +33,7 @@
                 $boolean = 1;
             }
         }
-        if($boolean == 1 || $com['username_source'] == $guest || $com['username_destinataire'] == $guest){
+        if($boolean == 1 || $com['username_source'] == $guest){
             ?>
             <div style="margin-top: 4%; margin-right: 2%; padding-bottom: 4%;" class='control block-cube block-input'>
                 <?php
@@ -45,8 +48,9 @@
                 <?php
 
                 if($result_can && $com['ID_user'] == $result_can['id']){
-                    form_delete($com['id']);
+                    form_delete($com);
                 }
+
                 // output data of each row
                 foreach($coms2 as $row){
                     affi_sous_comment($row);
@@ -74,7 +78,7 @@ if(isset($_POST["delete"])) {
 }
 if (isset($_POST["post_message"])) {
     $message_replace = str_replace("'","\'",$_POST["message"]);
-    insert_fields('post', ["ID_user" => $result_can['id'], "post" => $message_replace,"username_source" => $result_can['username'], "username_destinataire" => $guest]);  //mettre l'id user dans la requets
+    insert_fields('post', ["ID_user" => $result_can['id'], "post" => $message_replace,"username_source" => $result_can['username'], "username_destinataire" => $result_can['username']]);  //mettre l'id user dans la requets
     echo '<meta http-equiv="refresh" content="0">';
 }
 if(isset($_POST['comment']) && !empty($_POST['comment'])){
