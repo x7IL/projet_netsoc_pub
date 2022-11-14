@@ -15,6 +15,10 @@
                 ?>
                 <!--                            <div>--><?php //echo "pseudo : ".$row['username']; ?><!--</div>-->
 
+                <?php
+
+                if ($row["username"] != $_COOKIE["username"]){
+                ?>
                 <div class='control block-cube block-input' style=" background-color: #212121; color: #fff; margin-top: 3%; margin-right: 3%;position: relative">
                     <a href="index.php?variable=profile_guest.php&profile_guest=<?php echo $row['username']?>" style="text-decoration: none; font-size: 1.2em; color: #fff; max-width: 99% ; position: relative; z-index: 11"">
                         <?php echo $row['username']?>
@@ -28,6 +32,7 @@
                 </div>
                 <br>
                 <?php
+                }
             } // while
         } // else
     } // main if
