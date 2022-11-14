@@ -132,12 +132,12 @@ include "function_used.php";
         <meta http-equiv="refresh" content="0">
         <?php
     }
-    if (isset($_POST["post_message"])) {
+    if (isset($_POST["message"]) && !empty(trim(str_replace("'","\'",$_POST["message"])))) {
         $message_replace = str_replace("'","\'",$_POST["message"]);
         insert_fields('post', ["ID_user" => $result_can['id'], "post" => $message_replace,"username_source" => $result_can['username'], "username_destinataire" => NULL]);  //mettre l'id user dans la requets
         echo'<meta http-equiv="refresh" content="0">';
     }
-    if(isset($_POST['comment']) && !empty($_POST['comment'])){
+    if(isset($_POST['comment']) && !empty(trim(str_replace("'","\'",$_POST["comment"])))){
         $commentaire = str_replace("'","\'",$_POST['comment']);
 
         if(preg_match('/[a-zA-Z_0-9,@!.?] */',$commentaire) == 0){

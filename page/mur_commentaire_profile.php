@@ -84,12 +84,12 @@ if(isset($_POST["delete"])) {
     <meta http-equiv="refresh" content="0">
     <?php
 }
-if (isset($_POST["post_message"])) {
+if (isset($_POST["message"]) && !empty(trim(str_replace("'","\'",$_POST["message"])))) {
     $message_replace = str_replace("'","\'",$_POST["message"]);
     insert_fields('post', ["ID_user" => $result_can['id'], "post" => $message_replace,"username_source" => $result_can['username'], "username_destinataire" => $result_can['username']]);  //mettre l'id user dans la requets
     echo '<meta http-equiv="refresh" content="0">';
 }
-if(isset($_POST['comment']) && !empty($_POST['comment'])){
+if(isset($_POST['comment']) && !empty(trim(str_replace("'","\'",$_POST["comment"])))){
     $commentaire = str_replace("'","\'",$_POST['comment']);
     $sql = ("INSERT INTO post (ID_user,comment_id_destinataire,post,username_destinataire,username_source) 
             VALUES ({$result_can['id']},{$_POST['comment_id']},'$commentaire','{$result_can['username']}','{$_POST['username_source2']}')")
