@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/profile_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile_guest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/search.php" afterDir="false" />
-    </list>
+    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ..." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,27 +35,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/griffen/PhpstormProjects/NetSoc&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/griffen/PhpstormProjects/NetSoc",
+    "list.type.of.created.stylesheet": "SCSS",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/page" />
@@ -95,8 +91,8 @@
       <workItem from="1668001557613" duration="16134000" />
       <workItem from="1668078574991" duration="10576000" />
       <workItem from="1668107193989" duration="2140000" />
-      <workItem from="1668180695686" duration="7808000" />
-      <workItem from="1668247422074" duration="2191000" />
+      <workItem from="1668180695686" duration="7649000" />
+      <workItem from="1668261563687" duration="21132000" />
     </task>
     <task id="LOCAL-00001" summary="fix color&#10;feat log out">
       <created>1666892569914</created>
@@ -147,18 +143,57 @@
       <option name="project" value="LOCAL" />
       <updated>1668090633754</updated>
     </task>
-    <task id="LOCAL-00008" summary="feat : modification du theme du profile_guest.php et de search.php">
-      <created>1668188744595</created>
+    <task id="LOCAL-00008" summary="&lt;fix&gt; : affichage commentaire profile guest si il y a le nom de lutilisateur dans les commentaires">
+      <created>1668262247644</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1668188744595</updated>
+      <updated>1668262247644</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="&lt;fix&gt; : grosse réduction de code,&#10;correction bug affichage de sous commentaire,&#10;affichage de messages si le pseudo si trouve (dans les profiles)">
+      <created>1668354517871</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1668354517871</updated>
+    </task>
+    <task id="LOCAL-00010" summary="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ...">
+      <created>1668355942032</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668355942032</updated>
+    </task>
+    <task id="LOCAL-00011" summary="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ...">
+      <created>1668357831616</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1668357831616</updated>
+    </task>
+    <task id="LOCAL-00012" summary="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ...">
+      <created>1668357838514</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668357838514</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -167,7 +202,20 @@
     <MESSAGE value="feat : page recherche profile" />
     <MESSAGE value="feat : page recherche profile +modif sur les messages" />
     <MESSAGE value="feat : modification du theme du mur_commentaire.php" />
-    <MESSAGE value="feat : modification du theme du profile_guest.php et de search.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : modification du theme du profile_guest.php et de search.php" />
+    <MESSAGE value="&lt;fix&gt; : affichage commentaire profile guest si il y a le nom de lutilisateur dans les commentaires" />
+    <MESSAGE value="&lt;fix&gt; : grosse réduction de code,&#10;correction bug affichage de sous commentaire,&#10;affichage de messages si le pseudo si trouve (dans les profiles)" />
+    <MESSAGE value="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ..." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/css_code.php</url>
+          <line>139</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
