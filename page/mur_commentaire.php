@@ -41,7 +41,7 @@ include "function_used.php";
             ?>
             <div style="margin-top: 4%; margin-right: 2%; padding-bottom: 1%;" class='control block-cube block-input'>
             <?php
-            if ($com["username_destinataire"] and $com["username_destinataire"] != $com["username_source"]){  //style="position : relative; z-index: 10"
+            if ($com["username_destinataire"] and $com["username_destinataire"] != $com["username_source"]){
                 ?>
                 <post style="position : relative; z-index: 10">
                     <b style=" max-width: 99%; word-wrap: break-word;  "><?=$username_proprio; ?><i style="opacity: 0.5;"> pour </i><?=$com["username_destinataire"]; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
@@ -64,7 +64,16 @@ include "function_used.php";
 
             <?php
             if($result_can && $com['ID_user'] == $result_can['id']){
-                form_delete($com);
+                ?>
+                <form action="" class="form_delete_list_comment" method="post">
+                    <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+                        <label>
+                            <input type="hidden" name="supp" value="<?php echo $com['id']?>"/>
+                            <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
+                        </label>
+                        <?php useless_div(); ?>
+                    </div>
+                </form> <?php
             }
             ?>
             <?php
@@ -81,7 +90,16 @@ include "function_used.php";
                         like_button();
                     } ?>
                     <?php if($result_can!=NULL && $row['ID_user'] == $result_can['id']){
-                        form_delete($row);
+                        ?>
+                        <form action="" class="form_delete_list_comment" method="post">
+                            <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+                                <label>
+                                    <input type="hidden" name="supp" value="<?php echo $row['id']?>"/>
+                                    <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
+                                </label>
+                                <?php useless_div(); ?>
+                            </div>
+                        </form> <?php
                     }
                     useless_div();
                     ?>

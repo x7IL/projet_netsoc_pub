@@ -3,14 +3,18 @@
 <h1>Log In</h1>
 
 <form class="formulaire_connexion" action="" method="POST">
-    <label><b>Nom d'utilisateur</b></label>
-    <label for="email"></label><input id="email" type="email" placeholder="Entrer votre adresse mail" name="email" required>
-    <br>
-    <label><b>Mot de passe</b></label>
-    <label for="password"></label><input id="password" type="password" placeholder="Entrer le mot de passe" name="password" required>
-    <br>
-    <input type="submit" id='submit' value='valider' name="submit_log_in">
-    <br>
+    <div class="control block-cube block-input">
+        <div id="a_remplir" >
+            <label for="email"></label><input id="email" type="email" placeholder="Entrer votre adresse mail" name="email" required>
+            <br>
+            <label for="password"></label><input id="password" type="password" placeholder="Entrer le mot de passe" name="password" required>
+
+        </div>
+
+        <input type="submit" id='submit' value='valider' name="submit_log_in">
+        <br>
+        <?php useless_div(); ?>
+    </div>
     <!--    <button onclick ="window.location='index.php?name=inscription.php'">Inscription</button>-->
 </form>
 <?php

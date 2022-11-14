@@ -1,3 +1,9 @@
+<?php
+global $result_can;
+global $mysqli;
+global $guest;
+?>
+
 <div id="post_message_profile" style="margin-top: 3%" >
     <form action="#" method="post" id="post_messages">
         <?php
@@ -30,22 +36,30 @@
                 $boolean = 1;
             }
         }
-        if($boolean == 1 || $com['username_source'] == $guest || $com['username_destinataire'] == $guest){
+        if($boolean == 1 or $com['username_source'] == $guest or $com['username_destinataire'] == $guest){
             ?>
             <div style="margin-top: 4%; margin-right: 2%; padding-bottom: 4%;" class='control block-cube block-input'>
                 <?php
                 affi_pour($com);
                 ?>
 
-                <div style="background-color: #2f2f2f;">
+                <div style="background-color: #212121;">
                     <?php if($result_can){
                         like_button();
                     } ?>
                 </div>
                 <?php
 
-                if($result_can && $com['ID_user'] == $result_can['id']){
-                    form_delete($com['id']);
+                if($result_can and $com['ID_user'] == $result_can['id']){ ?>
+                    <form action="" class="form_delete_list_comment" method="post">
+                    <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+                        <label>
+                            <input type="hidden" name="supp" value="<?php echo $row['id']?>"/>
+                            <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
+                        </label>
+                            <?php useless_div(); ?>
+                    </div>
+                    </form> <?php
                 }
                 // output data of each row
                 foreach($coms2 as $row){
@@ -54,6 +68,7 @@
                 if($result_can){
                     commenter($com);
                 }
+
                 useless_div();
                 ?> </div> <?php
         }
@@ -65,7 +80,7 @@
 //actionnement des formulaires
 if(isset($_POST["delete"])) {
     if ($mysqli->query("DELETE FROM post WHERE comment_id_destinataire= '{$_POST['supp']}'") === TRUE) {
-        echo "\nsupprimé";
+        echo "\nsupprimÃ©";
     }
     $mysqli->query("DELETE FROM post WHERE id = {$_POST['supp']}");
     ?>

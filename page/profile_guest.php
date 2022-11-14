@@ -6,7 +6,9 @@ include('function_used.php');
 $guest = $_GET['profile_guest'];
 $username = mysqli_query($mysqli,"SELECT * FROM profile WHERE username = '{$_GET['profile_guest']}'");
 $row_cnt = $username->num_rows;
-$username = $username->fetch_assoc()
+$username = $username->fetch_assoc();
+$username2 = mysqli_query($mysqli,"SELECT * FROM user WHERE username = '{$_GET['profile_guest']}'");
+$username2 = $username2->fetch_assoc();
 ?>
 <?php
 
@@ -25,11 +27,10 @@ if($row_cnt==1){
         <?php useless_div(); ?>
     </div>
 
-<?php
+    <?php
     include ('mur_commentaire_guest.php');
 }
 else{
     echo "Le profile n'existe pas.";
 }
 ?>
-

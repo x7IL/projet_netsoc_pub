@@ -47,8 +47,16 @@ include "function_used.php";
                 </div>
                 <?php
 
-                if($result_can && $com['ID_user'] == $result_can['id']){
-                    form_delete($com);
+                if($result_can && $com['ID_user'] == $result_can['id']){?>
+                    <form action="" class="form_delete_list_comment" method="post">
+                    <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+                        <label>
+                            <input type="hidden" name="supp" value="<?php echo $row['id']?>"/>
+                            <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
+                        </label>
+                            <?php useless_div(); ?>
+                    </div>
+                    </form> <?php
                 }
 
                 // output data of each row

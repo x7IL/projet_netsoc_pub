@@ -25,5 +25,17 @@ function delete_fields($table, $keys, $value) {
         echo "Error deleting record: " . $mysqli->error;
     }
 }
+function abo_affi($n) {
+    // first strip any formatting;
+    $n = (0+str_replace(",","",$n));
+    // is this a number?
+    if(!is_numeric($n)) return false;
+    // now filter it;
+    if($n>1000000000000) return round(($n/1000000000000),1).' billion';
+    else if($n>1000000000) return round(($n/1000000000),1).' milliard';
+    else if($n>1000000) return round(($n/1000000),1).' million';
 
+
+    return number_format($n);
+}
 ?>

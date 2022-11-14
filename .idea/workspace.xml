@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ...">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css_code.php" beforeDir="false" afterPath="$PROJECT_DIR$/css_code.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/function_used.php" beforeDir="false" afterPath="$PROJECT_DIR$/function_used.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/join_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/join_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/log_in.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/log_in.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/mur_commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/mur_commentaire_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire_guest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/mur_commentaire_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire_profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/profile_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile_guest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/sign_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/sign_up.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +107,7 @@
       <workItem from="1668107193989" duration="2140000" />
       <workItem from="1668180695686" duration="7649000" />
       <workItem from="1668261563687" duration="21132000" />
+      <workItem from="1668429510579" duration="6939000" />
     </task>
     <task id="LOCAL-00001" summary="fix color&#10;feat log out">
       <created>1666892569914</created>
@@ -181,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668357838514</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="feat : ne pas afficher le compte connecter lors de la recherche">
+      <created>1668413871354</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1668413871354</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,17 +227,7 @@
     <MESSAGE value="&lt;fix&gt; : affichage commentaire profile guest si il y a le nom de lutilisateur dans les commentaires" />
     <MESSAGE value="&lt;fix&gt; : grosse réduction de code,&#10;correction bug affichage de sous commentaire,&#10;affichage de messages si le pseudo si trouve (dans les profiles)" />
     <MESSAGE value="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ..." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/css_code.php</url>
-          <line>139</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="feat : ne pas afficher le compte connecter lors de la recherche" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : ne pas afficher le compte connecter lors de la recherche" />
   </component>
 </project>

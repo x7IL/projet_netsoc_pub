@@ -14,30 +14,14 @@ function useless_div(){
     <?php
 }
 
-// supprimer un message ou un commentaire
-function form_delete($row){
-    ?><form action="" class="form_delete_list_comment" method="post">
-        <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
-            <label>
-                <input type="hidden" name="supp" value="<?php echo $row['id']?>"/>
-                <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
-            </label>
-                <?php useless_div(); ?>
-        </div>
-    </form>
-<?php
-
-
-}
-
 // poster un commentaire ou un message
 function form_post(){
     ?>
 
     <div class='control block-cube block-input' style="margin-right: 5%; margin-bottom: 3%;">
-        <div>
+        <div class='control block-cube block-input'>
             <input type="hidden" value="">
-            <label for="message"></label><input type="text" id="message" name="message" placeholder="What's happening" style="margin-right: 2%; margin-left: 1%; margin-top: 1%; background-color: #212121; color: #fff">
+            <label for="message"></label><input type="text" id="message" name="message" placeholder="What's happening" style="margin-right: 2%; margin-left: 1%; margin-top: 1%; background-color: #212121; color: #fff" autocomplete="off">
             <div class='bg'>
                 <div class='bg-inner'></div>
             </div>
@@ -51,9 +35,9 @@ function form_post(){
 <?php
 }
 
-// profile, les .... pour ...
+// profile, les ... pour ...
 function affi_pour($com){
-    if ($com["username_destinataire"]){
+    if ($com["username_destinataire"] and $com["username_destinataire"] != $com["username_source"]){
         ?>
         <post style="position : relative; z-index: 10">
             <b style=" max-width: 99%; word-wrap: break-word;  ">
@@ -71,7 +55,7 @@ function affi_pour($com){
         ?>
         <post style="position : relative; z-index: 10">
             <b style=" max-width: 99%; word-wrap: break-word; ">
-                <?=$com['username_source']; echo " ".$com['id'];?>
+                <?=$com['username_source'];?>
             </b>
             <i style="opacity: 0.5;">
                 <?=$com["post_date"]; ?>
@@ -144,8 +128,17 @@ function affi_sous_comment($row){
         if ($result_can) {
             like_button();
         }
-        if ($result_can != NULL && $row['ID_user'] == $result_can['id']) {
-            form_delete($row);
+        if ($result_can != NULL && $row['ID_user'] == $result_can['id']) {?>
+            <form action="" class="form_delete_list_comment" method="post">
+                <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+                    <label>
+                        <input type="hidden" name="supp" value="<?php echo $row['id']?>"/>
+                        <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
+                    </label>
+                    <?php useless_div(); ?>
+                </div>
+            </form>
+        <?php
         }
         useless_div();
         ?>
@@ -157,7 +150,7 @@ function affi_sous_comment($row){
 function commenter($com){
     ?>
     <form method="POST" style="display: inline-block ; margin-left: 1%; margin-top: 2%">
-        <div class='control block-cube block-input'>
+        <div class='control block-cube block-input' style="position: relative; z-index: 9">
             <label>
                 <input type="hidden" name="id_dest" value="<?php echo $com['ID_user']?>"/>
                 <input type="hidden" name="comment_id" value="<?php echo $com['id']?>"/>
