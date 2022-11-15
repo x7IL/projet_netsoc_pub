@@ -1,0 +1,14 @@
+Index: join_data.json
+===================================================================
+diff --git a/join_data.json b/join_data.json
+--- a/join_data.json	
++++ b/join_data.json	
+@@ -1,6 +1,6 @@
+ {
+   "domain": "localhost",
+   "database": "projet_netsoc",
+-  "login": "root",
+-  "password": ""
++  "login": "test",
++  "password": "coucou"
+ }

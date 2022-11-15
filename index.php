@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="node_modules/aos/dist/aos.css">
 
-        <title>GJK</title>
+        <title>GMK</title>
 
     </head>
     <body style="color:white">
@@ -29,8 +29,8 @@
 
         <nav class="navbar navbar-expand-sm navbar-light fixed-top" style="z-index: 100">
                 <div class="logo_nom" onclick="location.href='index.php'">
-                    <img id="image_logo" src="image/reseau-informatique-icone-cybersecurite-pour-web_116137-3699.png" alt="logo_réseau">
-                    <h1>GJK</h1>
+                    <img id="image_logo" src="image/Logo%20ESIEA%20Baseline%20blanc.png" alt="logo_ESIEA">
+                    <h1>GMK</h1>
                 </div>
             <?php
 
@@ -110,7 +110,7 @@
                 }
                 elseif(!isset($_GET['variable']) || $_GET['variable']==''){
                     $title = "mur_commentaire.php";
-                    echo "<h1>Commentaire</h1>";
+                    echo "<h1 style='font-size: 2em'>Commentaire</h1>";
                     require("page/mur_commentaire.php");
                 }
                 else{
