@@ -45,7 +45,7 @@ global $guest;
 
                 <div style="background-color: #212121;">
                     <?php if($result_can){
-                        like_button();
+                        like_button($com);
                     } ?>
                 </div>
                 <?php

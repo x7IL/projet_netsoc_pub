@@ -69,48 +69,23 @@ function affi_pour($com){
 }
 
 //bouton like
-function like_button(){
+function like_button($row){
+    global $mysqli;
 
     ?>
-    <script src="https://kit.fontawesome.com/2b7511c9f5.js" crossorigin="anonymous"></script>
-    <script>function like_button(){
+<!--    <script src="https://kit.fontawesome.com/2b7511c9f5.js" crossorigin="anonymous"></script>-->
 
-            const likeBtn = document.querySelector(".like_button"); ///
-            const iconBtn = document.querySelector('#icon');
-            const countBtn = document.querySelector('#count');
 
-            let clicked = false;
 
-            likeBtn.addEventListener("click",() =>{
-
-                if (!clicked){
-
-                    clicked = true;
-
-                    iconBtn.innerHTML = '<i class="fa-solid fa-thumbs-up"></i>';
-                    countBtn.textContent++;
-
-                }
-                else{
-
-                    clicked = false;
-                    iconBtn.innerHTML = '<i class="fa-regular fa-thumbs-up"></i>';
-                    countBtn.textContent--;
-
-                }
-
-            });
-        }</script>
-
-    <button class='.like_button' style="position: relative; z-index: 11; margin-top: 2%; margin-bottom: 3%; margin-left: 1%">
-        <div class='bg'>
-            <div class='bg-inner'></div>
-        </div>
-        <div style=" position: relative; z-index: 11; color: #fff">
-            <span id ="icon" ><i class="fa-regular fa-thumbs-up"></i></span>
-            <span id = "count">0</span> Likes
-        </div>
-    </button>
+<!--    <button class='.like_button' style="position: relative; z-index: 11; margin-top: 2%; margin-bottom: 3%; margin-left: 1%">-->
+<!--        <div class='bg'>-->
+<!--            <div class='bg-inner'></div>-->
+<!--        </div>-->
+<!--        <div style=" position: relative; z-index: 11; color: #fff">-->
+<!--            <span id ="icon" ><i class="fa-regular fa-thumbs-up"></i></span>-->
+<!--            <span id = "count">0</span> Likes-->
+<!--        </div>-->
+<!--    </button>-->
 <?php
 }
 

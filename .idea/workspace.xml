@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ...">
-      <change afterPath="$PROJECT_DIR$/join_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;fix&gt; : eviter d'envoyer des whitespaces dans les messages et le sous commentaire">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/08bebf5b-e11a-44f0-9579-a76a6528d967.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/08bebf5b-e11a-44f0-9579-a76a6528d967.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css_code.php" beforeDir="false" afterPath="$PROJECT_DIR$/css_code.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/mur_commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/mur_commentaire_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire_guest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/mur_commentaire_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire_profile.php" afterDir="false" />
@@ -42,28 +42,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Applications/XAMPP/xamppfiles/htdocs/netsoc",
-    "list.type.of.created.stylesheet": "SCSS",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.editor",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Applications/XAMPP/xamppfiles/htdocs/netsoc&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -104,7 +104,8 @@
       <workItem from="1668180695686" duration="7649000" />
       <workItem from="1668261563687" duration="21132000" />
       <workItem from="1668429510579" duration="6939000" />
-      <workItem from="1668437871549" duration="1309000" />
+      <workItem from="1668437871549" duration="1684000" />
+      <workItem from="1668535689606" duration="5679000" />
     </task>
     <task id="LOCAL-00001" summary="fix color&#10;feat log out">
       <created>1666892569914</created>
@@ -197,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668413871354</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="&lt;fix&gt; : eviter d'envoyer des whitespaces dans les messages et le sous commentaire">
+      <created>1668440743164</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668440743164</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +233,7 @@
     <MESSAGE value="&lt;fix&gt; : grosse réduction de code,&#10;correction bug affichage de sous commentaire,&#10;affichage de messages si le pseudo si trouve (dans les profiles)" />
     <MESSAGE value="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ..." />
     <MESSAGE value="feat : ne pas afficher le compte connecter lors de la recherche" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : ne pas afficher le compte connecter lors de la recherche" />
+    <MESSAGE value="&lt;fix&gt; : eviter d'envoyer des whitespaces dans les messages et le sous commentaire" />
+    <option name="LAST_COMMIT_MESSAGE" value="&lt;fix&gt; : eviter d'envoyer des whitespaces dans les messages et le sous commentaire" />
   </component>
 </project>

@@ -42,7 +42,7 @@ include "function_used.php";
 
                 <div style="background-color: #2f2f2f;">
                     <?php if($result_can){
-                        like_button();
+                        like_button($com);
                     } ?>
                 </div>
                 <?php
