@@ -80,7 +80,7 @@
 
 
                 <?php
-                if(isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
+                if($result_can) {
                     $result_can = $mysqli->query("SELECT * FROM user WHERE email = '{$_COOKIE['email']}' AND password ='{$_COOKIE['password']}'");
                     $result_can = $result_can->fetch_assoc();
 
@@ -103,11 +103,11 @@
             if(isset($_GET['erreur'])){
                 $err = $_GET['erreur'];
                 if($err==1)
-                    echo "<h3  id='expres' style='color:black;margin-top:10%'>Utilisateur ou mot de passe incorrect</h3>";
+                    echo "<h3  id='expres' style='color:white;margin-top:10%'>Utilisateur ou mot de passe incorrect</h3>";
                 if($err==2)
-                    echo "<h1 style='color:black;margin-top:10%'>le nom d'utilisateur existe deja</h1>";
+                    echo "<h1 style='color:white;margin-top:10%'>le nom d'utilisateur existe deja</h1>";
                 if($err==3)
-                    echo "<h1 style='color:black;margin-top:10%'>les mots de passe ne correspondent pas</h1>";
+                    echo "<h1 style='color:white;margin-top:10%'>les mots de passe ne correspondent pas</h1>";
             }
             ?>
 

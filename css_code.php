@@ -72,12 +72,16 @@ function affi_pour($com){
 
 //bouton like
 function like_button($id,$com){
+    global $mysqli;
+    global $result_can;
+    $test = $mysqli->query("SELECT * FROM jaime WHERE id_user = '{$result_can['id']}'AND id_post = '{$com['id']}'");
+    $row_cnt2 = $test->num_rows;
     ?>
     <form action="" method="post">
         <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
             <label>
                 <input type="hidden" name="like_id" value="<?php echo $com['id']?>"/>
-                <input name=<?php echo $id; ?> type="submit" value="Like" style=" background-color: #212121; color: #fff;">
+                <input name=<?php echo $id; ?> type="submit" value="<?php echo $row_cnt2 ==0 ? 'Like' : 'Unlike' ?>" style=" background-color: #212121; color: #fff;">
             </label>
             <?php useless_div(); ?>
 

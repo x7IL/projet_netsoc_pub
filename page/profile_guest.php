@@ -20,6 +20,48 @@ if($row_cnt==1){
             <div id="div_bio" style="position: relative; z-index: 11">
                 <?php
                 echo '<h3>Biographie:</h3>';
+                echo '<h5>Follower :</h5>'.$username2['follower'];
+
+                if($result_can){
+                    $test = $mysqli->query("SELECT * FROM abo WHERE id_follo = '{$username2['id']}'AND id_user = '{$result_can['id']}'");
+                    $row_cnt2 = $test->num_rows;
+                    ?>
+
+                    <form action="" class="form_delete_list_comment" method="post">
+                        <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+                            <label>
+                                <input type="hidden" name="abo_id" value="<?php echo $username2['id']?>"/>
+                                <input name="sabo" type="submit" value="<?php echo $row_cnt2 ==0 ? 'follow' : 'Unfollow' ?>" style=" background-color: #212121; color: #fff;">
+                            </label>
+                            <?php useless_div(); ?>
+                        </div>
+                    </form>
+
+                    <?php
+                    if(isset($_POST['sabo'])){
+
+                        $test = $mysqli->query("SELECT * FROM abo WHERE id_follo = '{$username2['id']}'AND id_user = '{$result_can['id']}'");
+                        $row_cnt2 = $test->num_rows;
+                        if ($row_cnt2 == 0){
+                            $sql = "UPDATE user SET follower = follower + 1 WHERE id = '{$username2['id']}'";
+                            $ajout = ("INSERT INTO abo (id_follo,id_user) VALUES ('{$username2['id']}','{$result_can['id']}')")
+                            or die($mysqli->error);
+                            $mysqli->query($sql);
+                            $mysqli->query($ajout);
+                            ?><meta http-equiv="refresh" content="0"><?php
+
+                        }
+                        else{
+                            $sql = "UPDATE user SET follower = follower - 1 WHERE id = '{$username2['id']}'";
+                            $supp = ("DELETE FROM abo WHERE id_follo = '{$username2['id']}'AND id_user = '{$result_can['id']}'")
+                            or die($mysqli->error);
+                            $mysqli->query($sql);
+                            $mysqli->query($supp);
+                            ?><meta http-equiv="refresh" content="0"><?php
+                        }
+                    }
+                    $_POST['abo_id'] = NULL;
+                }
                 echo "<p style='font-size: 1.1em'>{$username['biographie']}</p>";
                 ?>
             </div>

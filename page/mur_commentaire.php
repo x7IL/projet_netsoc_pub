@@ -57,7 +57,7 @@ include "function_used.php";
             else{
                 ?>
                 <post style="position : relative; z-index: 10">
-                    <b style=" max-width: 99%; word-wrap: break-word; "><?=$username_proprio; echo $com['id']?> </b>
+                    <b style=" max-width: 99%; word-wrap: break-word; "><?=$username_proprio;?> </b>
                     <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i>
                     <br><b style=" max-width: 99%; word-wrap: break-word;  "><?= "   ".$com["likes"]." likes"; ?></b>
                     <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
@@ -121,29 +121,28 @@ include "function_used.php";
                     <?php if($result_can){
                         like_button("like_comment",$row);
                         if(isset($_POST['like_comment'])){
-                            if(isset($_POST['like_comment'])){
-                                $test = $mysqli->query("SELECT * FROM jaime WHERE id_user = '{$result_can['id']}'AND id_post = '{$_POST['like_id']}'");
-                                $row_cnt2 = $test->num_rows;
-                                if ($row_cnt2 == 0){
-                                    $sql = "UPDATE post SET likes = likes + 1 WHERE id ='{$_POST['like_id']}'";
-                                    $ajout = ("INSERT INTO jaime (id_user,id_post) VALUES ('{$result_can['id']}','{$_POST['like_id']}')")
-                                    or die($mysqli->error);
-                                    $mysqli->query($sql);
-                                    $mysqli->query($ajout);
-                                    ?><meta http-equiv="refresh" content="0"><?php
+                            $test = $mysqli->query("SELECT * FROM jaime WHERE id_user = '{$result_can['id']}'AND id_post = '{$_POST['like_id']}'");
+                            $row_cnt2 = $test->num_rows;
+                            if ($row_cnt2 == 0){
+                                $sql = "UPDATE post SET likes = likes + 1 WHERE id ='{$_POST['like_id']}'";
+                                $ajout = ("INSERT INTO jaime (id_user,id_post) VALUES ('{$result_can['id']}','{$_POST['like_id']}')")
+                                or die($mysqli->error);
+                                $mysqli->query($sql);
+                                $mysqli->query($ajout);
+                                ?><meta http-equiv="refresh" content="0"><?php
 
-                                }
-                                else{
-                                    $sql = "UPDATE post SET likes = likes - 1 WHERE id ='{$_POST['like_id']}'";
-                                    $supp = ("DELETE FROM jaime WHERE id_user = '{$result_can['id']}' AND id_post = '{$_POST['like_id']}'")
-                                    or die($mysqli->error);
-                                    $mysqli->query($sql);
-                                    $mysqli->query($supp);
-                                    ?><meta http-equiv="refresh" content="0"><?php
-                                }
                             }
-                            $_POST['like_comment'] = NULL;
+                            else{
+                                $sql = "UPDATE post SET likes = likes - 1 WHERE id ='{$_POST['like_id']}'";
+                                $supp = ("DELETE FROM jaime WHERE id_user = '{$result_can['id']}' AND id_post = '{$_POST['like_id']}'")
+                                or die($mysqli->error);
+                                $mysqli->query($sql);
+                                $mysqli->query($supp);
+                                ?><meta http-equiv="refresh" content="0"><?php
+                            }
                         }
+                        $_POST['like_comment'] = NULL;
+
 
                     } ?>
                     <?php if($result_can!=NULL && $row['ID_user'] == $result_can['id']){
@@ -178,11 +177,24 @@ include "function_used.php";
     //actionnement des formulaires
     if(isset($_POST["delete"])) {
 
-        if ($mysqli->query("DELETE FROM post WHERE comment_id_destinataire= '{$_POST['supp']}'") === TRUE) {
-            echo "\nsupprimé";
-        } else {
-            echo "Error deleting record: " . $mysqli->error;
+        $com_delete = [];
+        $result = $mysqli->query("SELECT * FROM post WHERE comment_id_destinataire = {$_POST['supp']}");
+
+        while (($line = $result->fetch_assoc()))
+            $com_delete[] = $line;
+        foreach($com_delete as $row){
+            $supp = ("DELETE FROM jaime WHERE id_post = '{$row['id']}'")
+            or die($mysqli->error);
+            $mysqli->query($supp);
+            if ($mysqli->query("DELETE FROM post WHERE comment_id_destinataire= {$_POST['supp']}") === TRUE) {
+                echo "\nsuppriméeee";
+            } else {
+                echo "Error deleting record: " . $mysqli->error;
+            }
         }
+        $supp = ("DELETE FROM jaime WHERE id_post = '{$_POST['supp']}'")
+        or die($mysqli->error);
+        $mysqli->query($supp);
         $mysqli->query("DELETE FROM post WHERE id = {$_POST['supp']}");
         ?>
         <meta http-equiv="refresh" content="0">

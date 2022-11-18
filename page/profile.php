@@ -3,7 +3,8 @@
 $guest = $result_can['username'];
 $username = mysqli_query($mysqli,"SELECT * FROM profile WHERE username = '$guest'");
 $username = $username->fetch_assoc();
-
+$username2 = mysqli_query($mysqli,"SELECT * FROM user WHERE username = '$guest'");
+$username2 = $username2->fetch_assoc();
 ?>
 
 <h1 style="font-size: 2em">Profile</h1>
@@ -14,8 +15,8 @@ $username = $username->fetch_assoc();
             <div id="div_bio" style="position: relative; z-index: 11">
                 <?php
                 echo '<h3 style="position: relative;z-index: 11 ;">Biographie:</h3>';
-
                 echo "<p style='font-size: 1.1em  ; position: relative ;z-index: 11;'>{$username['biographie']}</p>";
+                echo '<h5>Follower :</h5>'.$username2['follower'];
 
                 if (isset($_POST['modifier']) && isset($_POST['id'])) {
                     $modifier_ver = str_replace("'","\'",$_POST['modifier']);

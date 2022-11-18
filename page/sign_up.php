@@ -83,7 +83,6 @@
                 header('Location: index.php?erreur=3');
             }
         } else {
-            $message = "non";
             header('Location: index.php?erreur=2');
         }
     }

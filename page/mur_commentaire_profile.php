@@ -124,11 +124,24 @@ include "function_used.php";
 //actionnement des formulaires
 if(isset($_POST["supp"])) {
 
-    if ($mysqli->query("DELETE FROM post WHERE comment_id_destinataire= {$_POST['supp']}") === TRUE) {
-        echo "\nsuppriméeee";
-    } else {
-        echo "Error deleting record: " . $mysqli->error;
+    $com_delete = [];
+    $result = $mysqli->query("SELECT * FROM post WHERE comment_id_destinataire = {$_POST['supp']}");
+
+    while (($line = $result->fetch_assoc()))
+        $com_delete[] = $line;
+    foreach($com_delete as $row){
+        $supp = ("DELETE FROM jaime WHERE id_post = '{$row['id']}'")
+        or die($mysqli->error);
+        $mysqli->query($supp);
+        if ($mysqli->query("DELETE FROM post WHERE comment_id_destinataire= {$_POST['supp']}") === TRUE) {
+            echo "\nsuppriméeee";
+        } else {
+            echo "Error deleting record: " . $mysqli->error;
+        }
     }
+    $supp = ("DELETE FROM jaime WHERE id_post = '{$_POST['supp']}'")
+    or die($mysqli->error);
+    $mysqli->query($supp);
     $mysqli->query("DELETE FROM post WHERE id = {$_POST['supp']}");
     ?>
     <meta http-equiv="refresh" content="0">
