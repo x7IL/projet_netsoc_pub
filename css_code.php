@@ -45,6 +45,7 @@ function affi_pour($com){
                 <i style="opacity: 0.5;"> pour </i><?=$com["username_destinataire"]; ?>
             </b>
             <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i>
+            <br><b style=" max-width: 99%; word-wrap: break-word;  "><?= "   ".$com["likes"]." likes"; ?></b>
             <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; ">
                 <?=$com["post"]; ?>
             </p>
@@ -60,6 +61,7 @@ function affi_pour($com){
             <i style="opacity: 0.5;">
                 <?=$com["post_date"]; ?>
             </i>
+            <br><b style=" max-width: 99%; word-wrap: break-word;  "><?= "   ".$com["likes"]." likes"; ?></b>
             <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; ">
                 <?=$com["post"]; ?>
             </p>
@@ -69,23 +71,19 @@ function affi_pour($com){
 }
 
 //bouton like
-function like_button($row){
-    global $mysqli;
-
+function like_button($id,$com){
     ?>
-<!--    <script src="https://kit.fontawesome.com/2b7511c9f5.js" crossorigin="anonymous"></script>-->
+    <form action="" method="post">
+        <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+            <label>
+                <input type="hidden" name="like_id" value="<?php echo $com['id']?>"/>
+                <input name=<?php echo $id; ?> type="submit" value="Like" style=" background-color: #212121; color: #fff;">
+            </label>
+            <?php useless_div(); ?>
 
+        </div>
+    </form>
 
-
-<!--    <button class='.like_button' style="position: relative; z-index: 11; margin-top: 2%; margin-bottom: 3%; margin-left: 1%">-->
-<!--        <div class='bg'>-->
-<!--            <div class='bg-inner'></div>-->
-<!--        </div>-->
-<!--        <div style=" position: relative; z-index: 11; color: #fff">-->
-<!--            <span id ="icon" ><i class="fa-regular fa-thumbs-up"></i></span>-->
-<!--            <span id = "count">0</span> Likes-->
-<!--        </div>-->
-<!--    </button>-->
 <?php
 }
 
@@ -98,10 +96,11 @@ function affi_sous_comment($row){
     <div style="background-color: #212121; margin-top: 5%; margin-left: 5%;margin-bottom: 2%; margin-right: 2%; position: relative; z-index: 10;"  class='control block-cube block-input'>
         <b style=" max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?=$row["username_destinataire"]?> </b>
         <i style="opacity: 0.5;position: relative; z-index: 11;"><?=$row["post_date"]; ?></i>
+        <br><b style=" max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?= "   ".$row["likes"]." likes"; ?></b>
         <p style="font-size: 1.2em; margin-bottom: 0; max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?=$row["post"]; ?></p>
         <?php
         if ($result_can) {
-            like_button();
+            like_button("like_comment",$row);
         }
         if ($result_can != NULL && $row['ID_user'] == $result_can['id']) {?>
             <form action="" class="form_delete_list_comment" method="post">

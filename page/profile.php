@@ -21,7 +21,9 @@ $username = $username->fetch_assoc();
                     $modifier_ver = str_replace("'","\'",$_POST['modifier']);
                     $sql = "UPDATE profile SET biographie='$modifier_ver' WHERE id_user ='{$result_can['id']}'";
                     if ($mysqli->query($sql) === TRUE) {
-                        header("Refresh:0");
+                        ?>
+                <meta http-equiv="refresh" content="0">
+                <?php
                     } else {
                         echo "Error updating record: " . $mysqli->error;
                     }

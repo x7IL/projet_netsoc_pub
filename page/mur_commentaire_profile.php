@@ -42,26 +42,73 @@ include "function_used.php";
 
                 <div style="background-color: #2f2f2f;">
                     <?php if($result_can){
-                        like_button($com);
+                        like_button("like",$com);
+                        if(isset($_POST['like'])){
+                            $test = $mysqli->query("SELECT * FROM jaime WHERE id_user = '{$result_can['id']}'AND id_post = '{$_POST['like_id']}'");
+                            $row_cnt2 = $test->num_rows;
+                            if ($row_cnt2 == 0){
+                                $sql = "UPDATE post SET likes = likes + 1 WHERE id ='{$_POST['like_id']}'";
+                                $ajout = ("INSERT INTO jaime (id_user,id_post) VALUES ('{$result_can['id']}','{$_POST['like_id']}')")
+                                or die($mysqli->error);
+                                $mysqli->query($sql);
+                                $mysqli->query($ajout);
+                                ?><meta http-equiv="refresh" content="0"><?php
+
+                            }
+                            else{
+                                $sql = "UPDATE post SET likes = likes - 1 WHERE id ='{$_POST['like_id']}'";
+                                $supp = ("DELETE FROM jaime WHERE id_user = '{$result_can['id']}' AND id_post = '{$_POST['like_id']}'")
+                                or die($mysqli->error);
+                                $mysqli->query($sql);
+                                $mysqli->query($supp);
+                                ?><meta http-equiv="refresh" content="0"><?php
+                            }
+                        }
+                        $_POST['like'] = NULL;
                     } ?>
                 </div>
                 <?php
 
                 if($result_can && $com['ID_user'] == $result_can['id']){?>
                     <form action="" class="form_delete_list_comment" method="post">
-                    <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
-                        <label>
-                            <input type="hidden" name="supp" value="<?php echo $row['id']?>"/>
-                            <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
-                        </label>
-                            <?php useless_div(); ?>
-                    </div>
+                        <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+                            <label>
+                                <input type="hidden" name="supp" value="<?php echo $com['id']?>"/>
+                                <input id="delete" name="delete" type="submit" value="Delete messageee" style=" background-color: #212121; color: #fff;">
+                            </label>
+                                <?php useless_div(); ?>
+                        </div>
                     </form> <?php
                 }
+
 
                 // output data of each row
                 foreach($coms2 as $row){
                     affi_sous_comment($row);
+                    if(isset($_POST['like_comment'])){
+                        if(isset($_POST['like_comment'])){
+                            $test = $mysqli->query("SELECT * FROM jaime WHERE id_user = '{$result_can['id']}'AND id_post = '{$_POST['like_id']}'");
+                            $row_cnt2 = $test->num_rows;
+                            if ($row_cnt2 == 0){
+                                $sql = "UPDATE post SET likes = likes + 1 WHERE id ='{$_POST['like_id']}'";
+                                $ajout = ("INSERT INTO jaime (id_user,id_post) VALUES ('{$result_can['id']}','{$_POST['like_id']}')")
+                                or die($mysqli->error);
+                                $mysqli->query($sql);
+                                $mysqli->query($ajout);
+                                ?><meta http-equiv="refresh" content="0"><?php
+
+                            }
+                            else{
+                                $sql = "UPDATE post SET likes = likes - 1 WHERE id ='{$_POST['like_id']}'";
+                                $supp = ("DELETE FROM jaime WHERE id_user = '{$result_can['id']}' AND id_post = '{$_POST['like_id']}'")
+                                or die($mysqli->error);
+                                $mysqli->query($sql);
+                                $mysqli->query($supp);
+                                ?><meta http-equiv="refresh" content="0"><?php
+                            }
+                        }
+                        $_POST['like_comment'] = NULL;
+                    }
                 }
                 if($result_can){
                     commenter($com);
@@ -75,9 +122,12 @@ include "function_used.php";
 
 <?php
 //actionnement des formulaires
-if(isset($_POST["delete"])) {
-    if ($mysqli->query("DELETE FROM post WHERE comment_id_destinataire= '{$_POST['supp']}'") === TRUE) {
-        echo "\nsupprimé";
+if(isset($_POST["supp"])) {
+
+    if ($mysqli->query("DELETE FROM post WHERE comment_id_destinataire= {$_POST['supp']}") === TRUE) {
+        echo "\nsuppriméeee";
+    } else {
+        echo "Error deleting record: " . $mysqli->error;
     }
     $mysqli->query("DELETE FROM post WHERE id = {$_POST['supp']}");
     ?>
