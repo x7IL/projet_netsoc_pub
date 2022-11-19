@@ -29,6 +29,7 @@ $username2 = $username2->fetch_assoc();
                 ?>
             </div>
         </div>
+
         <form action="" id="modif_bio" method="POST" style="margin-left: 1%;">
             <div class='control block-cube block-input' style="position: relative; z-index: 11; display: inline-block ; margin-bottom: 1%">
                 <label for="">
@@ -118,10 +119,7 @@ if($result_can && isset($_POST['supp_compte'])){
     $supp = ("DELETE FROM user WHERE id = '{$username2['id']}'")
     or die($mysqli->error);
     $mysqli->query($supp);
-
     echo "<script> location.replace('index.php'); </script>";
-
-
 
 }
 
