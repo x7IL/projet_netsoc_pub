@@ -57,5 +57,73 @@ $username2 = $username2->fetch_assoc();
         include('page/mur_commentaire_profile.php')
         ?>
     </div>
+    <form action="" class="form_delete_list_comment" method="post">
+        <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+            <label>
+                <input type="hidden" name="supp_compte" value="<?php echo $username2['id']?>"/>
+                <input name="supprime" type="submit" value="Supprimer le compte" style=" background-color: #212121; color: #fff;">
+            </label>
+            <?php useless_div(); ?>
+        </div>
+    </form>
 </div>
+
+<?php
+
+if($result_can && isset($_POST['supp_compte'])){
+
+
+//    supprime les commentaires
+    $com_delete = [];
+    $result = $mysqli->query("SELECT * FROM post WHERE id_user = {$username2['id']}");
+    while (($line = $result->fetch_assoc()))
+        $com_delete[] = $line;
+    foreach($com_delete as $row){
+        $supp = ("DELETE FROM jaime WHERE id_user = '{$username2['id']}'")
+        or die($mysqli->error);
+        $mysqli->query($supp);
+        $mysqli->query("DELETE FROM post WHERE id_user= {$username2['id']}");
+    }
+    $supp = ("DELETE FROM jaime WHERE id_user = '{$username2['id']}'")
+    or die($mysqli->error);
+    $mysqli->query($supp);
+    $mysqli->query("DELETE FROM post WHERE id_user = '{$username2['id']}'");
+
+//    supprime la biographie
+    $supp = ("DELETE FROM profile WHERE id_user = '{$username2['id']}'")
+    or die($mysqli->error);
+    $mysqli->query($supp);
+
+//    supprime les abo
+
+    $com_delete = [];
+    $result = $mysqli->query("SELECT * FROM abo WHERE id_user = {$username2['id']}");
+    while ($line = $result->fetch_assoc()) {
+        $result2 = $mysqli->query("UPDATE user SET follower = follower - 1 WHERE id ='{$line['id_follo']}'");
+    }
+    $supp = ("DELETE FROM abo WHERE id_user = '{$username2['id']}'")
+    or die($mysqli->error);
+    $mysqli->query($supp);
+
+//    supprime les likes
+
+    $com_delete = [];
+    $result = $mysqli->query("SELECT * FROM jaime WHERE id_user = {$username2['id']}");
+    while ($line = $result->fetch_assoc()) {
+        $result2 = $mysqli->query("UPDATE post SET likes = likes - 1 WHERE id ='{$line['id_post']}'");
+    }
+
+//    supprime l'user
+
+    $supp = ("DELETE FROM user WHERE id = '{$username2['id']}'")
+    or die($mysqli->error);
+    $mysqli->query($supp);
+
+    header("Location : index.php");
+
+
+
+}
+
+?>
 

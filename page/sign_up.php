@@ -60,6 +60,7 @@ function extracted($password, $user, $email, $genre, $age, mysqli $mysqli)
     global $mysqli;
     $hash = hash("whirlpool", $password);
     // Password Hashing is used here.
+    session_start();
     $sql = "INSERT INTO user (username, password, email, genre, age) VALUES ('$user', '$hash','$email','$genre','$age')";
     if ($mysqli->query($sql) === TRUE) {
         setcookie("username", $_POST["username"], time() + 3600);
