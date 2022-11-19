@@ -60,41 +60,47 @@ function extracted($password, $user, $email, $genre, $age, mysqli $mysqli)
     global $mysqli;
     $hash = hash("whirlpool", $password);
     // Password Hashing is used here.
-
+    session_start();
     $sql = "INSERT INTO user (username, password, email, genre, age) VALUES ('$user', '$hash','$email','$genre','$age')";
     if ($mysqli->query($sql) === TRUE) {
+        setcookie("username", $_POST["username"], time() + 3600);
+        setcookie("email", $_POST["email"], time() + 3600);
+        setcookie("password", $hash, time() + 3600);
         $result_canf = $mysqli->query("SELECT * FROM user WHERE email = '$email' AND password ='$hash'");
         $result_canf = $result_canf->fetch_assoc();
         $bio = "INSERT INTO profile (biographie, id_user ,username) VALUES ('Biographie de $user', '{$result_canf['id']}', '$user')";
         $mysqli->query($bio);
-        log_in($user, $email, $password);
     } else {
         echo "<br>Error: " . $sql . "<br>" . $mysqli->error;
     }
 }
 
 if (isset($_POST["password"]) && isset($_POST["username"]) && isset($_POST["repassword"]) && isset($_POST["email"])) {
-    $user = $_POST["username"];
-    $password = $_POST["password"];
-    $repassword = $_POST["repassword"];
-    $email = $_POST["email"];
-    $genre = $_POST["genre"];
-    $age = $_POST["age"];
-    $result_can = myqli_query($mysqli, "SELECT * FROM user WHERE email = '$email' AND username = '$user'");
-    $result_can = $result_can->fetch_assoc();
+        $user = $_POST["username"];
+        $password = $_POST["password"];
+        $repassword = $_POST["repassword"];
+        $email = $_POST["email"];
+        $genre = $_POST["genre"];
+        $age = $_POST["age"];
 
+        $result_can = mysqli_query($mysqli, "SELECT * FROM user WHERE email = '$email' AND username = '$user'");
+        $result_can = $result_can->fetch_assoc();
+        echo "test";
 
-    if (!$result_can) {
-        if ($repassword == $password) {
-            extracted($password, $user, $email, $genre, $age, $mysqli);
+        if (!$result_can) {
+            echo "test";
+            if ($repassword == $password) {
+                extracted($password, $user, $email, $genre, $age, $mysqli);
+                echo "<script> location.replace('index.php'); </script>";
+                exit();
+            } else {
+                echo "<script> location.replace('index.php?erreur=3'); </script>";
+                exit();
+            }
         } else {
-            header('Location: index.php?erreur=3');
-            exit();
+            echo "<script> location.replace('index.php?erreur=2'); </script>";
         }
-    } else {
-        header('Location: index.php?erreur=2');
     }
-}
     //gestion des messages d'erreurs
 ?>
 
