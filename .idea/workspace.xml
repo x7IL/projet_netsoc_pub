@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;feat&gt; : Le bouton like fonctionne ==&gt; ajout d'une data base jaime&#10;         Le bouton follow fonctionne ==&gt; ajout d'une data base abo">
+    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;feat&gt; : delete compte dans le profile.php">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/function_used.php" beforeDir="false" afterPath="$PROJECT_DIR$/function_used.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/log_in.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/log_in.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/sign_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/sign_up.php" afterDir="false" />
     </list>
@@ -106,7 +105,7 @@
       <workItem from="1668437871549" duration="1684000" />
       <workItem from="1668535689606" duration="6224000" />
       <workItem from="1668788023829" duration="13750000" />
-      <workItem from="1668847542068" duration="4068000" />
+      <workItem from="1668847542068" duration="4746000" />
     </task>
     <task id="LOCAL-00001" summary="fix color&#10;feat log out">
       <created>1666892569914</created>
@@ -248,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668849479909</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="&lt;feat&gt; : delete compte dans le profile.php">
+      <created>1668873594060</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1668873594060</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +286,7 @@
     <MESSAGE value="&lt;feat&gt; : début bouton like seulement sur la page mur_commentaire.php&#10;et d'avoir fait en sorte que lorsqu'on refresh la page, on revient a l'ednroit ou on est" />
     <MESSAGE value="&lt;feat&gt; : Le bouton like fonctionne ==&gt; ajout d'une data base jaime" />
     <MESSAGE value="&lt;feat&gt; : Le bouton like fonctionne ==&gt; ajout d'une data base jaime&#10;         Le bouton follow fonctionne ==&gt; ajout d'une data base abo" />
-    <option name="LAST_COMMIT_MESSAGE" value="&lt;feat&gt; : Le bouton like fonctionne ==&gt; ajout d'une data base jaime&#10;         Le bouton follow fonctionne ==&gt; ajout d'une data base abo" />
+    <MESSAGE value="&lt;feat&gt; : delete compte dans le profile.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="&lt;feat&gt; : delete compte dans le profile.php" />
   </component>
 </project>

@@ -35,16 +35,16 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
                 setcookie("email", $_POST['email'], time() + 3600);
                 setcookie("password", $hash, time() + 3600);
                 echo "Cookies Set Successfuly";
-                header('Location: index.php?user=' . $email);
+                echo "<script> location.replace('index.php?user='. $email); </script>";
                 exit();
             }
 
         }
-        header('Location: index.php?erreur=1');
+        echo "<script> location.replace('index.php?erreur=1'); </script>";
 
     }
     else {
-        header('Location: index.php?erreur=1');
+        echo "<script> location.replace('index.php?erreur=1'); </script>";
     }
 }
 //gestion des messages d'erreurs

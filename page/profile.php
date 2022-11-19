@@ -119,7 +119,7 @@ if($result_can && isset($_POST['supp_compte'])){
     or die($mysqli->error);
     $mysqli->query($supp);
 
-    header("Location : index.php");
+    echo "<script> location.replace('index.php'); </script>";
 
 
 

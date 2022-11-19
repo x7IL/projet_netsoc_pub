@@ -91,14 +91,14 @@ if (isset($_POST["password"]) && isset($_POST["username"]) && isset($_POST["repa
             echo "test";
             if ($repassword == $password) {
                 extracted($password, $user, $email, $genre, $age, $mysqli);
-                header('Location: index.php');
+                echo "<script> location.replace('index.php'); </script>";
                 exit();
             } else {
-                header('Location: index.php?erreur=3');
+                echo "<script> location.replace('index.php?erreur=3'); </script>";
                 exit();
             }
         } else {
-            header('Location: index.php?erreur=2');
+            echo "<script> location.replace('index.php?erreur=2'); </script>";
         }
     }
     //gestion des messages d'erreurs
