@@ -1,4 +1,3 @@
-
 <h1 style="font-size: 2em">Sign Up</h1>
 
     <form class="formulaire_inscription" action="" method="POST" style="word-spacing: 2px; display: inline-block; padding-right: 2%;">
@@ -47,8 +46,35 @@
 <?php
     //include "join_db.php";
 
-    if (isset($_POST["password"]) && isset($_POST["username"]) && isset($_POST["repassword"]) && isset($_POST["email"])) {
-        $mysqli = join_database();
+/**
+ * @param $password
+ * @param $user
+ * @param $email
+ * @param $genre
+ * @param $age
+ * @param mysqli $mysqli
+ * @return void
+ */
+function extracted($password, $user, $email, $genre, $age, mysqli $mysqli)
+{
+    global $mysqli;
+    $hash = hash("whirlpool", $password);
+    // Password Hashing is used here.
+    $sql = "INSERT INTO user (username, password, email, genre, age) VALUES ('$user', '$hash','$email','$genre','$age')";
+    if ($mysqli->query($sql) === TRUE) {
+        setcookie("username", $_POST["username"], time() + 3600);
+        setcookie("email", $_POST["email"], time() + 3600);
+        setcookie("password", $hash, time() + 3600);
+        $result_canf = $mysqli->query("SELECT * FROM user WHERE email = '$email' AND password ='$hash'");
+        $result_canf = $result_canf->fetch_assoc();
+        $bio = "INSERT INTO profile (biographie, id_user ,username) VALUES ('Biographie de $user', '{$result_canf['id']}', '$user')";
+        $mysqli->query($bio);
+    } else {
+        echo "<br>Error: " . $sql . "<br>" . $mysqli->error;
+    }
+}
+
+if (isset($_POST["password"]) && isset($_POST["username"]) && isset($_POST["repassword"]) && isset($_POST["email"])) {
         $user = $_POST["username"];
         $password = $_POST["password"];
         $repassword = $_POST["repassword"];
@@ -56,48 +82,24 @@
         $genre = $_POST["genre"];
         $age = $_POST["age"];
 
-        $result_can = mysqli_query($mysqli, "SELECT email FROM user WHERE email = '$email'");
-        $result_can_login = mysqli_query($mysqli, "SELECT username FROM user WHERE username = '$user'");
+        $result_can = mysqli_query($mysqli, "SELECT * FROM user WHERE email = '$email' AND username = '$user'");
+        $result_can = $result_can->fetch_assoc();
+        echo "test";
 
-
-        if (mysqli_num_rows($result_can) == 0 and mysqli_num_rows($result_can_login) == 0) {
+        if (!$result_can) {
+            echo "test";
             if ($repassword == $password) {
-                global $mysqli;
-                $message = "ok";
-                $hash = hash("whirlpool", $password);
-                // Password Hashing is used here.
-                $sql = "INSERT INTO user (username, password, email, genre, age) VALUES ('$user', '$hash','$email','$genre','$age')";
-                if ($mysqli->query($sql) === TRUE) {
-                    setcookie("username", $_POST["username"], time() + 3600);
-                    setcookie("email", $_POST["email"], time() + 3600);
-                    setcookie("password", $hash, time() + 3600);
-                    $result_can = $mysqli->query("SELECT * FROM user WHERE email = '$email' AND password ='$hash'");
-                    $result_can = $result_can->fetch_assoc();
-                    $bio = "INSERT INTO profile (biographie, id_user ,username) VALUES ('Biographie de $user', '{$result_can['id']}', '$user')";
-                    $mysqli->query($bio);
-                } else {
-                    echo "<br>Error: " . $sql . "<br>" . $mysqli->error;
-                }
+                extracted($password, $user, $email, $genre, $age, $mysqli);
                 header('Location: index.php');
+                exit();
             } else {
                 header('Location: index.php?erreur=3');
+                exit();
             }
         } else {
             header('Location: index.php?erreur=2');
         }
     }
     //gestion des messages d'erreurs
-    if (isset($_COOKIE)) {
-        if (isset($_GET['erreur'])) {
-            $err = $_GET['erreur'];
-            if ($err == 1)
-                echo "<h1>Utilisateur ou mot de passe incorrect</h1>";
-            if ($err == 2)
-                echo "<h1>le nom d'utilisateur existe deja et l'adresse mail</h1>";
-            if ($err == 3)
-                echo "<h1>les mots de passe ne correspondent pas</h1>";
-        }
-    }
-mysqli_close($mysqli);
 ?>
 

@@ -41,12 +41,13 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
 
         }
         header('Location: index.php?erreur=1');
+
     }
     else {
         header('Location: index.php?erreur=1');
     }
 }
 //gestion des messages d'erreurs
-mysqli_close($mysqli); // fermer la connexion
+ // fermer la connexion
 ?>
 

@@ -21,6 +21,7 @@
     <body style="color:white">
     <?php
         require "join_db.php";
+
         join_database();
         if(isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
             $result_can = $mysqli->query("SELECT * FROM user WHERE email = '{$_COOKIE['email']}' AND password ='{$_COOKIE['password']}'");
@@ -31,8 +32,7 @@
         }
         include "get_all_files.php";
         require "css_code.php";
-
-
+        include "function_used.php";
 
 
         ?>
@@ -81,9 +81,6 @@
 
                 <?php
                 if($result_can) {
-                    $result_can = $mysqli->query("SELECT * FROM user WHERE email = '{$_COOKIE['email']}' AND password ='{$_COOKIE['password']}'");
-                    $result_can = $result_can->fetch_assoc();
-
                     ?>
                     <span>
                         <a href="#">Profile</a>

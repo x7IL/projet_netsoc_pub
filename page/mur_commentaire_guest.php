@@ -95,7 +95,7 @@
                                     or die($mysqli->error);
                                     $mysqli->query($sql);
                                     $mysqli->query($ajout);
-                                    ?><meta http-equiv="refresh" content="0"><?php
+
 
                                 }
                                 else{
@@ -104,7 +104,7 @@
                                     or die($mysqli->error);
                                     $mysqli->query($sql);
                                     $mysqli->query($supp);
-                                    ?><meta http-equiv="refresh" content="0"><?php
+
                                 }
                             }
                             $_POST['like_comment'] = NULL;

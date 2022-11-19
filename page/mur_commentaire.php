@@ -4,9 +4,6 @@
     </div>
 </div>
 
-<?php
-include "function_used.php";
-?>
 <div id="post_message_accueil">
     <form action="#" method="post" id="post_messages" style="margin-top: 3%; margin-bottom: 2%; f">
 
@@ -77,7 +74,6 @@ include "function_used.php";
                             or die($mysqli->error);
                             $mysqli->query($sql);
                             $mysqli->query($ajout);
-                            ?><meta http-equiv="refresh" content="0"><?php
 
                         }
                         else{
@@ -86,7 +82,7 @@ include "function_used.php";
                             or die($mysqli->error);
                             $mysqli->query($sql);
                             $mysqli->query($supp);
-                            ?><meta http-equiv="refresh" content="0"><?php
+
                         }
                     }
                     $_POST['like'] = NULL;
@@ -129,7 +125,7 @@ include "function_used.php";
                                 or die($mysqli->error);
                                 $mysqli->query($sql);
                                 $mysqli->query($ajout);
-                                ?><meta http-equiv="refresh" content="0"><?php
+
 
                             }
                             else{
@@ -138,7 +134,7 @@ include "function_used.php";
                                 or die($mysqli->error);
                                 $mysqli->query($sql);
                                 $mysqli->query($supp);
-                                ?><meta http-equiv="refresh" content="0"><?php
+
                             }
                         }
                         $_POST['like_comment'] = NULL;

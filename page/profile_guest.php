@@ -1,6 +1,5 @@
 <?php
-global $mysqli;
-global $result_can;
+
 
 include('function_used.php');
 $guest = $_GET['profile_guest'];
@@ -48,7 +47,6 @@ if($row_cnt==1){
                             or die($mysqli->error);
                             $mysqli->query($sql);
                             $mysqli->query($ajout);
-                            ?><meta http-equiv="refresh" content="0"><?php
 
                         }
                         else{
@@ -57,7 +55,6 @@ if($row_cnt==1){
                             or die($mysqli->error);
                             $mysqli->query($sql);
                             $mysqli->query($supp);
-                            ?><meta http-equiv="refresh" content="0"><?php
                         }
                     }
                     $_POST['abo_id'] = NULL;

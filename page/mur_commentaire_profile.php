@@ -8,10 +8,6 @@
     </form>
 </div>
 
-<?php
-include "function_used.php";
-?>
-
 <div id="list_message_profile_recherche" style=" width: 100%">
 
     <?php
@@ -52,7 +48,6 @@ include "function_used.php";
                                 or die($mysqli->error);
                                 $mysqli->query($sql);
                                 $mysqli->query($ajout);
-                                ?><meta http-equiv="refresh" content="0"><?php
 
                             }
                             else{
@@ -61,7 +56,6 @@ include "function_used.php";
                                 or die($mysqli->error);
                                 $mysqli->query($sql);
                                 $mysqli->query($supp);
-                                ?><meta http-equiv="refresh" content="0"><?php
                             }
                         }
                         $_POST['like'] = NULL;
@@ -95,7 +89,6 @@ include "function_used.php";
                                 or die($mysqli->error);
                                 $mysqli->query($sql);
                                 $mysqli->query($ajout);
-                                ?><meta http-equiv="refresh" content="0"><?php
 
                             }
                             else{
@@ -104,7 +97,6 @@ include "function_used.php";
                                 or die($mysqli->error);
                                 $mysqli->query($sql);
                                 $mysqli->query($supp);
-                                ?><meta http-equiv="refresh" content="0"><?php
                             }
                         }
                         $_POST['like_comment'] = NULL;

@@ -1,5 +1,5 @@
 <?php
-    global $mysqli;
+
     $output = '' ;
     if (isset($_GET['searchVal'])){
 
