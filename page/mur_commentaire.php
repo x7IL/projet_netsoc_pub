@@ -69,6 +69,7 @@
                         $test = $mysqli->query("SELECT * FROM jaime WHERE id_user = '{$result_can['id']}'AND id_post = '{$_POST['like_id']}'");
                         $row_cnt2 = $test->num_rows;
                         if ($row_cnt2 == 0){
+
                             $sql = "UPDATE post SET likes = likes + 1 WHERE id ='{$_POST['like_id']}'";
                             $ajout = ("INSERT INTO jaime (id_user,id_post) VALUES ('{$result_can['id']}','{$_POST['like_id']}')")
                             or die($mysqli->error);

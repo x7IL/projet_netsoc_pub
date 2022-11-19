@@ -63,6 +63,7 @@ function extracted($password, $user, $email, $genre, $age, mysqli $mysqli)
     session_start();
     $sql = "INSERT INTO user (username, password, email, genre, age) VALUES ('$user', '$hash','$email','$genre','$age')";
     if ($mysqli->query($sql) === TRUE) {
+
         setcookie("username", $_POST["username"], time() + 3600);
         setcookie("email", $_POST["email"], time() + 3600);
         setcookie("password", $hash, time() + 3600);
@@ -70,6 +71,7 @@ function extracted($password, $user, $email, $genre, $age, mysqli $mysqli)
         $result_canf = $result_canf->fetch_assoc();
         $bio = "INSERT INTO profile (biographie, id_user ,username) VALUES ('Biographie de $user', '{$result_canf['id']}', '$user')";
         $mysqli->query($bio);
+
     } else {
         echo "<br>Error: " . $sql . "<br>" . $mysqli->error;
     }
@@ -91,14 +93,14 @@ if (isset($_POST["password"]) && isset($_POST["username"]) && isset($_POST["repa
             echo "test";
             if ($repassword == $password) {
                 extracted($password, $user, $email, $genre, $age, $mysqli);
-                echo "<script> location.replace('index.php'); </script>";
-                exit();
+//                echo "<script> location.replace('index.php'); </script>";
+
             } else {
-                echo "<script> location.replace('index.php?erreur=3'); </script>";
-                exit();
+//                echo "<script> location.replace('index.php?erreur=3'); </script>";
+
             }
         } else {
-            echo "<script> location.replace('index.php?erreur=2'); </script>";
+//            echo "<script> location.replace('index.php?erreur=2'); </script>";
         }
     }
     //gestion des messages d'erreurs
