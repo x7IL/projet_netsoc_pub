@@ -103,11 +103,15 @@
     if ($result_can) { ?>
 
         <div class="pub_gauche" >
-            test
+            ici
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9998748839382972"
+                    crossorigin="anonymous"></script>
         </div >
 
         <div class="pub_droite">
-            test2
+            labas
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9998748839382972"
+                    crossorigin="anonymous"></script>
         </div>
     <?php } ?>
 
@@ -172,7 +176,7 @@
         <?php
     }
     if (isset($_POST["message"]) && !empty(trim(str_replace("'","\'",$_POST["message"])))) {
-        $message_replace = str_replace("'","\'",$_POST["message"]);
+        $message_replace = htmlspecialchars(str_replace("'","\'",$_POST["message"]));
         insert_fields('post', ["ID_user" => $result_can['id'], "post" => $message_replace,"username_source" => $result_can['username'], "username_destinataire" => $guest]);  //mettre l'id user dans la requets
         echo '<meta http-equiv="refresh" content="0">';
     }

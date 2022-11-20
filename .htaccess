@@ -1,0 +1,17 @@
+
+<FilesMatch "\.php$">
+Order deny,allow
+Deny from all
+</FilesMatch>
+
+# Permit a specific ".php" file
+<FilesMatch "^index\.php$">
+Order deny,allow
+Allow from all
+</FilesMatch>
+
+# bloque l'access aux dossiers
+Options All -Indexes
+
+DirectoryIndex index.php
+
