@@ -33,11 +33,9 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
                 setcookie("username", $row["username"], time() + 3600);
                 setcookie("email", $_POST['email'], time() + 3600);
                 setcookie("password", $hash, time() + 3600);
-                echo "Cookies Set Successfuly";
-                echo "<script> location.replace('index.php?user='. $email); </script>";
+                echo "<script> location.replace('index.php'); </script>";
                 exit();
             }
-
         }
         echo "<script> location.replace('index.php?erreur=1'); </script>";
         exit();

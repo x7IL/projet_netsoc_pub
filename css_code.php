@@ -96,9 +96,7 @@ function like_button($id,$com){
 function affi_sous_comment($row){
     global $result_can;
     ?>
-
-    <div style="background-color: #212121; margin-top: 5%; margin-left: 5%;margin-bottom: 2%; margin-right: 2%; position: relative; z-index: 10;"  class='control block-cube block-input'>
-        <b style=" max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?=$row["username_destinataire"]?> </b>
+    <b style=" max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?=$row["username_destinataire"]?> </b>
         <i style="opacity: 0.5;position: relative; z-index: 11;"><?=$row["post_date"]; ?></i>
         <br><b style=" max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?= "   ".$row["likes"]." likes"; ?></b>
         <p style="font-size: 1.2em; margin-bottom: 0; max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?=$row["post"]; ?></p>
@@ -120,7 +118,6 @@ function affi_sous_comment($row){
         }
         useless_div();
         ?>
-    </div>
 <?php
 }
 
@@ -156,6 +153,19 @@ function commenter($com){
 
     </form>
 <?php
+}
+
+function delete_comment($com){
+    ?>
+    <form action="" class="form_delete_list_comment" method="post">
+        <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+            <label>
+                <input type="hidden" name="supp" value="<?php echo $com['id']?>"/>
+                <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
+            </label>
+            <?php useless_div(); ?>
+        </div>
+    </form> <?php
 }
 ?>
 
