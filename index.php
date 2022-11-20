@@ -95,7 +95,24 @@
                 ?>
                 </div>
         </nav>
-        <div class="contenue">
+
+    <!-- #################################### div pub #################################### -->
+
+    <?php
+    if ($result_can) { ?>
+
+        <div class="pub_gauche" >
+            test
+        </div >
+
+        <div class="pub_droite">
+            test2
+        </div>
+    <?php } ?>
+
+    <!-- #################################### div center #################################### -->
+
+    <div class="contenue">
 
             <?php
             if(isset($_GET['erreur'])){

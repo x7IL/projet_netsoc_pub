@@ -66,8 +66,8 @@ if (isset($_POST["password"]) && isset($_POST["username"]) && isset($_POST["repa
             // Password Hashing is used here.
             $sql = "INSERT INTO user (username, password, email, genre, age) VALUES ('$user', '$hash','$email','$genre','$age')";
             if ($mysqli->query($sql) === TRUE) {
-                setcookie("username", $_POST["username"], time() + 3600);
-                setcookie("email", $_POST["email"], time() + 3600);
+                setcookie("username", $user, time() + 3600);
+                setcookie("email", $email, time() + 3600);
                 setcookie("password", $hash, time() + 3600);
                 $result_can = $mysqli->query("SELECT * FROM user WHERE email = '$email' AND password ='$hash'");
                 $result_can = $result_can->fetch_assoc();
