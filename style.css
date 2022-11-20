@@ -194,7 +194,34 @@ span:hover ul { /* Affiche la dropNav au survol de la souris avec la class .drop
     margin-top:0px;
     margin-left:-10px;
 }
+/*############################## pub ###############################*/
 
+.pub_gauche{
+    position: fixed;
+    margin-top: 200px;
+    left: 40px;
+    background-color: whitesmoke;
+    color: #212121;
+    width: 400px;
+    height: 500px;
+    vertical-align: top;
+    z-index: 5;
+    border: 1px solid aliceblue;
+    max-width: 400px;
+}
+.pub_droite{
+    position: fixed;
+    margin-top: 200px;
+    right: 40px;
+    background-color: whitesmoke;
+    color: #212121;
+    width: 400px;
+    height: 500px;
+    vertical-align: top;
+    z-index: 5;
+    border: 1px solid aliceblue;
+    max-width: 400px;
+}
 
 /*############################## center ###############################*/
 
