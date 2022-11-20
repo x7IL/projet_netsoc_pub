@@ -99,7 +99,7 @@ function affi_sous_comment($row){
     <b style=" max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?=$row["username_destinataire"]?> </b>
         <i style="opacity: 0.5;position: relative; z-index: 11;"><?=$row["post_date"]; ?></i>
         <br><b style=" max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?= "   ".$row["likes"]." likes"; ?></b>
-        <p style="font-size: 1.2em; margin-bottom: 0; max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?=$row["post"]; ?></p>
+        <p style="font-size: 1.2em; margin-bottom: 0; max-width: 99%; word-wrap: break-word ; overflow-wrap: anywhere ;position: relative; z-index: 11; "><?=$row["post"]; ?></p>
         <?php
         if ($result_can) {
             like_button("like_comment",$row);

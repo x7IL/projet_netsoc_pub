@@ -41,7 +41,7 @@ body, .bar_search, .log_in_up .button_log_in:hover,.log_in_up .button_sign_up:ho
     right: 0;
     left: 0;
     top: 0;
-    height: 60px;
+    height: 5%;
 }
 .logo_nom{
     flex-direction: row;
@@ -58,7 +58,7 @@ body, .bar_search, .log_in_up .button_log_in:hover,.log_in_up .button_sign_up:ho
 }
 #image_logo{
     height: 40px;
-    width: 60px;
+    width: 5%;
 }
 .search_bar {
     position: center;
@@ -198,29 +198,31 @@ span:hover ul { /* Affiche la dropNav au survol de la souris avec la class .drop
 
 .pub_gauche{
     position: fixed;
-    margin-top: 200px;
-    left: 40px;
+    margin-top: 10%;
+    left: 2%;
     background-color: whitesmoke;
     color: #212121;
-    width: 400px;
+    width: 20%;
     height: 500px;
     vertical-align: top;
     z-index: 5;
     border: 1px solid aliceblue;
-    max-width: 400px;
+    max-width: 20%;
+    min-width: 10%;
 }
 .pub_droite{
     position: fixed;
-    margin-top: 200px;
-    right: 40px;
+    margin-top: 10%;
+    right: 2%;
     background-color: whitesmoke;
     color: #212121;
-    width: 400px;
+    width: 20%;
     height: 500px;
     vertical-align: top;
     z-index: 5;
     border: 1px solid aliceblue;
-    max-width: 400px;
+    max-width: 20%;
+    min-width: 10%;
 }
 
 /*############################## center ###############################*/
@@ -235,9 +237,10 @@ span:hover ul { /* Affiche la dropNav au survol de la souris avec la class .drop
     overflow: auto;
     min-height: 200px;
     width: 100%;
-    min-width: 800px;
-    max-width: 900px;
+    min-width: 50%;
+    max-width: 50%;
     margin: auto;
+    overflow-y: hidden;
 }
 .center{
     /*background-color: #FAFAFA;*/
@@ -246,8 +249,9 @@ span:hover ul { /* Affiche la dropNav au survol de la souris avec la class .drop
     overflow: auto;
     text-align: left;
     min-height: 200px;
-    min-width: 800px;
-    margin-top: 100px;
+    min-width: 100%;
+    margin-top: 5%;
+    overflow-y: hidden;
 }
 
 
