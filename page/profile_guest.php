@@ -1,7 +1,6 @@
 <?php
 
 
-include('function_used.php');
 $guest = $_GET['profile_guest'];
 $username = mysqli_query($mysqli,"SELECT * FROM profile WHERE username = '{$_GET['profile_guest']}'");
 $row_cnt = $username->num_rows;
@@ -39,10 +38,14 @@ if($row_cnt==1){
                     <?php
                     if(isset($_POST['sabo'])){
 
+                        $temp = $mysqli->query("SELECT * FROM abo WHERE id_follo = {$username2['id']}");
+                        $row_cnt3 = $temp->num_rows;
+
                         $test = $mysqli->query("SELECT * FROM abo WHERE id_follo = '{$username2['id']}'AND id_user = '{$result_can['id']}'");
                         $row_cnt2 = $test->num_rows;
                         if ($row_cnt2 == 0){
-                            $sql = "UPDATE user SET follower = follower + 1 WHERE id = '{$username2['id']}'";
+
+                            $sql = "UPDATE user SET follower = '$row_cnt3' + 1 WHERE id = '{$username2['id']}'";
                             $ajout = ("INSERT INTO abo (id_follo,id_user) VALUES ('{$username2['id']}','{$result_can['id']}')")
                             or die($mysqli->error);
                             $mysqli->query($sql);

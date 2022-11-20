@@ -68,25 +68,29 @@
                     if(isset($_POST['like'])){
                         $test = $mysqli->query("SELECT * FROM jaime WHERE id_user = '{$result_can['id']}'AND id_post = '{$_POST['like_id']}'");
                         $row_cnt2 = $test->num_rows;
-                        if ($row_cnt2 == 0){
 
-                            $sql = "UPDATE post SET likes = likes + 1 WHERE id ='{$_POST['like_id']}'";
+                        $temp= $mysqli->query("SELECT * FROM jaime WHERE id_post = '{$_POST['like_id']}'");
+                        $row_cnt3 = $temp->num_rows;
+                        if ($row_cnt2 == 0){
+                            $sql = "UPDATE post SET likes = '$row_cnt3' + 1 WHERE id ='{$_POST['like_id']}'";
                             $ajout = ("INSERT INTO jaime (id_user,id_post) VALUES ('{$result_can['id']}','{$_POST['like_id']}')")
                             or die($mysqli->error);
                             $mysqli->query($sql);
                             $mysqli->query($ajout);
+                            ?><meta http-equiv="refresh" content="0"><?php
 
                         }
                         else{
-                            $sql = "UPDATE post SET likes = likes - 1 WHERE id ='{$_POST['like_id']}'";
+                            $sql = "UPDATE post SET likes = $row_cnt3 - 1 WHERE id ='{$_POST['like_id']}'";
                             $supp = ("DELETE FROM jaime WHERE id_user = '{$result_can['id']}' AND id_post = '{$_POST['like_id']}'")
                             or die($mysqli->error);
                             $mysqli->query($sql);
                             $mysqli->query($supp);
-
+                            ?><meta http-equiv="refresh" content="0"><?php
                         }
                     }
                     $_POST['like'] = NULL;
+                } ?>
                 } ?>
             </div>
 
@@ -116,30 +120,33 @@
                     <br><b style=" max-width: 99%; word-wrap: break-word; position: relative; z-index: 11;"><?= "   ".$row["likes"]." likes"; ?></b>
                     <p style="font-size: 1.2em; margin-bottom: 0; max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?=$row["post"]; ?></p>
                     <?php if($result_can){
-                        like_button("like_comment",$row);
+                        affi_sous_comment($row);
+
                         if(isset($_POST['like_comment'])){
                             $test = $mysqli->query("SELECT * FROM jaime WHERE id_user = '{$result_can['id']}'AND id_post = '{$_POST['like_id']}'");
                             $row_cnt2 = $test->num_rows;
+
+                            $temp= $mysqli->query("SELECT * FROM jaime WHERE id_post = '{$_POST['like_id']}'");
+                            $row_cnt3 = $temp->num_rows;
                             if ($row_cnt2 == 0){
-                                $sql = "UPDATE post SET likes = likes + 1 WHERE id ='{$_POST['like_id']}'";
+                                $sql = "UPDATE post SET likes = $row_cnt3+ 1 WHERE id ='{$_POST['like_id']}'";
                                 $ajout = ("INSERT INTO jaime (id_user,id_post) VALUES ('{$result_can['id']}','{$_POST['like_id']}')")
                                 or die($mysqli->error);
                                 $mysqli->query($sql);
                                 $mysqli->query($ajout);
-
+                                ?><meta http-equiv="refresh" content="0"><?php
 
                             }
                             else{
-                                $sql = "UPDATE post SET likes = likes - 1 WHERE id ='{$_POST['like_id']}'";
+                                $sql = "UPDATE post SET likes = $row_cnt3 - 1 WHERE id ='{$_POST['like_id']}'";
                                 $supp = ("DELETE FROM jaime WHERE id_user = '{$result_can['id']}' AND id_post = '{$_POST['like_id']}'")
                                 or die($mysqli->error);
                                 $mysqli->query($sql);
                                 $mysqli->query($supp);
-
+                                ?><meta http-equiv="refresh" content="0"><?php
                             }
                         }
                         $_POST['like_comment'] = NULL;
-
 
                     } ?>
                     <?php if($result_can!=NULL && $row['ID_user'] == $result_can['id']){

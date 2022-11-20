@@ -30,7 +30,6 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
             $hash = hash("whirlpool", $password);
 
             if (($row['password'] == $hash)) {
-                session_start();
                 setcookie("username", $row["username"], time() + 3600);
                 setcookie("email", $_POST['email'], time() + 3600);
                 setcookie("password", $hash, time() + 3600);
@@ -41,10 +40,12 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
 
         }
         echo "<script> location.replace('index.php?erreur=1'); </script>";
+        exit();
 
     }
     else {
         echo "<script> location.replace('index.php?erreur=1'); </script>";
+        exit();
     }
 }
 //gestion des messages d'erreurs

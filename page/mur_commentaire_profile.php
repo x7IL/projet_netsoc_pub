@@ -79,28 +79,32 @@
                 // output data of each row
                 foreach($coms2 as $row){
                     affi_sous_comment($row);
-                    if(isset($_POST['like_comment'])){
-                        if(isset($_POST['like_comment'])){
-                            $test = $mysqli->query("SELECT * FROM jaime WHERE id_user = '{$result_can['id']}'AND id_post = '{$_POST['like_id']}'");
-                            $row_cnt2 = $test->num_rows;
-                            if ($row_cnt2 == 0){
-                                $sql = "UPDATE post SET likes = likes + 1 WHERE id ='{$_POST['like_id']}'";
-                                $ajout = ("INSERT INTO jaime (id_user,id_post) VALUES ('{$result_can['id']}','{$_POST['like_id']}')")
-                                or die($mysqli->error);
-                                $mysqli->query($sql);
-                                $mysqli->query($ajout);
 
-                            }
-                            else{
-                                $sql = "UPDATE post SET likes = likes - 1 WHERE id ='{$_POST['like_id']}'";
-                                $supp = ("DELETE FROM jaime WHERE id_user = '{$result_can['id']}' AND id_post = '{$_POST['like_id']}'")
-                                or die($mysqli->error);
-                                $mysqli->query($sql);
-                                $mysqli->query($supp);
-                            }
+                    if(isset($_POST['like_comment'])){
+                        $test = $mysqli->query("SELECT * FROM jaime WHERE id_user = '{$result_can['id']}'AND id_post = '{$_POST['like_id']}'");
+                        $row_cnt2 = $test->num_rows;
+
+                        $temp= $mysqli->query("SELECT * FROM jaime WHERE id_post = '{$_POST['like_id']}'");
+                        $row_cnt3 = $temp->num_rows;
+                        if ($row_cnt2 == 0){
+                            $sql = "UPDATE post SET likes = $row_cnt3 + 1 WHERE id ='{$_POST['like_id']}'";
+                            $ajout = ("INSERT INTO jaime (id_user,id_post) VALUES ('{$result_can['id']}','{$_POST['like_id']}')")
+                            or die($mysqli->error);
+                            $mysqli->query($sql);
+                            $mysqli->query($ajout);
+                            ?><meta http-equiv="refresh" content="0"><?php
+
                         }
-                        $_POST['like_comment'] = NULL;
+                        else{
+                            $sql = "UPDATE post SET likes = $row_cnt3 - 1 WHERE id ='{$_POST['like_id']}'";
+                            $supp = ("DELETE FROM jaime WHERE id_user = '{$result_can['id']}' AND id_post = '{$_POST['like_id']}'")
+                            or die($mysqli->error);
+                            $mysqli->query($sql);
+                            $mysqli->query($supp);
+                            ?><meta http-equiv="refresh" content="0"><?php
+                        }
                     }
+                    $_POST['like_comment'] = NULL;
                 }
                 if($result_can){
                     commenter($com);
