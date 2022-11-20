@@ -49,6 +49,7 @@
                 // output data of each row
                 foreach($coms2 as $row){
                     affi_sous_comment($row);
+
                 }
                 if($result_can){
                     commenter($com);
