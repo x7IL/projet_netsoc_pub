@@ -157,7 +157,7 @@ function commenter($com){
 
 function delete_comment($com){
     ?>
-    <form action="" class="form_delete_list_comment" method="post">
+    <form action="" class="form_delete_list_comment" method="post" onsubmit="return confirm('Etes vous sur de supprimer le commenraire ?');">
         <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
             <label>
                 <input type="hidden" name="supp" value="<?php echo $com['id']?>"/>

@@ -1,5 +1,4 @@
 
-
 <h1 style="font-size: 2em">Log In</h1>
 
 <form class="formulaire_connexion" action="" method="POST">

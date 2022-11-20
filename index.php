@@ -18,6 +18,7 @@
             localStorage.setItem("scrollpos", window.scrollY);
         };
     </script>
+
     <body style="color:white">
     <?php
 

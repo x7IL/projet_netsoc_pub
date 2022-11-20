@@ -58,7 +58,8 @@ $username2 = $username2->fetch_assoc();
         include('page/mur_commentaire_profile.php')
         ?>
     </div>
-    <form action="" class="form_delete_list_comment" method="post">
+
+    <form action="" class="form_delete_list_comment" method="post" onsubmit="return confirm('Etes vous sur de supprimer le compte ?');">
         <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
             <label>
                 <input type="hidden" name="supp_compte" value="<?php echo $username2['id']?>"/>
@@ -71,15 +72,12 @@ $username2 = $username2->fetch_assoc();
 
 <?php
 
-if($result_can && isset($_POST['supp_compte'])){
-
-
-//    supprime les commentaires
+if(isset($_POST['supprime']) && isset($_POST['supp_compte'])) {
     $com_delete = [];
     $result = $mysqli->query("SELECT * FROM post WHERE id_user = {$username2['id']}");
     while (($line = $result->fetch_assoc()))
         $com_delete[] = $line;
-    foreach($com_delete as $row){
+    foreach ($com_delete as $row) {
         $supp = ("DELETE FROM jaime WHERE id_user = '{$username2['id']}'")
         or die($mysqli->error);
         $mysqli->query($supp);
@@ -120,8 +118,9 @@ if($result_can && isset($_POST['supp_compte'])){
     or die($mysqli->error);
     $mysqli->query($supp);
     echo "<script> location.replace('index.php'); </script>";
-
 }
 
 ?>
+
+
 

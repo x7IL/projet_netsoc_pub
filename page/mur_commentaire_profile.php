@@ -45,11 +45,9 @@
                 if($result_can && $com['ID_user'] == $result_can['id']){
                     delete_comment($com);
                 }
-
                 // output data of each row
                 foreach($coms2 as $row){
                     affi_sous_comment($row);
-
                 }
                 if($result_can){
                     commenter($com);

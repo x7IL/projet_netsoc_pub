@@ -54,7 +54,6 @@
                 if($result_can){
                     commenter($com);
                 }
-
                 useless_div();
                 ?> </div> <?php
         }
