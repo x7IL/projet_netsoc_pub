@@ -41,8 +41,9 @@ function affi_pour($com){
         ?>
         <post style="position : relative; z-index: 10">
             <b style=" max-width: 99%; word-wrap: break-word;  ">
-                <?=$com['username_source'];?>
-                <i style="opacity: 0.5;"> pour </i><?=$com["username_destinataire"]; ?>
+                <a href="index.php?variable=profile_guest.php&profile_guest=<?=$com['username_source'];?>" style="text-decoration: none ; color: #fff"><?=$com['username_source'];?></a>
+                <i style="opacity: 0.5;"> pour </i>
+                <a href="index.php?variable=profile_guest.php&profile_guest=<?=$com["username_destinataire"]; ?>" style="text-decoration: none ; color: #fff"><?=$com["username_destinataire"]; ?></a>
             </b>
             <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i>
             <br><b style=" max-width: 99%; word-wrap: break-word;  "><?= "   ".$com["likes"]." likes"; ?></b>
@@ -96,7 +97,7 @@ function like_button($id,$com){
 function affi_sous_comment($row){
     global $result_can;
     ?>
-    <b style=" max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?=$row["username_destinataire"]?> </b>
+    <b style=" max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "> <a href="index.php?variable=profile_guest.php&profile_guest=<?=$row["username_destinataire"]?>" style="text-decoration: none ; color: #fff"><?=$row["username_destinataire"]?></a></b>
         <i style="opacity: 0.5;position: relative; z-index: 11;"><?=$row["post_date"]; ?></i>
         <br><b style=" max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?= "   ".$row["likes"]." likes"; ?></b>
         <p style="font-size: 1.2em; margin-bottom: 0; max-width: 99%; word-wrap: break-word ; overflow-wrap: anywhere ;position: relative; z-index: 11; "><?=$row["post"]; ?></p>
@@ -157,7 +158,7 @@ function commenter($com){
 
 function delete_comment($com){
     ?>
-    <form action="" class="form_delete_list_comment" method="post" onsubmit="return confirm('Etes vous sur de supprimer le commenraire ?');">
+    <form action="" class="form_delete_list_comment" method="post" onsubmit="return confirm('Etes vous sur de supprimer le commentaire ?');">
         <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
             <label>
                 <input type="hidden" name="supp" value="<?php echo $com['id']?>"/>
