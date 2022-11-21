@@ -22,6 +22,8 @@
     <body style="color:white">
     <?php
 
+        echo $_SERVER['SERVER_NAME'];
+
         require "join_db.php";
 
         join_database();

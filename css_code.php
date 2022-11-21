@@ -104,17 +104,8 @@ function affi_sous_comment($row){
         if ($result_can) {
             like_button("like_comment",$row);
         }
-        if ($result_can != NULL && $row['ID_user'] == $result_can['id']) {?>
-            <form action="" class="form_delete_list_comment" method="post">
-                <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
-                    <label>
-                        <input type="hidden" name="supp" value="<?php echo $row['id']?>"/>
-                        <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
-                    </label>
-                    <?php useless_div(); ?>
-                </div>
-            </form>
-        <?php
+        if ($result_can != NULL && $row['ID_user'] == $result_can['id']) {
+            delete_comment($row);
         }
         useless_div();
         ?>
@@ -157,7 +148,7 @@ function commenter($com){
 
 function delete_comment($com){
     ?>
-    <form action="" class="form_delete_list_comment" method="post" onsubmit="return confirm('Etes vous sur de supprimer le commentaire ?');">
+    <form class="form_delete_list_comment" method="post" onsubmit="return confirm('Etes vous sur de supprimer le commentaire ?');">
         <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
             <label>
                 <input type="hidden" name="supp" value="<?php echo $com['id']?>"/>

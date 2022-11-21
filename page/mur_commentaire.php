@@ -77,7 +77,6 @@
                     <?php
                     affi_sous_comment($row);
                     ?>
-
                 </div>
                 <?php
             }
