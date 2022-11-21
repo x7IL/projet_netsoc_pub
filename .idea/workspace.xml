@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="">
+    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;feat&gt; : .htaccess">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/join_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/join_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/mur_commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +107,7 @@
       <workItem from="1668437871549" duration="1684000" />
       <workItem from="1668535689606" duration="6224000" />
       <workItem from="1668788023829" duration="13750000" />
-      <workItem from="1668847542068" duration="5938000" />
+      <workItem from="1668847542068" duration="6564000" />
     </task>
     <task id="LOCAL-00001" summary="fix color&#10;feat log out">
       <created>1666892569914</created>
@@ -259,28 +263,42 @@
       <option name="project" value="LOCAL" />
       <updated>1668875947726</updated>
     </task>
-    <task id="LOCAL-00023" summary="&lt;feat&gt; : zone pub">
-      <created>1668953335917</created>
+    <task id="LOCAL-00023" summary="&lt;feat&gt; : delete compte dans le profile.php">
+      <created>1668877477440</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1668953335917</updated>
+      <updated>1668877477440</updated>
     </task>
-    <task id="LOCAL-00024" summary="&lt;feat&gt; : zone pub css">
-      <created>1668953429789</created>
+    <task id="LOCAL-00024" summary="&lt;fix&gt; : correction supprime compte">
+      <created>1668949022818</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1668953429789</updated>
+      <updated>1668949022818</updated>
     </task>
-    <task id="LOCAL-00025" summary="&lt;fix&gt; : div des commentaire des messages qui s'aggrandissais quand le message était trop grand">
-      <created>1668969224074</created>
+    <task id="LOCAL-00025" summary="&lt;fix&gt; : reduction de codes, tous les isset dans l'index">
+      <created>1668952401463</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1668969224074</updated>
+      <updated>1668952401463</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="&lt;feat&gt; : confirmation button">
+      <created>1668957374545</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1668957374545</updated>
+    </task>
+    <task id="LOCAL-00027" summary="&lt;feat&gt; : .htaccess">
+      <created>1668965287189</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1668965287189</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,9 +331,10 @@
     <MESSAGE value="&lt;feat&gt; : Le bouton like fonctionne ==&gt; ajout d'une data base jaime" />
     <MESSAGE value="&lt;feat&gt; : Le bouton like fonctionne ==&gt; ajout d'une data base jaime&#10;         Le bouton follow fonctionne ==&gt; ajout d'une data base abo" />
     <MESSAGE value="&lt;feat&gt; : delete compte dans le profile.php" />
-    <MESSAGE value="&lt;feat&gt; : zone pub" />
-    <MESSAGE value="&lt;feat&gt; : zone pub css" />
-    <MESSAGE value="&lt;fix&gt; : div des commentaire des messages qui s'aggrandissais quand le message était trop grand" />
-    <option name="LAST_COMMIT_MESSAGE" value="&lt;fix&gt; : div des commentaire des messages qui s'aggrandissais quand le message était trop grand" />
+    <MESSAGE value="&lt;fix&gt; : correction supprime compte" />
+    <MESSAGE value="&lt;fix&gt; : reduction de codes, tous les isset dans l'index" />
+    <MESSAGE value="&lt;feat&gt; : confirmation button" />
+    <MESSAGE value="&lt;feat&gt; : .htaccess" />
+    <option name="LAST_COMMIT_MESSAGE" value="&lt;feat&gt; : .htaccess" />
   </component>
 </project>

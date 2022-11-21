@@ -7,15 +7,47 @@ $username2 = mysqli_query($mysqli,"SELECT * FROM user WHERE username = '$guest'"
 $username2 = $username2->fetch_assoc();
 ?>
 
+
+<style>
+    .typing-demo {
+        width: <?php echo strlen($username['biographie'])/2/2 ?>em;
+        animation: typing 2s steps(50), blink 0.5s step-end infinite alternate;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid;
+        font-family: monospace;
+        font-size: 2em;
+    }
+
+    @keyframes typing {
+        from {
+            width: 0
+        }
+    }
+
+    @keyframes blink {
+        100% {
+            border-color: transparent
+        }
+    }
+</style>
 <h1 style="font-size: 2em">Profile</h1>
 <div>
     <div class='control block-cube block-input' style="margin-right: 5%; margin-bottom: 5%">
         <h1 style="position: relative ; z-index: 11 ;font-size: 2em; ">Profile de <?php echo $guest; ?></h1>
         <div>
             <div id="div_bio" style="position: relative; z-index: 11">
+
                 <?php
-                echo '<h3 style="position: relative;z-index: 11 ;">Biographie:</h3>';
-                echo "<p style='font-size: 1.1em  ; position: relative ;z-index: 11;'>{$username['biographie']}</p>";
+
+                echo '<h3 style="position: relative;z-index: 5 ;">Biographie:</h3>';
+                ?>
+                <div>
+                    <div class="typing-demo" style="">
+                        <?php echo "<h1>{$username['biographie']}</h1>" ?>
+                    </div>
+                </div>
+                <?php
                 echo '<h5>Follower :</h5>'.$username2['follower'];
 
                 if (isset($_POST['modifier']) && isset($_POST['id'])) {
