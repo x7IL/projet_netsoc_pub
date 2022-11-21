@@ -85,6 +85,9 @@ if($row_cnt==1){
                 }
                 ?>
             </div>
+            <?php
+            if($full_droit == 1){
+            ?>
             <form action="" id="modif_bio" method="POST" style="margin-left: 1%; margin-top: 3%">
                 <div class='control block-cube block-input' style="position: relative; z-index: 11; display: inline-block ; margin-bottom: 1%">
                     <label for="">
@@ -99,7 +102,7 @@ if($row_cnt==1){
                 </div>
             </form>
         </div>
-        <?php useless_div(); ?>
+        <?php } useless_div(); ?>
     </div>
 
     <?php
