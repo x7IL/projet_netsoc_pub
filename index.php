@@ -25,9 +25,11 @@
 
                                                 #avoir les droits admin --> mettre son ip lorsque le site sera en ligne ou laisser en localhost
                             #avoir les droits permet de modifier le profil de quelqu'un ou de le supprimer.mer
+
+
 ################################################################################################################################################
         $full_droit = 0;
-        if ($_SERVER['SERVER_NAME'] == ''){
+        if ($_SERVER['REMOTE_ADDR'] == 'localhost'){
             $full_droit = 1;
         }
 ################################################################################################################################################
