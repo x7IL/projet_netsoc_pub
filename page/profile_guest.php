@@ -101,8 +101,9 @@ if($row_cnt==1){
 
                 </div>
             </form>
+            <?php } ?>
         </div>
-        <?php } useless_div(); ?>
+        <?php  useless_div(); ?>
     </div>
 
     <?php
