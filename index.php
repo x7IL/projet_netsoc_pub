@@ -135,12 +135,12 @@
                 <?php
                 if (isset($_GET['variable']) and file_exists('page/'.$_GET['variable'])){
                     $title = $_GET['variable'];
-                    require("page/$title");
+                    include("page/$title");
                 }
                 elseif(!isset($_GET['variable']) || $_GET['variable']==''){
                     $title = "mur_commentaire.php";
                     echo "<h1 style='font-size: 2em'>Commentaire</h1>";
-                    require("page/mur_commentaire.php");
+                    include("page/mur_commentaire.php");
                 }
                 else{
                     $title = "ERROR 404";
@@ -209,7 +209,6 @@ if(isset($_POST['like'])){
         or die($mysqli->error);
         $mysqli->query($sql);
         $mysqli->query($ajout);
-
     }
     else{
         $sql = "UPDATE post SET likes = likes - 1 WHERE id ='{$_POST['like_id']}'";

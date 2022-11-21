@@ -44,7 +44,6 @@ $username2 = $username2->fetch_assoc();
             <?php useless_div(); ?>
         </div>
     </form>
-
 </div>
 
 <br>

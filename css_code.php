@@ -136,12 +136,8 @@ function commenter($com){
                     </div>
                 </div>
             </label>
-
-
             <?php useless_div();?>
-
         </div>
-
     </form>
 <?php
 }
