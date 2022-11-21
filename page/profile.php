@@ -32,6 +32,23 @@ $username2 = $username2->fetch_assoc();
     }
 </style>
 <h1 style="font-size: 2em">Profile</h1>
+
+<br>
+<div>
+    <form action="" class="form_delete_list_comment" method="post" onsubmit="return confirm('Etes vous sur de supprimer le compte ?');">
+        <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+            <label>
+                <input type="hidden" name="supp_compte" value="<?php echo $username2['id']?>"/>
+                <input name="supprime" type="submit" value="Supprimer le compte" style=" background-color: #212121; color: #fff;">
+            </label>
+            <?php useless_div(); ?>
+        </div>
+    </form>
+
+</div>
+
+<br>
+
 <div>
     <div class='control block-cube block-input' style="margin-right: 5%; margin-bottom: 5%">
         <h1 style="position: relative ; z-index: 11 ;font-size: 2em; ">Profile de <?php echo $guest; ?></h1>
@@ -93,15 +110,6 @@ $username2 = $username2->fetch_assoc();
         ?>
     </div>
 
-    <form action="" class="form_delete_list_comment" method="post" onsubmit="return confirm('Etes vous sur de supprimer le compte ?');">
-        <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
-            <label>
-                <input type="hidden" name="supp_compte" value="<?php echo $username2['id']?>"/>
-                <input name="supprime" type="submit" value="Supprimer le compte" style=" background-color: #212121; color: #fff;">
-            </label>
-            <?php useless_div(); ?>
-        </div>
-    </form>
 </div>
 
 <?php

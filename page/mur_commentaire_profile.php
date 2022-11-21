@@ -46,27 +46,26 @@
                     delete_comment($com);
                 }
                 // output data of each row
-                foreach($coms2 as $row){
-                    $res = $mysqli->query("SELECT * FROM post WHERE comment_id_destinataire = '{$com['id']}'");
-                    if ($res) {
-                        // output data of each row
-                        while ($row = $res->fetch_assoc()) { ?>
-                            <div style="background-color: #212121; margin-top: 5%; margin-left: 5%;margin-bottom: 2%; margin-right: 2%; position: relative; z-index: 10;"  class='control block-cube block-input'>
-                                <?php
-                                affi_sous_comment($row);
-                                ?>
-                            </div>
+                $res = $mysqli->query("SELECT * FROM post WHERE comment_id_destinataire = '{$com['id']}'");
+                if ($res) {
+                    // output data of each row
+                    while ($row = $res->fetch_assoc()) { ?>
+                        <div style="background-color: #212121; margin-top: 5%; margin-left: 5%;margin-bottom: 2%; margin-right: 2%; position: relative; z-index: 10;"  class='control block-cube block-input'>
                             <?php
-                        }
-                        if($result_can){
-                            commenter($com);
-                        }
+                            affi_sous_comment($row);
+                            ?>
+                        </div>
+                        <?php
                     }
-                    useless_div();
+                    if($result_can){
+                        commenter($com);
+                    }
                 }
                 useless_div();
-                ?> </div> <?php
         }
+                useless_div();
+                ?> </div> <?php
     }
+
     ?>
 </div>
