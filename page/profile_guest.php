@@ -8,7 +8,6 @@ $username = $username->fetch_assoc();
 $username2 = mysqli_query($mysqli,"SELECT * FROM user WHERE username = '{$_GET['profile_guest']}'");
 $username2 = $username2->fetch_assoc();
 
-
 if($row_cnt==1){
     ?>
     <div class='control block-cube block-input' style="margin-right: 5%; margin-bottom: 5%">
@@ -26,7 +25,6 @@ if($row_cnt==1){
                     $test = $mysqli->query("SELECT * FROM abo WHERE id_follo = '{$username2['id']}'AND id_user = '{$result_can['id']}'");
                     $row_cnt2 = $test->num_rows;
                     ?>
-
                     <form action="" class="form_abo" method="post" style="margin-top: 2%">
                         <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
                             <label>

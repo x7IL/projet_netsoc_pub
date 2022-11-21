@@ -1,4 +1,11 @@
+<?php
 
+
+if($result_can){
+    echo "<script> location.replace('index.php'); </script>";
+}
+
+?>
 <h1 style="font-size: 2em">Sign Up</h1>
 
 <form class="formulaire_inscription" action="" method="POST" style="word-spacing: 2px;">

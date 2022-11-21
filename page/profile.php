@@ -5,6 +5,11 @@ $username = mysqli_query($mysqli,"SELECT * FROM profile WHERE username = '$guest
 $username = $username->fetch_assoc();
 $username2 = mysqli_query($mysqli,"SELECT * FROM user WHERE username = '$guest'");
 $username2 = $username2->fetch_assoc();
+
+
+if(!$result_can){
+    echo "<script> location.replace('index.php'); </script>";
+}
 ?>
 
 

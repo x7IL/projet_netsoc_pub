@@ -1,4 +1,12 @@
 
+<?php
+
+if($result_can){
+    echo "<script> location.replace('index.php'); </script>";
+}
+
+
+?>
 <h1 style="font-size: 2em">Log In</h1>
 
 <form class="formulaire_connexion" action="" method="POST">
