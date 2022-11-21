@@ -20,6 +20,7 @@
     </script>
 
     <body style="color:white">
+
     <?php
 
         echo $_SERVER['SERVER_NAME'];

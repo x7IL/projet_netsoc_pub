@@ -62,9 +62,9 @@
                     }
                 }
                 useless_div();
-        }
-                useless_div();
                 ?> </div> <?php
+        }
+
     }
 
     ?>
