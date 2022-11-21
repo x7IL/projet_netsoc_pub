@@ -64,8 +64,6 @@ $username2 = $username2->fetch_assoc();
                         <?php echo "<h1>{$username['biographie']}</h1>" ?>
                     </div>
                 </div>
-
-                <a href="index.php?variable=message_follower.php" style="text-decoration: none; color: #fff">Follower : <?=$username2['follower'] ;?></a>
                 <?php
 
                 if (isset($_POST['modifier']) && isset($_POST['id'])) {
@@ -78,6 +76,19 @@ $username2 = $username2->fetch_assoc();
                     echo "<meta http-equiv='refresh' content='0'>";
                 }
                 ?>
+
+                <a href="" id="follower" style="text-decoration: none; color: #fff">Follower : <?=$username2['follower'] ;?></a>
+                <br>
+                <?php
+                $abo = [];
+                $requestabo = $mysqli->query("SELECT id_follo FROM abo WHERE id_user = {$result_can['id']}");
+                while (($lineabo = $requestabo->fetch_assoc()))
+                    $abo[]=$lineabo;
+
+                $nb_abo = count($abo);
+                ?>
+                <a href="index.php?variable=message_suivis.php" id="suivie" style="text-decoration: none; color: #fff">Suivis : <?=$nb_abo ?></a>
+
                 <br>
             </div>
         </div>

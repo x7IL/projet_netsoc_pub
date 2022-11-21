@@ -25,13 +25,15 @@
     while (($lineabo = $requestabo->fetch_assoc()))
         $abo[]=$lineabo;
 
+    $nb_abo = count($abo);
+    print_r($nb_abo);
 
 
     //    afffichage
     foreach ($coms as $com){
 
             $ID_user = $com["ID_user"];
-            if ($ID_user!=NULL and in_array($ID_user , $abo)  ) {
+            if ($ID_user!=NULL  && in_array($ID_user , $abo)) {
 
                 $username_proprio = $mysqli->query("SELECT username FROM profile WHERE ID_user = '$ID_user'");
                 $username_proprio = $username_proprio->fetch_assoc();
@@ -81,7 +83,7 @@
                 ?>
                 <?php
 
-        }
+
             $res = $mysqli->query("SELECT * FROM post WHERE comment_id_destinataire = '{$com['id']}'");
             if ($res) {
                 // output data of each row
@@ -102,8 +104,7 @@
             ?>
             </div>
             <?php
-
+            }
     }
     ?>
 </div>
-

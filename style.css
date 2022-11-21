@@ -432,3 +432,14 @@ h1 {
 .credits a:hover {
     opacity: 1;
 }
+
+
+
+
+
+
+#follower:hover, #suivie:hover{
+    font-size: 1.2em;
+    transition:all 1s ease;
+    border-bottom: 1px #fff solid;
+}
