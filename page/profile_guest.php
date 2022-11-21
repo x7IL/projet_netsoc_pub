@@ -7,8 +7,7 @@ $row_cnt = $username->num_rows;
 $username = $username->fetch_assoc();
 $username2 = mysqli_query($mysqli,"SELECT * FROM user WHERE username = '{$_GET['profile_guest']}'");
 $username2 = $username2->fetch_assoc();
-?>
-<?php
+
 
 if($row_cnt==1){
     ?>
@@ -62,6 +61,7 @@ if($row_cnt==1){
                             $mysqli->query($sql);
                             $mysqli->query($supp);
                         }
+                        echo "<meta http-equiv='refresh' content='0'>";
                     }
                     $_POST['abo_id'] = NULL;
                 }

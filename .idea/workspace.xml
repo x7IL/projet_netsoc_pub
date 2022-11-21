@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_2022_08_52_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_2022_08_52__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/08bebf5b-e11a-44f0-9579-a76a6528d967.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/08bebf5b-e11a-44f0-9579-a76a6528d967.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css_code.php" beforeDir="false" afterPath="$PROJECT_DIR$/css_code.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/mur_commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/join_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/join_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/profile_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile_guest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,14 +285,7 @@
       <option name="project" value="LOCAL" />
       <updated>1668969224074</updated>
     </task>
-    <task id="LOCAL-00026" summary="&lt;fix&gt; : plein de chose dans profile , profile_guest.php et les mur commentaire">
-      <created>1669020960272</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1669020960273</updated>
-    </task>
-    <option name="localTasksCounter" value="27" />
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,7 +321,6 @@
     <MESSAGE value="&lt;feat&gt; : zone pub" />
     <MESSAGE value="&lt;feat&gt; : zone pub css" />
     <MESSAGE value="&lt;fix&gt; : div des commentaire des messages qui s'aggrandissais quand le message était trop grand" />
-    <MESSAGE value="&lt;fix&gt; : plein de chose dans profile , profile_guest.php et les mur commentaire" />
-    <option name="LAST_COMMIT_MESSAGE" value="&lt;fix&gt; : plein de chose dans profile , profile_guest.php et les mur commentaire" />
+    <option name="LAST_COMMIT_MESSAGE" value="&lt;fix&gt; : div des commentaire des messages qui s'aggrandissais quand le message était trop grand" />
   </component>
 </project>

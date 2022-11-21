@@ -13,7 +13,6 @@ function useless_div(){
         </div>
     <?php
 }
-
 // poster un commentaire ou un message
 function form_post(){
     ?>
