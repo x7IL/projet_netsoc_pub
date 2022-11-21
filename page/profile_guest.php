@@ -18,14 +18,17 @@ if($row_cnt==1){
             <div id="div_bio" style="position: relative; z-index: 11">
                 <?php
                 echo '<h3>Biographie:</h3>';
-                echo '<h5>Follower :</h5>'.$username2['follower'];
+                echo "<p style='font-size: 1.1em'>{$username['biographie']}</p> <br>";
+
+
+                echo "Follower : ".$username2['follower'] ;
 
                 if($result_can){
                     $test = $mysqli->query("SELECT * FROM abo WHERE id_follo = '{$username2['id']}'AND id_user = '{$result_can['id']}'");
                     $row_cnt2 = $test->num_rows;
                     ?>
 
-                    <form action="" class="form_delete_list_comment" method="post">
+                    <form action="" class="form_delete_list_comment" method="post" style="margin-top: 2%">
                         <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
                             <label>
                                 <input type="hidden" name="abo_id" value="<?php echo $username2['id']?>"/>
@@ -62,7 +65,6 @@ if($row_cnt==1){
                     }
                     $_POST['abo_id'] = NULL;
                 }
-                echo "<p style='font-size: 1.1em'>{$username['biographie']}</p>";
                 ?>
             </div>
         </div>

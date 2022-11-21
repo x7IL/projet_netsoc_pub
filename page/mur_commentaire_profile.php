@@ -8,7 +8,7 @@
     </form>
 </div>
 
-<div id="list_message_profile_recherche" style=" width: 100%">
+<div id="list_message_profile_recherche" style=" width: 100% ">
 
     <?php
     $coms = [];
@@ -31,7 +31,7 @@
         }
         if($boolean == 1 || $com['username_source'] == $guest){
             ?>
-            <div style="margin-top: 4%; margin-right: 2%; padding-bottom: 4%;" class='control block-cube block-input'>
+            <div style="margin-top: 4%; margin-right: 2%; padding-bottom: 4%; padding-left: 2px" class='control block-cube block-input'>
                 <?php
                 affi_pour($com);
                 ?>
@@ -47,10 +47,22 @@
                 }
                 // output data of each row
                 foreach($coms2 as $row){
-                    affi_sous_comment($row);
-                }
-                if($result_can){
-                    commenter($com);
+                    $res = $mysqli->query("SELECT * FROM post WHERE comment_id_destinataire = '{$com['id']}'");
+                    if ($res) {
+                        // output data of each row
+                        while ($row = $res->fetch_assoc()) { ?>
+                            <div style="background-color: #212121; margin-top: 5%; margin-left: 5%;margin-bottom: 2%; margin-right: 2%; position: relative; z-index: 10;"  class='control block-cube block-input'>
+                                <?php
+                                affi_sous_comment($row);
+                                ?>
+                            </div>
+                            <?php
+                        }
+                        if($result_can){
+                            commenter($com);
+                        }
+                    }
+                    useless_div();
                 }
                 useless_div();
                 ?> </div> <?php

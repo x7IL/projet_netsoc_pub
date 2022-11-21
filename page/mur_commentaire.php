@@ -76,12 +76,10 @@
             // output data of each row
             while ($row = $res->fetch_assoc()) { ?>
                 <div style="background-color: #212121; margin-top: 5%; margin-left: 5%;margin-bottom: 2%; margin-right: 2%; position: relative; z-index: 10;"  class='control block-cube block-input'>
-                    <?php if($result_can){
-                        affi_sous_comment($row);
-
-                    } ?>
-
+                    <?php
+                    affi_sous_comment($row);
                     ?>
+
                 </div>
                 <?php
             }

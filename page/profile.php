@@ -10,7 +10,7 @@ $username2 = $username2->fetch_assoc();
 
 <style>
     .typing-demo {
-        width: <?php echo strlen($username['biographie'])/2/2 ?>em;
+        width: <?php echo strlen($username['biographie'])/2/2+1 ?>em;
         animation: typing 2s steps(50), blink 0.5s step-end infinite alternate;
         white-space: nowrap;
         overflow: hidden;
@@ -36,7 +36,7 @@ $username2 = $username2->fetch_assoc();
     <div class='control block-cube block-input' style="margin-right: 5%; margin-bottom: 5%">
         <h1 style="position: relative ; z-index: 11 ;font-size: 2em; ">Profile de <?php echo $guest; ?></h1>
         <div>
-            <div id="div_bio" style="position: relative; z-index: 11">
+            <div id="div_bio" style="position: relative; z-index: 11; margin-left: 2px">
 
                 <?php
 
@@ -48,7 +48,7 @@ $username2 = $username2->fetch_assoc();
                     </div>
                 </div>
                 <?php
-                echo '<h5>Follower :</h5>'.$username2['follower'];
+                echo "Follower : ".$username2['follower'] ;
 
                 if (isset($_POST['modifier']) && isset($_POST['id'])) {
                     $modifier_ver = str_replace("'","\'",$_POST['modifier']);
@@ -57,17 +57,19 @@ $username2 = $username2->fetch_assoc();
                     } else {
                         echo "Error updating record: " . $mysqli->error;
                     }
+                    echo "<meta http-equiv='refresh' content='0'>";
                 }
                 ?>
+                <br>
             </div>
         </div>
 
-        <form action="" id="modif_bio" method="POST" style="margin-left: 1%;">
+        <form action="" id="modif_bio" method="POST" style="margin-left: 1%; margin-top: 3%">
             <div class='control block-cube block-input' style="position: relative; z-index: 11; display: inline-block ; margin-bottom: 1%">
                 <label for="">
                     <label for="modifier"></label><input type="text" id="modifier" name="modifier" placeholder="Inserez le message à remplacer"  style="background-color: #212121 ;color: #fff; "/>
                     <input type="hidden" id="modif_bio_submit" name="id"  value="<?php echo $row['ID']?>" /><br>
-                    <input type="submit" value="modifier la bio"  style="background-color: #212121 ;color: #fff;">
+                    <input type="submit" value="modifier la bio"  style="background-color: #212121 ;color: #fff;" autocomplete="off">
                     <div class='bg-top'>
                         <div class='bg-inner'></div>
                     </div>
