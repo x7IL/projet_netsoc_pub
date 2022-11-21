@@ -9,7 +9,7 @@
         $count = mysqli_num_rows($query);
 
         if($count == 0){
-            $output = '<div>No results!</div>';
+            $output = '<div>Pas de resultat !!! :=====></div>';
         }else{
             while($row = mysqli_fetch_array($query)){
                 if(isset($_COOKIE["username"])){

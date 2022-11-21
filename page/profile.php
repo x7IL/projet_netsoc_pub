@@ -87,8 +87,12 @@ $username2 = $username2->fetch_assoc();
                 $nb_abo = count($abo);
                 ?>
                 <a href="index.php?variable=message_suivis.php" id="suivie" style="text-decoration: none; color: #fff">Suivis : <?=$nb_abo ?></a>
-
                 <br>
+                <a href="index.php?variable=liste_following.php" id="suivie" style="text-decoration: none; color: #fff">Liste des suicides en Algérie</a>
+                <br>
+                <a href="index.php?variable=liste_follower.php" id="suivie" style="text-decoration: none; color: #fff">Liste des suiveurs en suicides en Algérie</a>
+                <br>
+
             </div>
         </div>
 
