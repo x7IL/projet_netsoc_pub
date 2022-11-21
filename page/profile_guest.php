@@ -22,7 +22,7 @@ if($row_cnt==1){
 
                 echo "Follower : ".$username2['follower'] ;
 
-                if($result_can){
+                if($result_can && $result_can['id'] != $username2['id']){
                     $test = $mysqli->query("SELECT * FROM abo WHERE id_follo = '{$username2['id']}'AND id_user = '{$result_can['id']}'");
                     $row_cnt2 = $test->num_rows;
                     ?>
