@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;fix&gt; : bloque l'auto follow de sois emme dans profile guest">
-      <change beforePath="$PROJECT_DIR$/join_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/join_data.json" afterDir="false" />
+    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;fix&gt; : renvoie a la page index.php lorsqu'on est connecté et qu'on se trouve dans sign or login&#10;renvoie a la page index.php si on est pas connecté et qu'on se trouve sur profil">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/mur_commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/mur_commentaire_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire_guest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/mur_commentaire_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire_profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/profile_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile_guest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +109,7 @@
       <workItem from="1668535689606" duration="6224000" />
       <workItem from="1668788023829" duration="13750000" />
       <workItem from="1668847542068" duration="5938000" />
-      <workItem from="1669044029841" duration="7066000" />
+      <workItem from="1669044029841" duration="8870000" />
     </task>
     <task id="LOCAL-00001" summary="fix color&#10;feat log out">
       <created>1666892569914</created>
@@ -309,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669056444660</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="&lt;fix&gt; : renvoie a la page index.php lorsqu'on est connecté et qu'on se trouve dans sign or login&#10;renvoie a la page index.php si on est pas connecté et qu'on se trouve sur profil">
+      <created>1669056700667</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1669056700667</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,6 +361,7 @@
     <MESSAGE value="&lt;fix&gt; : correction bug message_suivis.php" />
     <MESSAGE value="&lt;feat&gt; : liste follower et following" />
     <MESSAGE value="&lt;fix&gt; : bloque l'auto follow de sois emme dans profile guest" />
-    <option name="LAST_COMMIT_MESSAGE" value="&lt;fix&gt; : bloque l'auto follow de sois emme dans profile guest" />
+    <MESSAGE value="&lt;fix&gt; : renvoie a la page index.php lorsqu'on est connecté et qu'on se trouve dans sign or login&#10;renvoie a la page index.php si on est pas connecté et qu'on se trouve sur profil" />
+    <option name="LAST_COMMIT_MESSAGE" value="&lt;fix&gt; : renvoie a la page index.php lorsqu'on est connecté et qu'on se trouve dans sign or login&#10;renvoie a la page index.php si on est pas connecté et qu'on se trouve sur profil" />
   </component>
 </project>

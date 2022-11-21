@@ -23,7 +23,14 @@
 
     <?php
 
-        echo $_SERVER['SERVER_NAME'];
+                                                #avoir les droits admin --> mettre son ip lorsque le site sera en ligne ou laisser en localhost
+                            #avoir les droits permet de modifier le profil de quelqu'un ou de le supprimer.mer
+################################################################################################################################################
+        $full_droit = 0;
+        if ($_SERVER['SERVER_NAME'] == 'localhost'){
+            $full_droit = 1;
+        }
+################################################################################################################################################
 
         require "join_db.php";
 
@@ -244,4 +251,62 @@ if(isset($_POST['like_comment'])){
     ?><meta http-equiv="refresh" content="0"><?php
 }
 $_POST['like_comment'] = NULL;
+
+if(isset($_POST['supprime']) && isset($_POST['supp_compte'])) {
+    $com_delete = [];
+    $result = $mysqli->query("SELECT * FROM post WHERE id_user = {$username2['id']}");
+    while (($line = $result->fetch_assoc()))
+        $com_delete[] = $line;
+    foreach ($com_delete as $row) {
+        $supp = ("DELETE FROM jaime WHERE id_user = '{$username2['id']}'")
+        or die($mysqli->error);
+        $mysqli->query($supp);
+        $mysqli->query("DELETE FROM post WHERE id_user= {$username2['id']}");
+    }
+    $supp = ("DELETE FROM jaime WHERE id_user = '{$username2['id']}'")
+    or die($mysqli->error);
+    $mysqli->query($supp);
+    $mysqli->query("DELETE FROM post WHERE id_user = '{$username2['id']}'");
+
+//    supprime la biographie
+    $supp = ("DELETE FROM profile WHERE id_user = '{$username2['id']}'")
+    or die($mysqli->error);
+    $mysqli->query($supp);
+
+//    supprime les abo
+
+    $com_delete = [];
+    $result = $mysqli->query("SELECT * FROM abo WHERE id_user = {$username2['id']}");
+    while ($line = $result->fetch_assoc()) {
+        $result2 = $mysqli->query("UPDATE user SET follower = follower - 1 WHERE id ='{$line['id_follo']}'");
+    }
+    $supp = ("DELETE FROM abo WHERE id_user = '{$username2['id']}'")
+    or die($mysqli->error);
+    $mysqli->query($supp);
+
+//    supprime les likes
+
+    $com_delete = [];
+    $result = $mysqli->query("SELECT * FROM jaime WHERE id_user = {$username2['id']}");
+    while ($line = $result->fetch_assoc()) {
+        $result2 = $mysqli->query("UPDATE post SET likes = likes - 1 WHERE id ='{$line['id_post']}'");
+    }
+
+//    supprime l'user
+
+    $supp = ("DELETE FROM user WHERE id = '{$username2['id']}'")
+    or die($mysqli->error);
+    $mysqli->query($supp);
+    echo "<script> location.replace('index.php'); </script>";
+}
+
+if (isset($_POST['modifier']) && isset($_POST['idz'])) {
+    $modifier_ver = str_replace("'","\'",$_POST['modifier']);
+    $sql = "UPDATE profile SET biographie='$modifier_ver' WHERE id_user ='{$username2['id']}'";
+    if ($mysqli->query($sql) === TRUE) {
+    } else {
+        echo "Error updating record: " . $mysqli->error;
+    }
+    echo "<meta http-equiv='refresh' content='0'>";
+}
 ?>

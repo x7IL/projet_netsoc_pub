@@ -63,7 +63,7 @@
             </div>
 
             <?php
-            if($result_can && $com['ID_user'] == $result_can['id']){
+            if(($result_can && $com['ID_user'] == $result_can['id']) || $full_droit == 1){
                 delete_comment($com);
             }
             ?>
