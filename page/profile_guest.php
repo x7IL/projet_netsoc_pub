@@ -27,7 +27,7 @@ if($row_cnt==1){
                     $row_cnt2 = $test->num_rows;
                     ?>
 
-                    <form action="" class="form_delete_list_comment" method="post" style="margin-top: 2%">
+                    <form action="" class="form_abo" method="post" style="margin-top: 2%">
                         <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
                             <label>
                                 <input type="hidden" name="abo_id" value="<?php echo $username2['id']?>"/>

@@ -18,8 +18,6 @@
     $result = $mysqli->query("SELECT * FROM post WHERE comment_id_destinataire IS NULL ORDER BY post_date DESC");
     while (($line = $result->fetch_assoc()))
         $coms[] = $line;
-    ?>
-    <?php
 
 
     //    afffichage
@@ -42,17 +40,17 @@
                     </b>
                     <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i>
                     <br><b style=" max-width: 99%; word-wrap: break-word;  "><?= "    ".$com["likes"]." likes"; ?></b>
-                    <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
+                    <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; ; overflow-wrap: anywhere"><?=$com["post"]; ?></p>
                 </post>
                 <?php
             }
             else{
                 ?>
                 <post style="position : relative; z-index: 10">
-                    <b style=" max-width: 99%; word-wrap: break-word; "><a href="index.php?variable=profile_guest.php&profile_guest=<?=$username_proprio?>" style="text-decoration: none ; color: #fff"><?=$username_proprio?></a></b>
+                    <b style=" max-width: 99%; word-wrap: break-word; overflow-wrap: anywhere"><a href="index.php?variable=profile_guest.php&profile_guest=<?=$username_proprio?>" style="text-decoration: none ; color: #fff"><?=$username_proprio?></a></b>
                     <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i>
                     <br><b style=" max-width: 99%; word-wrap: break-word;  "><?= "   ".$com["likes"]." likes"; ?></b>
-                    <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
+                    <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; overflow-wrap: anywhere "><?=$com["post"]; ?></p>
                 </post>
                 <?php
             }

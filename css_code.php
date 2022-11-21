@@ -46,7 +46,7 @@ function affi_pour($com){
             </b>
             <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i>
             <br><b style=" max-width: 99%; word-wrap: break-word;  "><?= "   ".$com["likes"]." likes"; ?></b>
-            <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; ">
+            <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; overflow-wrap: anywhere">
                 <?=$com["post"]; ?>
             </p>
         </post>
@@ -55,14 +55,14 @@ function affi_pour($com){
     else{
         ?>
         <post style="position : relative; z-index: 10">
-            <b style=" max-width: 99%; word-wrap: break-word; ">
-                <?=$com['username_source'];?>
+            <b style=" max-width: 99%; word-wrap: break-word; overflow-wrap: anywhere">
+                <a href="index.php?variable=profile_guest.php&profile_guest=<?=$com['username_source'];?>" style="text-decoration: none ; color: #fff"><?=$com['username_source'];?></a>
             </b>
             <i style="opacity: 0.5;">
                 <?=$com["post_date"]; ?>
             </i>
             <br><b style=" max-width: 99%; word-wrap: break-word;  "><?= "   ".$com["likes"]." likes"; ?></b>
-            <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; ">
+            <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; overflow-wrap: anywhere">
                 <?=$com["post"]; ?>
             </p>
         </post>

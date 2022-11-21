@@ -1,7 +1,294 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="@localhost">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.43">
-    <root id="1"/>
+    <root id="1">
+      <DefaultCasing>exact</DefaultCasing>
+      <DefaultEngine>InnoDB</DefaultEngine>
+      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
+      <Grants>|root||debian-sys-maint|localhost|ALTER|G
+|root||phpmyadmin|localhost|ALTER|G
+|root||root|localhost|ALTER|G
+|root||test|localhost|ALTER|G
+|root||debian-sys-maint|localhost|ALTER ROUTINE|G
+|root||phpmyadmin|localhost|ALTER ROUTINE|G
+|root||root|localhost|ALTER ROUTINE|G
+|root||test|localhost|ALTER ROUTINE|G
+|root||debian-sys-maint|localhost|APPLICATION_PASSWORD_ADMIN|G
+|root||phpmyadmin|localhost|APPLICATION_PASSWORD_ADMIN|G
+|root||root|localhost|APPLICATION_PASSWORD_ADMIN|G
+|root||test|localhost|APPLICATION_PASSWORD_ADMIN|G
+|root||mysql.infoschema|localhost|AUDIT_ABORT_EXEMPT|G
+|root||mysql.session|localhost|AUDIT_ABORT_EXEMPT|G
+|root||mysql.sys|localhost|AUDIT_ABORT_EXEMPT|G
+|root||phpmyadmin|localhost|AUDIT_ABORT_EXEMPT|G
+|root||root|localhost|AUDIT_ABORT_EXEMPT|G
+|root||test|localhost|AUDIT_ABORT_EXEMPT|G
+|root||debian-sys-maint|localhost|AUDIT_ADMIN|G
+|root||phpmyadmin|localhost|AUDIT_ADMIN|G
+|root||root|localhost|AUDIT_ADMIN|G
+|root||test|localhost|AUDIT_ADMIN|G
+|root||debian-sys-maint|localhost|AUTHENTICATION_POLICY_ADMIN|G
+|root||phpmyadmin|localhost|AUTHENTICATION_POLICY_ADMIN|G
+|root||root|localhost|AUTHENTICATION_POLICY_ADMIN|G
+|root||test|localhost|AUTHENTICATION_POLICY_ADMIN|G
+|root||debian-sys-maint|localhost|BACKUP_ADMIN|G
+|root||mysql.session|localhost|BACKUP_ADMIN|G
+|root||phpmyadmin|localhost|BACKUP_ADMIN|G
+|root||root|localhost|BACKUP_ADMIN|G
+|root||test|localhost|BACKUP_ADMIN|G
+|root||debian-sys-maint|localhost|BINLOG_ADMIN|G
+|root||phpmyadmin|localhost|BINLOG_ADMIN|G
+|root||root|localhost|BINLOG_ADMIN|G
+|root||test|localhost|BINLOG_ADMIN|G
+|root||debian-sys-maint|localhost|BINLOG_ENCRYPTION_ADMIN|G
+|root||phpmyadmin|localhost|BINLOG_ENCRYPTION_ADMIN|G
+|root||root|localhost|BINLOG_ENCRYPTION_ADMIN|G
+|root||test|localhost|BINLOG_ENCRYPTION_ADMIN|G
+|root||debian-sys-maint|localhost|CLONE_ADMIN|G
+|root||mysql.session|localhost|CLONE_ADMIN|G
+|root||phpmyadmin|localhost|CLONE_ADMIN|G
+|root||root|localhost|CLONE_ADMIN|G
+|root||test|localhost|CLONE_ADMIN|G
+|root||debian-sys-maint|localhost|CONNECTION_ADMIN|G
+|root||mysql.session|localhost|CONNECTION_ADMIN|G
+|root||phpmyadmin|localhost|CONNECTION_ADMIN|G
+|root||root|localhost|CONNECTION_ADMIN|G
+|root||test|localhost|CONNECTION_ADMIN|G
+|root||debian-sys-maint|localhost|CREATE|G
+|root||phpmyadmin|localhost|CREATE|G
+|root||root|localhost|CREATE|G
+|root||test|localhost|CREATE|G
+|root||debian-sys-maint|localhost|CREATE ROLE|G
+|root||phpmyadmin|localhost|CREATE ROLE|G
+|root||root|localhost|CREATE ROLE|G
+|root||test|localhost|CREATE ROLE|G
+|root||debian-sys-maint|localhost|CREATE ROUTINE|G
+|root||phpmyadmin|localhost|CREATE ROUTINE|G
+|root||root|localhost|CREATE ROUTINE|G
+|root||test|localhost|CREATE ROUTINE|G
+|root||debian-sys-maint|localhost|CREATE TABLESPACE|G
+|root||phpmyadmin|localhost|CREATE TABLESPACE|G
+|root||root|localhost|CREATE TABLESPACE|G
+|root||test|localhost|CREATE TABLESPACE|G
+|root||debian-sys-maint|localhost|CREATE TEMPORARY TABLES|G
+|root||phpmyadmin|localhost|CREATE TEMPORARY TABLES|G
+|root||root|localhost|CREATE TEMPORARY TABLES|G
+|root||test|localhost|CREATE TEMPORARY TABLES|G
+|root||debian-sys-maint|localhost|CREATE USER|G
+|root||phpmyadmin|localhost|CREATE USER|G
+|root||root|localhost|CREATE USER|G
+|root||test|localhost|CREATE USER|G
+|root||debian-sys-maint|localhost|CREATE VIEW|G
+|root||phpmyadmin|localhost|CREATE VIEW|G
+|root||root|localhost|CREATE VIEW|G
+|root||test|localhost|CREATE VIEW|G
+|root||debian-sys-maint|localhost|DELETE|G
+|root||phpmyadmin|localhost|DELETE|G
+|root||root|localhost|DELETE|G
+|root||test|localhost|DELETE|G
+|root||debian-sys-maint|localhost|DROP|G
+|root||phpmyadmin|localhost|DROP|G
+|root||root|localhost|DROP|G
+|root||test|localhost|DROP|G
+|root||debian-sys-maint|localhost|DROP ROLE|G
+|root||phpmyadmin|localhost|DROP ROLE|G
+|root||root|localhost|DROP ROLE|G
+|root||test|localhost|DROP ROLE|G
+|root||debian-sys-maint|localhost|ENCRYPTION_KEY_ADMIN|G
+|root||phpmyadmin|localhost|ENCRYPTION_KEY_ADMIN|G
+|root||root|localhost|ENCRYPTION_KEY_ADMIN|G
+|root||test|localhost|ENCRYPTION_KEY_ADMIN|G
+|root||debian-sys-maint|localhost|EVENT|G
+|root||phpmyadmin|localhost|EVENT|G
+|root||root|localhost|EVENT|G
+|root||test|localhost|EVENT|G
+|root||debian-sys-maint|localhost|EXECUTE|G
+|root||phpmyadmin|localhost|EXECUTE|G
+|root||root|localhost|EXECUTE|G
+|root||test|localhost|EXECUTE|G
+|root||debian-sys-maint|localhost|FILE|G
+|root||phpmyadmin|localhost|FILE|G
+|root||root|localhost|FILE|G
+|root||test|localhost|FILE|G
+|root||mysql.infoschema|localhost|FIREWALL_EXEMPT|G
+|root||mysql.session|localhost|FIREWALL_EXEMPT|G
+|root||mysql.sys|localhost|FIREWALL_EXEMPT|G
+|root||phpmyadmin|localhost|FIREWALL_EXEMPT|G
+|root||root|localhost|FIREWALL_EXEMPT|G
+|root||test|localhost|FIREWALL_EXEMPT|G
+|root||debian-sys-maint|localhost|FLUSH_OPTIMIZER_COSTS|G
+|root||phpmyadmin|localhost|FLUSH_OPTIMIZER_COSTS|G
+|root||root|localhost|FLUSH_OPTIMIZER_COSTS|G
+|root||test|localhost|FLUSH_OPTIMIZER_COSTS|G
+|root||debian-sys-maint|localhost|FLUSH_STATUS|G
+|root||phpmyadmin|localhost|FLUSH_STATUS|G
+|root||root|localhost|FLUSH_STATUS|G
+|root||test|localhost|FLUSH_STATUS|G
+|root||debian-sys-maint|localhost|FLUSH_TABLES|G
+|root||phpmyadmin|localhost|FLUSH_TABLES|G
+|root||root|localhost|FLUSH_TABLES|G
+|root||test|localhost|FLUSH_TABLES|G
+|root||debian-sys-maint|localhost|FLUSH_USER_RESOURCES|G
+|root||phpmyadmin|localhost|FLUSH_USER_RESOURCES|G
+|root||root|localhost|FLUSH_USER_RESOURCES|G
+|root||test|localhost|FLUSH_USER_RESOURCES|G
+|root||debian-sys-maint|localhost|GROUP_REPLICATION_ADMIN|G
+|root||phpmyadmin|localhost|GROUP_REPLICATION_ADMIN|G
+|root||root|localhost|GROUP_REPLICATION_ADMIN|G
+|root||test|localhost|GROUP_REPLICATION_ADMIN|G
+|root||debian-sys-maint|localhost|GROUP_REPLICATION_STREAM|G
+|root||phpmyadmin|localhost|GROUP_REPLICATION_STREAM|G
+|root||root|localhost|GROUP_REPLICATION_STREAM|G
+|root||test|localhost|GROUP_REPLICATION_STREAM|G
+|root||debian-sys-maint|localhost|INDEX|G
+|root||phpmyadmin|localhost|INDEX|G
+|root||root|localhost|INDEX|G
+|root||test|localhost|INDEX|G
+|root||debian-sys-maint|localhost|INNODB_REDO_LOG_ARCHIVE|G
+|root||phpmyadmin|localhost|INNODB_REDO_LOG_ARCHIVE|G
+|root||root|localhost|INNODB_REDO_LOG_ARCHIVE|G
+|root||test|localhost|INNODB_REDO_LOG_ARCHIVE|G
+|root||debian-sys-maint|localhost|INNODB_REDO_LOG_ENABLE|G
+|root||phpmyadmin|localhost|INNODB_REDO_LOG_ENABLE|G
+|root||root|localhost|INNODB_REDO_LOG_ENABLE|G
+|root||test|localhost|INNODB_REDO_LOG_ENABLE|G
+|root||debian-sys-maint|localhost|INSERT|G
+|root||phpmyadmin|localhost|INSERT|G
+|root||root|localhost|INSERT|G
+|root||test|localhost|INSERT|G
+|root||debian-sys-maint|localhost|LOCK TABLES|G
+|root||phpmyadmin|localhost|LOCK TABLES|G
+|root||root|localhost|LOCK TABLES|G
+|root||test|localhost|LOCK TABLES|G
+|root||debian-sys-maint|localhost|PASSWORDLESS_USER_ADMIN|G
+|root||phpmyadmin|localhost|PASSWORDLESS_USER_ADMIN|G
+|root||root|localhost|PASSWORDLESS_USER_ADMIN|G
+|root||test|localhost|PASSWORDLESS_USER_ADMIN|G
+|root||debian-sys-maint|localhost|PERSIST_RO_VARIABLES_ADMIN|G
+|root||mysql.session|localhost|PERSIST_RO_VARIABLES_ADMIN|G
+|root||phpmyadmin|localhost|PERSIST_RO_VARIABLES_ADMIN|G
+|root||root|localhost|PERSIST_RO_VARIABLES_ADMIN|G
+|root||test|localhost|PERSIST_RO_VARIABLES_ADMIN|G
+|root||debian-sys-maint|localhost|PROCESS|G
+|root||phpmyadmin|localhost|PROCESS|G
+|root||root|localhost|PROCESS|G
+|root||test|localhost|PROCESS|G
+|root||debian-sys-maint|localhost|REFERENCES|G
+|root||phpmyadmin|localhost|REFERENCES|G
+|root||root|localhost|REFERENCES|G
+|root||test|localhost|REFERENCES|G
+|root||debian-sys-maint|localhost|RELOAD|G
+|root||phpmyadmin|localhost|RELOAD|G
+|root||root|localhost|RELOAD|G
+|root||test|localhost|RELOAD|G
+|root||debian-sys-maint|localhost|REPLICATION CLIENT|G
+|root||phpmyadmin|localhost|REPLICATION CLIENT|G
+|root||root|localhost|REPLICATION CLIENT|G
+|root||test|localhost|REPLICATION CLIENT|G
+|root||debian-sys-maint|localhost|REPLICATION SLAVE|G
+|root||phpmyadmin|localhost|REPLICATION SLAVE|G
+|root||root|localhost|REPLICATION SLAVE|G
+|root||test|localhost|REPLICATION SLAVE|G
+|root||debian-sys-maint|localhost|REPLICATION_APPLIER|G
+|root||phpmyadmin|localhost|REPLICATION_APPLIER|G
+|root||root|localhost|REPLICATION_APPLIER|G
+|root||test|localhost|REPLICATION_APPLIER|G
+|root||debian-sys-maint|localhost|REPLICATION_SLAVE_ADMIN|G
+|root||phpmyadmin|localhost|REPLICATION_SLAVE_ADMIN|G
+|root||root|localhost|REPLICATION_SLAVE_ADMIN|G
+|root||test|localhost|REPLICATION_SLAVE_ADMIN|G
+|root||debian-sys-maint|localhost|RESOURCE_GROUP_ADMIN|G
+|root||phpmyadmin|localhost|RESOURCE_GROUP_ADMIN|G
+|root||root|localhost|RESOURCE_GROUP_ADMIN|G
+|root||test|localhost|RESOURCE_GROUP_ADMIN|G
+|root||debian-sys-maint|localhost|RESOURCE_GROUP_USER|G
+|root||phpmyadmin|localhost|RESOURCE_GROUP_USER|G
+|root||root|localhost|RESOURCE_GROUP_USER|G
+|root||test|localhost|RESOURCE_GROUP_USER|G
+|root||debian-sys-maint|localhost|ROLE_ADMIN|G
+|root||phpmyadmin|localhost|ROLE_ADMIN|G
+|root||root|localhost|ROLE_ADMIN|G
+|root||test|localhost|ROLE_ADMIN|G
+|root||debian-sys-maint|localhost|SELECT|G
+|root||mysql.infoschema|localhost|SELECT|G
+|root||phpmyadmin|localhost|SELECT|G
+|root||root|localhost|SELECT|G
+|root||test|localhost|SELECT|G
+|root||debian-sys-maint|localhost|SENSITIVE_VARIABLES_OBSERVER|G
+|root||phpmyadmin|localhost|SENSITIVE_VARIABLES_OBSERVER|G
+|root||root|localhost|SENSITIVE_VARIABLES_OBSERVER|G
+|root||test|localhost|SENSITIVE_VARIABLES_OBSERVER|G
+|root||debian-sys-maint|localhost|SERVICE_CONNECTION_ADMIN|G
+|root||phpmyadmin|localhost|SERVICE_CONNECTION_ADMIN|G
+|root||root|localhost|SERVICE_CONNECTION_ADMIN|G
+|root||test|localhost|SERVICE_CONNECTION_ADMIN|G
+|root||debian-sys-maint|localhost|SESSION_VARIABLES_ADMIN|G
+|root||mysql.session|localhost|SESSION_VARIABLES_ADMIN|G
+|root||phpmyadmin|localhost|SESSION_VARIABLES_ADMIN|G
+|root||root|localhost|SESSION_VARIABLES_ADMIN|G
+|root||test|localhost|SESSION_VARIABLES_ADMIN|G
+|root||debian-sys-maint|localhost|SET_USER_ID|G
+|root||phpmyadmin|localhost|SET_USER_ID|G
+|root||root|localhost|SET_USER_ID|G
+|root||test|localhost|SET_USER_ID|G
+|root||debian-sys-maint|localhost|SHOW DATABASES|G
+|root||phpmyadmin|localhost|SHOW DATABASES|G
+|root||root|localhost|SHOW DATABASES|G
+|root||test|localhost|SHOW DATABASES|G
+|root||debian-sys-maint|localhost|SHOW VIEW|G
+|root||phpmyadmin|localhost|SHOW VIEW|G
+|root||root|localhost|SHOW VIEW|G
+|root||test|localhost|SHOW VIEW|G
+|root||debian-sys-maint|localhost|SHOW_ROUTINE|G
+|root||phpmyadmin|localhost|SHOW_ROUTINE|G
+|root||root|localhost|SHOW_ROUTINE|G
+|root||test|localhost|SHOW_ROUTINE|G
+|root||debian-sys-maint|localhost|SHUTDOWN|G
+|root||mysql.session|localhost|SHUTDOWN|G
+|root||phpmyadmin|localhost|SHUTDOWN|G
+|root||root|localhost|SHUTDOWN|G
+|root||test|localhost|SHUTDOWN|G
+|root||debian-sys-maint|localhost|SUPER|G
+|root||mysql.session|localhost|SUPER|G
+|root||phpmyadmin|localhost|SUPER|G
+|root||root|localhost|SUPER|G
+|root||test|localhost|SUPER|G
+|root||debian-sys-maint|localhost|SYSTEM_USER|G
+|root||mysql.infoschema|localhost|SYSTEM_USER|G
+|root||mysql.session|localhost|SYSTEM_USER|G
+|root||mysql.sys|localhost|SYSTEM_USER|G
+|root||phpmyadmin|localhost|SYSTEM_USER|G
+|root||root|localhost|SYSTEM_USER|G
+|root||test|localhost|SYSTEM_USER|G
+|root||debian-sys-maint|localhost|SYSTEM_VARIABLES_ADMIN|G
+|root||mysql.session|localhost|SYSTEM_VARIABLES_ADMIN|G
+|root||phpmyadmin|localhost|SYSTEM_VARIABLES_ADMIN|G
+|root||root|localhost|SYSTEM_VARIABLES_ADMIN|G
+|root||test|localhost|SYSTEM_VARIABLES_ADMIN|G
+|root||debian-sys-maint|localhost|TABLE_ENCRYPTION_ADMIN|G
+|root||phpmyadmin|localhost|TABLE_ENCRYPTION_ADMIN|G
+|root||root|localhost|TABLE_ENCRYPTION_ADMIN|G
+|root||test|localhost|TABLE_ENCRYPTION_ADMIN|G
+|root||debian-sys-maint|localhost|TRIGGER|G
+|root||phpmyadmin|localhost|TRIGGER|G
+|root||root|localhost|TRIGGER|G
+|root||test|localhost|TRIGGER|G
+|root||debian-sys-maint|localhost|UPDATE|G
+|root||phpmyadmin|localhost|UPDATE|G
+|root||root|localhost|UPDATE|G
+|root||test|localhost|UPDATE|G
+|root||debian-sys-maint|localhost|XA_RECOVER_ADMIN|G
+|root||phpmyadmin|localhost|XA_RECOVER_ADMIN|G
+|root||root|localhost|XA_RECOVER_ADMIN|G
+|root||test|localhost|XA_RECOVER_ADMIN|G
+|root||debian-sys-maint|localhost|grant option|G
+|root||phpmyadmin|localhost|grant option|G
+|root||root|localhost|grant option|G
+|root||test|localhost|grant option|G
+performance_schema|schema||mysql.session|localhost|SELECT|G
+sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
+      <ServerVersion>8.0.31</ServerVersion>
+    </root>
     <collation id="2" parent="1" name="armscii8_general_ci">
       <Charset>armscii8</Charset>
       <DefaultForCharset>1</DefaultForCharset>
@@ -956,192 +1243,271 @@
     <user id="302" parent="1" name="test">
       <Host>localhost</Host>
     </user>
-    <table id="303" parent="294" name="message_pv">
+    <table id="303" parent="294" name="abo">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="304" parent="294" name="post">
+    <table id="304" parent="294" name="jaime">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="305" parent="294" name="message_pv">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="306" parent="294" name="post">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_bin</CollationName>
     </table>
-    <table id="305" parent="294" name="profile">
+    <table id="307" parent="294" name="profile">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_bin</CollationName>
     </table>
-    <table id="306" parent="294" name="user">
+    <table id="308" parent="294" name="user">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_bin</CollationName>
     </table>
-    <column id="307" parent="303" name="id">
+    <column id="309" parent="303" name="id">
+      <AutoIncrement>7</AutoIncrement>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="310" parent="303" name="id_follo">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="311" parent="303" name="id_user">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="312" parent="303" name="date">
+      <DataType>timestamp|0s</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <index id="313" parent="303" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="314" parent="303" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="315" parent="304" name="ID">
+      <AutoIncrement>71</AutoIncrement>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="316" parent="304" name="id_user">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="317" parent="304" name="id_post">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="318" parent="304" name="date">
+      <DataType>timestamp|0s</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <index id="319" parent="304" name="PRIMARY">
+      <ColNames>ID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="320" parent="304" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="321" parent="305" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="308" parent="303" name="id_user_src">
+    <column id="322" parent="305" name="id_user_src">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="309" parent="303" name="id_user_dest">
+    <column id="323" parent="305" name="id_user_dest">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="310" parent="303" name="username_src">
+    <column id="324" parent="305" name="username_src">
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="311" parent="303" name="username_dest">
+    <column id="325" parent="305" name="username_dest">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="312" parent="303" name="date_post">
+    <column id="326" parent="305" name="date_post">
       <DataType>timestamp|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="313" parent="303" name="commentaire">
+    <column id="327" parent="305" name="commentaire">
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <index id="314" parent="303" name="PRIMARY">
+    <index id="328" parent="305" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="315" parent="303" name="PRIMARY">
+    <key id="329" parent="305" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="316" parent="304" name="id">
-      <AutoIncrement>91</AutoIncrement>
+    <column id="330" parent="306" name="id">
+      <AutoIncrement>207</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="317" parent="304" name="post">
+    <column id="331" parent="306" name="post">
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="318" parent="304" name="post_date">
+    <column id="332" parent="306" name="post_date">
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="319" parent="304" name="username_source">
+    <column id="333" parent="306" name="username_source">
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="320" parent="304" name="ID_user">
+    <column id="334" parent="306" name="ID_user">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="321" parent="304" name="comment_id_destinataire">
+    <column id="335" parent="306" name="comment_id_destinataire">
       <DataType>int|0s</DataType>
       <Position>6</Position>
     </column>
-    <column id="322" parent="304" name="likes">
+    <column id="336" parent="306" name="likes">
       <DataType>int|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
       <Position>7</Position>
     </column>
-    <column id="323" parent="304" name="username_destinataire">
+    <column id="337" parent="306" name="username_destinataire">
       <DataType>text|0s</DataType>
       <Position>8</Position>
     </column>
-    <index id="324" parent="304" name="PRIMARY">
+    <index id="338" parent="306" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="325" parent="304" name="PRIMARY">
+    <key id="339" parent="306" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="326" parent="305" name="biographie">
+    <column id="340" parent="307" name="biographie">
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="327" parent="305" name="id_user">
+    <column id="341" parent="307" name="id_user">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="328" parent="305" name="username">
+    <column id="342" parent="307" name="username">
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="329" parent="305" name="id">
-      <AutoIncrement>17</AutoIncrement>
+    <column id="343" parent="307" name="id">
+      <AutoIncrement>56</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <index id="330" parent="305" name="PRIMARY">
+    <index id="344" parent="307" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="331" parent="305" name="PRIMARY">
+    <key id="345" parent="307" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="332" parent="306" name="id">
-      <AutoIncrement>19</AutoIncrement>
+    <column id="346" parent="308" name="id">
+      <AutoIncrement>58</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="333" parent="306" name="username">
+    <column id="347" parent="308" name="username">
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="334" parent="306" name="email">
+    <column id="348" parent="308" name="email">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="335" parent="306" name="password">
+    <column id="349" parent="308" name="password">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="336" parent="306" name="age">
+    <column id="350" parent="308" name="age">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="337" parent="306" name="genre">
+    <column id="351" parent="308" name="genre">
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="338" parent="306" name="Date_inscrpition">
+    <column id="352" parent="308" name="Date_inscrpition">
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <index id="339" parent="306" name="PRIMARY">
+    <column id="353" parent="308" name="follower">
+      <DataType>int|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <index id="354" parent="308" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="340" parent="306" name="PRIMARY">
+    <key id="355" parent="308" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

@@ -64,8 +64,9 @@ $username2 = $username2->fetch_assoc();
                         <?php echo "<h1>{$username['biographie']}</h1>" ?>
                     </div>
                 </div>
+
+                <a href="index.php?variable=message_follower.php" style="text-decoration: none; color: #fff">Follower : <?=$username2['follower'] ;?></a>
                 <?php
-                echo "Follower : ".$username2['follower'] ;
 
                 if (isset($_POST['modifier']) && isset($_POST['id'])) {
                     $modifier_ver = str_replace("'","\'",$_POST['modifier']);

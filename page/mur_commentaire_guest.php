@@ -48,7 +48,6 @@
                     delete_comment($com);
                 }
                 // output data of each row
-                foreach($coms2 as $row){
                     $res = $mysqli->query("SELECT * FROM post WHERE comment_id_destinataire = '{$com['id']}'");
                     if ($res) {
                         // output data of each row
@@ -64,8 +63,6 @@
                             commenter($com);
                         }
                     }
-                    useless_div();
-                }
                 useless_div();
                 ?> </div> <?php
         }
