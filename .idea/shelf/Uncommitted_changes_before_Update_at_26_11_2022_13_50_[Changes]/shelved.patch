@@ -1,0 +1,112 @@
+Index: site/site1.php
+===================================================================
+diff --git a/site/site1.php b/site/site1.php
+--- a/site/site1.php	
++++ b/site/site1.php	
+@@ -18,7 +18,10 @@
+     <span id = "count">0</span> Likes
+ </button>
+ 
+-<script> like_button();</script>
++<script>
++    like_button();
++    envoi_donnee();
++</script>
+ 
+ 
+ 
+Index: site/Like_Bouton.js
+===================================================================
+diff --git a/site/Like_Bouton.js b/site/Like_Bouton.js
+--- a/site/Like_Bouton.js	
++++ b/site/Like_Bouton.js	
+@@ -26,3 +26,89 @@
+ 
+     });
+ }
++
++
++
++function getData(params, succes, echec){
++    const xhr = new XMLHttpRequest;
++    xhr.onload = function () {
++        if (xhr.status === 200) succes(xhr.responseText);
++        else echec(xhr.status,xhr.statusText);
++
++    };
++    const query = [];
++    for (const property in params)
++        query.push(property+"="+params[property]);
++    const uri = 'http://localhost/site/recep1.php'+query.join("&");
++    xhr.open('GET',uri,true);
++    xhr.send(null);
++}
++
++
++function postData(params, succes, echec){
++
++    const xhr = new XMLHttpRequest;
++    xhr.onload = function () {
++        if (xhr.status === 200) succes(xhr.responseText);
++        else echec(xhr.status, xhr.statusText);
++    }
++// Préparer la query string
++    const query = [];
++    for (const property in params) {
++// Ici il faut encoder le paramètre et sa valeur
++        query.push(
++            encodeURIComponent(property)
++            + "=" +
++            encodeURIComponent(params[property]));
++    }
++    const uri = 'http://localhost/site/recep1.php';
++// on envoie l'uri sans query string
++    xhr.open('POST',uri);
++// Il faut envoyer ce header pour spécifier l'encodage du corps de la requête
++    //xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
++
++    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
++    // De cette façon on met la query string dans le corps de la requête
++    xhr.send(query.join("&"));
++}
++
++
++function test(){
++    var http = new XMLHttpRequest();
++    var url = 'http://localhost/site/test1.php';
++    var params = 'titre = mabite';
++    http.open('POST', url, true);
++
++//Send the proper header information along with the request
++    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
++
++    http.onreadystatechange = function() {//Call a function when the state changes.
++        if(http.readyState == 4 && http.status == 200) {
++            alert(http.responseText);
++        }
++    }
++    http.send(params);
++}
++
++
++
++
++function envoi_donnee(){
++    console.log('Début');
++    const uri = 'http://localhost/NetSoc/index.php';
++    const xhr = new XMLHttpRequest();
++    xhr.open("POST", uri, true);
++
++//Send the proper header information along with the request
++    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
++
++    xhr.onreadystatechange = () => { // Call a function when the state changes.
++        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
++            // Request finished. Do processing here.
++        }
++    }
++    xhr.send("foo=bar&lorem=ipsum");
++// xhr.send(new Int8Array());
++// xhr.send(document);
++
++}

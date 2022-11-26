@@ -1,0 +1,2136 @@
+Index: index.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.php b/index.php
+--- a/index.php	
++++ b/index.php	
+@@ -20,6 +20,7 @@
+     </script>
+ 
+     <body style="color:white">
++    <br><br>
+     <?php
+ 
+         echo $_SERVER['SERVER_NAME'];
+Index: style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/style.css b/style.css
+--- a/style.css	
++++ b/style.css	
+@@ -437,7 +437,6 @@
+ 
+ 
+ 
+-
+ #follower:hover, #suivie:hover{
+     font-size: 1.2em;
+     transition:all 1s ease;
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_10_11_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_10_11_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_10_11_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_10_11_[Changes]/shelved.patch	
++++ /dev/null	
+@@ -1,187 +0,0 @@
+-Index: index.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><!DOCTYPE html>\n<html lang=\"fr\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <link rel=\"stylesheet\" href=\"style.css\">\n        <link rel=\"stylesheet\" href=\"node_modules/aos/dist/aos.css\">\n\n        <title>GJK</title>\n\n    </head>\n    <body style=\"color:white\">\n    <?php\n        require \"join_db.php\";\n        join_database();\n        if(isset($_COOKIE['email']) && isset($_COOKIE['password'])) {\n            $result_can = $mysqli->query(\"SELECT * FROM user WHERE email = '{$_COOKIE['email']}' AND password ='{$_COOKIE['password']}'\");\n            $result_can = $result_can->fetch_assoc();\n        }\n        else{\n            $result_can = null;\n        }\n        include \"get_all_files.php\";\n        require \"css_code.php\";\n\n\n\n\n        ?>\n\n        <nav class=\"navbar navbar-expand-sm navbar-light fixed-top\" style=\"z-index: 100\">\n                <div class=\"logo_nom\" onclick=\"location.href='index.php'\">\n                    <img id=\"image_logo\" src=\"image/reseau-informatique-icone-cybersecurite-pour-web_116137-3699.png\" alt=\"logo_réseau\">\n                    <h1>GJK</h1>\n                </div>\n            <?php\n\n            ?>\n            <div class=\"search_bar\">\n                <form name=\"formulaire_search\" method=\"get\">\n                    <input type=\"hidden\" name=\"variable\" value=\"search.php\">\n                    <label>\n                        <input class=\"bar_search\" type=\"text\" placeholder=\"Search GJK \uD83D\uDD0E\" name=\"searchVal\" value=\"\" style=\"color: #fff\">\n                    </label> <!--onkeyup=\"searchq()-->\n                </form>\n\n\n            </div>\n\n<!--#####################################################################################################################################-->\n            <?php if($result_can) echo\"<h3 style='font-family: Teko, sans-serif'>Connecté sous {$result_can[\"username\"]}</h3>\";\n            ?>\n<!--#####################################################################################################################################-->\n            <div class=\"collapse navbar-collapse\">\n                <ul class=\"navbar-nav\"></ul>\n            </div>\n\n            <div class=\"log_in_up\">\n                <?php\n                if (!$result_can){\n                    ?>\n                    <div class=\"sign_up\">\n                        <a href=\"index.php?variable=sign_up.php\"><input type=\"button\" class=\"button_sign_up\" value=\"Sign Up\" ></a>\n                    </div>\n                    <div class=\"log_in\">\n                        <a href=\"index.php?variable=log_in.php\"><input type=\"button\" class=\"button_log_in\" value=\"Log In\"></a>\n                    </div>\n                    <?php\n                }\n                ?>\n\n\n                <?php\n                if(isset($_COOKIE['email']) && isset($_COOKIE['password'])) {\n                    $result_can = $mysqli->query(\"SELECT * FROM user WHERE email = '{$_COOKIE['email']}' AND password ='{$_COOKIE['password']}'\");\n                    $result_can = $result_can->fetch_assoc();\n\n                    ?>\n                    <span>\n                        <a href=\"#\">Profile</a>\n                            <ul class=\"sous\">\n                                <li><a href=\"index.php?variable=profile.php\">Profile</a></li>\n                                <li><a href=\"index.php?variable=deco.php\" >Log Out</a></li>\n                            </ul>\n                    </span>\n                    <?php\n                }\n                ?>\n                </div>\n        </nav>\n        <div class=\"contenue\">\n\n            <?php\n            if(isset($_GET['erreur'])){\n                $err = $_GET['erreur'];\n                if($err==1)\n                    echo \"<h3  id='expres' style='color:black;margin-top:10%'>Utilisateur ou mot de passe incorrect</h3>\";\n                if($err==2)\n                    echo \"<h1 style='color:black;margin-top:10%'>le nom d'utilisateur existe deja</h1>\";\n                if($err==3)\n                    echo \"<h1 style='color:black;margin-top:10%'>les mots de passe ne correspondent pas</h1>\";\n            }\n            ?>\n\n            <div class=\"center\">\n\n                <?php\n                if (isset($_GET['variable']) and file_exists('page/'.$_GET['variable'])){\n                    $title = $_GET['variable'];\n                    require(\"page/$title\");\n                }\n                elseif(!isset($_GET['variable']) || $_GET['variable']==''){\n                    $title = \"mur_commentaire.php\";\n                    echo \"<h1>Commentaire</h1>\";\n                    require(\"page/mur_commentaire.php\");\n                }\n                else{\n                    $title = \"ERROR 404\";\n                }\n                ?>\n\n            </div>\n        </div>\n\n    </body>\n</html>\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/index.php b/index.php
+---- a/index.php	(revision 31f66894a8cbbde03e1215bd4b8a4f949eddb2ed)
+-+++ b/index.php	(date 1668503473292)
+-@@ -5,7 +5,7 @@
+-         <link rel="stylesheet" href="style.css">
+-         <link rel="stylesheet" href="node_modules/aos/dist/aos.css">
+- 
+--        <title>GJK</title>
+-+        <title>GMK</title>
+- 
+-     </head>
+-     <body style="color:white">
+-@@ -29,8 +29,8 @@
+- 
+-         <nav class="navbar navbar-expand-sm navbar-light fixed-top" style="z-index: 100">
+-                 <div class="logo_nom" onclick="location.href='index.php'">
+--                    <img id="image_logo" src="image/reseau-informatique-icone-cybersecurite-pour-web_116137-3699.png" alt="logo_réseau">
+--                    <h1>GJK</h1>
+-+                    <img id="image_logo" src="image/Logo%20ESIEA%20Baseline%20blanc.png" alt="logo_ESIEA">
+-+                    <h1>GMK</h1>
+-                 </div>
+-             <?php
+- 
+-@@ -110,7 +110,7 @@
+-                 }
+-                 elseif(!isset($_GET['variable']) || $_GET['variable']==''){
+-                     $title = "mur_commentaire.php";
+--                    echo "<h1>Commentaire</h1>";
+-+                    echo "<h1 style='font-size: 2em'>Commentaire</h1>";
+-                     require("page/mur_commentaire.php");
+-                 }
+-                 else{
+-Index: page/log_in.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>\n\n<h1>Log In</h1>\n\n<form class=\"formulaire_connexion\" action=\"\" method=\"POST\">\n    <div class=\"control block-cube block-input\">\n        <div id=\"a_remplir\" >\n            <label for=\"email\"></label><input id=\"email\" type=\"email\" placeholder=\"Entrer votre adresse mail\" name=\"email\" required>\n            <br>\n            <label for=\"password\"></label><input id=\"password\" type=\"password\" placeholder=\"Entrer le mot de passe\" name=\"password\" required>\n\n        </div>\n\n        <input type=\"submit\" id='submit' value='valider' name=\"submit_log_in\">\n        <br>\n        <?php useless_div(); ?>\n    </div>\n    <!--    <button onclick =\"window.location='index.php?name=inscription.php'\">Inscription</button>-->\n</form>\n<?php\n\nif(isset($_POST['email']) && isset($_POST['password'])) {\n    if ($_POST[\"email\"] != \"\" && $_POST[\"password\"] != \"\") {\n        $email = mysqli_real_escape_string($mysqli, htmlspecialchars($_POST['email']));\n        $password = $_POST['password'];\n\n        $result_can = mysqli_query($mysqli, \"SELECT password,username FROM user WHERE email = '$email'\");\n\n        while ($row = $result_can->fetch_assoc()) {\n            $hash = hash(\"whirlpool\", $password);\n\n            if (($row['password'] == $hash)) {\n                session_start();\n                setcookie(\"username\", $row[\"username\"], time() + 3600);\n                setcookie(\"email\", $_POST['email'], time() + 3600);\n                setcookie(\"password\", $hash, time() + 3600);\n                echo \"Cookies Set Successfuly\";\n                header('Location: index.php?user=' . $email);\n                exit();\n            }\n\n        }\n        header('Location: index.php?erreur=1');\n    }\n    else {\n        header('Location: index.php?erreur=1');\n    }\n}\n//gestion des messages d'erreurs\nmysqli_close($mysqli); // fermer la connexion\n?>\n\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/page/log_in.php b/page/log_in.php
+---- a/page/log_in.php	(revision 31f66894a8cbbde03e1215bd4b8a4f949eddb2ed)
+-+++ b/page/log_in.php	(date 1668502258607)
+-@@ -1,18 +1,21 @@
+- 
+- 
+--<h1>Log In</h1>
+-+
+-+<h1 style="font-size: 2em">Log In</h1>
+- 
+- <form class="formulaire_connexion" action="" method="POST">
+-     <div class="control block-cube block-input">
+-         <div id="a_remplir" >
+--            <label for="email"></label><input id="email" type="email" placeholder="Entrer votre adresse mail" name="email" required>
+-+            <label for="email"></label><input id="email" type="email" placeholder="Entrer votre adresse mail" name="email" style="background-color: #212121; color: #fff; " required>
+-             <br>
+--            <label for="password"></label><input id="password" type="password" placeholder="Entrer le mot de passe" name="password" required>
+-+            <label for="password"></label><input id="password" type="password" placeholder="Entrer le mot de passe" name="password" style="background-color: #212121; color: #fff; " required>
+- 
+-         </div>
+--
+--        <input type="submit" id='submit' value='valider' name="submit_log_in">
+-         <br>
+-+        <div class="btn block-cube block-cube-hover" style="margin-left: 1%; margin-bottom: 1%; position: relative; z-index: 11;  display: inline-block">
+-+            <input type="submit" id='submit' value='valider' name="submit_log_in" style="background-color: #212121; color: #fff; ">
+-+            <?php useless_div(); ?>
+-+        </div>
+-         <?php useless_div(); ?>
+-     </div>
+-     <!--    <button onclick ="window.location='index.php?name=inscription.php'">Inscription</button>-->
+-Index: join_data.json
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/join_data.json b/join_data.json
+-new file mode 100644
+---- /dev/null	(date 1668437359260)
+-+++ b/join_data.json	(date 1668437359260)
+-@@ -0,0 +1,6 @@
+-+{
+-+  "domain": "localhost",
+-+  "database": "projet_netsoc",
+-+  "login": "test",
+-+  "password": "coucou"
+-+}
+-Index: style.css
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>/*\nfont-family: 'Teko', sans-serif;\n*/\n@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Teko:wght@300&display=swap');\n\n/*\nhtml, body {\n    width: 100%;\n    height:100%;\n}*/\n\nbody, .bar_search, .log_in_up .button_log_in:hover,.log_in_up .button_sign_up:hover {\n    background: linear-gradient(-45deg, #5e3000, #3f0000, #260034, #000034);\n    background-size: 400% 400%;\n    animation: gradient 15s ease infinite;\n}\n\n@keyframes gradient {\n    0% {\n        background-position: 0% 50%;\n    }\n    50% {\n        background-position: 100% 50%;\n    }\n    100% {\n        background-position: 0% 50%;\n    }\n}\n\n\n/*############################## navbar ###############################*/\n.navbar {\n    position: fixed;\n    background-color: transparent;\n    /*opacity: 0.9;*/\n    flex-grow: 1;\n    flex-direction: row;\n    margin-top: 0 ;\n    align-items: center;\n    display: inline-flex;\n    right: 0;\n    left: 0;\n    top: 0;\n    height: 60px;\n}\n.logo_nom{\n    flex-direction: row;\n    align-items: center;\n    position: fixed;\n    display: inline-flex;\n    background-color: transparent;\n}\n.logo_nom h1{\n    font-family: 'Teko', sans-serif;\n    font-size: 1.7em;\n    margin-top: 25px;\n    color: gray;\n}\n#image_logo{\n    height: 40px;\n    width: 40px;\n}\n.search_bar {\n    position: center;\n    margin: 0 auto;\n    max-width: 690px;\n    display: inline-flex;\n    flex-direction: row;\n    align-items: center;\n    flex-grow: 1;\n}\n.navbar .bar_search{\n    height: 40px;\n    width: 300%;\n    text-align: center;\n    font-size: 1.1em;\n    border-radius: 9999px;\n}\n.log_in_up{\n    flex-direction: row;\n    display: inline-flex;\n}\n.log_in_up .button_log_in {\n    transition: 0.7s ease;\n    border-radius: 9999px;\n    background-color: transparent;\n    color: #fff;\n    margin-left: 10px;\n    margin-right: 30px;\n    border: 1px solid #fff;\n    font-family: 'Teko', sans-serif;\n    width: 110px;\n    height: 50px;\n    font-size: 25px;\n    letter-spacing: 1px;\n    margin-top: 2px;\n}\n.log_in_up .button_sign_up{\n    transition: 0.7s ease;\n    border-radius: 9999px;\n    color: #fff;\n    background-color: transparent;\n    border: 1px solid #fff;\n    margin-right: 10px;\n    font-family: 'Teko', sans-serif;\n    width: 110px;\n    height: 50px;\n    font-size: 25px;\n    letter-spacing: 1px;\n    margin-top: 2px;\n}\n.log_in_up .button_log_in:hover{\n    transition: 0.7s ease;\n    background-color: #212121;\n    border: 1px solid #fff;\n    color: #fff;\n}\n.log_in_up .button_sign_up:hover {\n    transition: 0.7s ease;\n    border: 1px solid #fff;\n    background-color: #212121;\n    color: #fff;\n}\n\n/*########## menue déroulant ##########*/\nnav span{\n    width: 100%;\n    background-color: transparent;\n    position: sticky;\n    top: 0;\n    margin: 0 20px 0 auto;\n}\n\nspan ul{\n    list-style-type: none;\n\n}\n\nspan ul a{\n    float: left;\n    width: 25%;\n    text-align: center;\n    position: relative;\n    margin-top: -5px;\n}\n\nspan ul::after{\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\nspan a{\n    display: block;\n    text-decoration: none;\n    color: #fff;\n    border-bottom: 2px solid transparent;\n    padding: 10px 0;\n    font-family: 'Teko', sans-serif;\n    font-size: 25px;\n}\n\nspan a:hover{\n    color: #fff;\n    border-bottom: 2px solid #fff;\n}\n\nspan .sous{\n    display: none;\n    background-color: transparent;\n    position: absolute;\n    width: 100%;\n    z-index: 1000;\n}\n.sous a{\n    float: none;\n    width: 100%;\n    text-align: left;\n    /*margin-right: 20px;*/\n    margin-left: -40px;\n}\n.sous a{\n    padding: 10px;\n    border-bottom: none;\n}\n\n.deroulant > a::after{\n    content:\" ▼\";\n    font-size: 12px;\n}\nspan:hover ul { /* Affiche la dropNav au survol de la souris avec la class .drop */\n    display:block !important;\n    position:absolute;\n    margin-top:0px;\n    margin-left:-10px;\n}\n\n\n/*############################## center ###############################*/\n\n.contenue{\n    margin-top: 70px;\n    font-family: 'Teko', sans-serif;\n    letter-spacing: 1px;\n    font-size: 1.2em;\n    display: block;\n    vertical-align: top;\n    overflow: auto;\n    min-height: 200px;\n    width: 100%;\n    min-width: 800px;\n    max-width: 900px;\n    margin: auto;\n}\n.center{\n    /*background-color: #FAFAFA;*/\n    /*position: center;*/\n    display: inline-block;\n    overflow: auto;\n    text-align: left;\n    min-height: 200px;\n    min-width: 800px;\n    margin-top: 100px;\n}\n\n\n/*############ formulaire de post des messages dans profile ############*/\n\n.formulaire_inscription label{\n    display: inline-block;\n    vertical-align: top;\n}\n.formulaire_connexion{\n    display: block;\n    float: left;\n}\nbody h1 {\n    font-family: 'Teko', sans-serif;\n\n}\n\n/*############ formulaire de post des messages dans profile ############*/\n\n\n.wrapper {\n    height: 50vh;\n    /*This part is important for centering*/\n    display: grid;\n    place-items: center;\n}\n\n.typing-demo {\n    width: 50ch;\n    animation: typing 2s steps(50), blink 0.5s step-end infinite alternate;\n    white-space: nowrap;\n    overflow: hidden;\n    border-right: 3px solid;\n    font-family: monospace;\n    font-size: 2em;\n}\n\n@keyframes typing {\n    from {\n        width: 0\n    }\n}\n\n@keyframes blink {\n    100% {\n        border-color: transparent\n    }\n}\n\n\n/*LOL*/\n*,\n ::after,\n ::before {\n     box-sizing: border-box;\n }\n\nbody {\n    background-color: #212121;\n    color: #fff;\n    font-family: monospace, serif;\n    letter-spacing: 0.05em;\n}\n\nh1 {\n    font-size: 23px;\n}\n\n.form {\n    width: 300px;\n    padding: 64px 15px 24px;\n    margin: 0 auto;\n}\n.form .control {\n    margin: 0 0 24px;\n}\n.form .control input {\n    width: 100%;\n    padding: 14px 16px;\n    border: 0;\n    background: transparent;\n    color: #fff;\n    font-family: monospace, serif;\n    letter-spacing: 0.05em;\n    font-size: 16px;\n}\n.form .control input:hover, .form .control input:focus {\n    outline: none;\n    border: 0;\n}\n.form .btn {\n    width: 100%;\n    display: block;\n    padding: 14px 16px;\n    background: transparent;\n    outline: none;\n    border: 0;\n    color: #fff;\n    letter-spacing: 0.1em;\n    font-weight: bold;\n    font-family: monospace;\n    font-size: 16px;\n}\n\n.block-cube {\n    position: relative;\n}\n.block-cube .bg-top {\n    position: absolute;\n    height: 10px;\n    background: #020024;\n    background: linear-gradient(90deg, #020024 0%, #340979 37%, #00d4ff 94%);\n    bottom: 100%;\n    left: 5px;\n    right: -5px;\n    transform: skew(-45deg, 0);\n    margin: 0;\n}\n.block-cube .bg-top .bg-inner {\n    bottom: 0;\n}\n.block-cube .bg {\n    position: absolute;\n    left: 0;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    background: #020024;\n    background: linear-gradient(90deg, #020024 0%, #340979 37%, #00d4ff 94%);\n}\n.block-cube .bg-right {\n    position: absolute;\n    background: #020024;\n    background: #00d4ff;\n    top: -5px;\n    z-index: 0;\n    bottom: 5px;\n    width: 10px;\n    left: 100%;\n    transform: skew(0, -45deg);\n}\n.block-cube .bg-right .bg-inner {\n    left: 0;\n}\n.block-cube .bg .bg-inner {\n    transition: all 0.2s ease-in-out;\n}\n.block-cube .bg-inner {\n    background: #212121;\n    position: absolute;\n    left: 2px;\n    top: 2px;\n    right: 2px;\n    bottom: 2px;\n}\n.block-cube .text {\n    position: relative;\n    z-index: 2;\n}\n.block-cube.block-input input {\n    position: relative;\n    z-index: 2;\n}\n.block-cube.block-input input:focus ~ .bg-right .bg-inner, .block-cube.block-input input:focus ~ .bg-top .bg-inner, .block-cube.block-input input:focus ~ .bg-inner .bg-inner {\n    top: 100%;\n    background: rgba(255, 255, 255, 0.5);\n}\n.block-cube.block-input .bg-top,\n.block-cube.block-input .bg-right,\n.block-cube.block-input .bg {\n    background: rgba(255, 255, 255, 0.5);\n    transition: background 0.2s ease-in-out;\n}\n.block-cube.block-input .bg-right .bg-inner,\n.block-cube.block-input .bg-top .bg-inner {\n    transition: all 0.2s ease-in-out;\n}\n.block-cube.block-input:focus .bg-top,\n.block-cube.block-input:focus .bg-right,\n.block-cube.block-input:focus .bg, .block-cube.block-input:hover .bg-top,\n.block-cube.block-input:hover .bg-right,\n.block-cube.block-input:hover .bg {\n    background: rgba(255, 255, 255, 0.8);\n}\n.block-cube.block-cube-hover:focus .bg .bg-inner, .block-cube.block-cube-hover:hover .bg .bg-inner {\n    top: 100%;\n}\n\n.credits {\n    position: fixed;\n    left: 0;\n    bottom: 0;\n    padding: 15px 15px;\n    width: 100%;\n    z-index: 111;\n}\n.credits a {\n    opacity: 0.6;\n    color: #fff;\n    font-size: 11px;\n    text-decoration: none;\n}\n.credits a:hover {\n    opacity: 1;\n}\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/style.css b/style.css
+---- a/style.css	(revision 31f66894a8cbbde03e1215bd4b8a4f949eddb2ed)
+-+++ b/style.css	(date 1668500404866)
+-@@ -54,11 +54,11 @@
+-     font-family: 'Teko', sans-serif;
+-     font-size: 1.7em;
+-     margin-top: 25px;
+--    color: gray;
+-+    color: #fff;
+- }
+- #image_logo{
+-     height: 40px;
+--    width: 40px;
+-+    width: 60px;
+- }
+- .search_bar {
+-     position: center;
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"c1610e11-f370-4b26-a785-d3162e738077\" name=\"Changes\" comment=\"&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ...\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/css_code.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/css_code.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/function_used.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/function_used.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/join_data.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/join_data.json\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/page/log_in.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/page/log_in.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/page/mur_commentaire.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/page/mur_commentaire.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/page/mur_commentaire_guest.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/page/mur_commentaire_guest.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/page/mur_commentaire_profile.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/page/mur_commentaire_profile.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/page/profile_guest.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/page/profile_guest.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/page/search.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/page/search.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/page/sign_up.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/page/sign_up.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/style.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/style.css\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ComposerSettings\">\n    <execution />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"JavaScript File\" />\n        <option value=\"CSS File\" />\n        <option value=\"SCSS File\" />\n        <option value=\"HTML File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"PhpWorkspaceProjectConfiguration\" interpreter_name=\"PHP 8.1\" />\n  <component name=\"ProjectId\" id=\"2GdMRNwFQIxZ9qAxlKrRRZytFD4\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\n    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/home/griffen/PhpstormProjects/NetSoc&quot;,\n    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  },\n  &quot;keyToStringList&quot;: {\n    &quot;DatabaseDriversLRU&quot;: [\n      &quot;mysql&quot;\n    ]\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/page\" />\n      <recent name=\"$PROJECT_DIR$\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"c1610e11-f370-4b26-a785-d3162e738077\" name=\"Changes\" comment=\"\" />\n      <created>1666713998766</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1666713998766</updated>\n      <workItem from=\"1666714000078\" duration=\"5860000\" />\n      <workItem from=\"1666767974756\" duration=\"608000\" />\n      <workItem from=\"1666775395710\" duration=\"13000\" />\n      <workItem from=\"1666778935874\" duration=\"13281000\" />\n      <workItem from=\"1666797714385\" duration=\"6840000\" />\n      <workItem from=\"1666871037962\" duration=\"8641000\" />\n      <workItem from=\"1666890559415\" duration=\"1948000\" />\n      <workItem from=\"1666892528190\" duration=\"59000\" />\n      <workItem from=\"1667038664916\" duration=\"1557000\" />\n      <workItem from=\"1667061340230\" duration=\"1711000\" />\n      <workItem from=\"1667129563242\" duration=\"2167000\" />\n      <workItem from=\"1667214292376\" duration=\"11990000\" />\n      <workItem from=\"1667235880727\" duration=\"8692000\" />\n      <workItem from=\"1667668499107\" duration=\"3216000\" />\n      <workItem from=\"1667913577917\" duration=\"10046000\" />\n      <workItem from=\"1667926525400\" duration=\"10363000\" />\n      <workItem from=\"1668000301300\" duration=\"781000\" />\n      <workItem from=\"1668001557613\" duration=\"16134000\" />\n      <workItem from=\"1668078574991\" duration=\"10576000\" />\n      <workItem from=\"1668107193989\" duration=\"2140000\" />\n      <workItem from=\"1668180695686\" duration=\"7649000\" />\n      <workItem from=\"1668261563687\" duration=\"21132000\" />\n      <workItem from=\"1668429510579\" duration=\"6939000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"fix color&#10;feat log out\">\n      <created>1666892569914</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1666892569914</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"feat tout le code implementé et + &#10;et graphique avancé\">\n      <created>1667226460046</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1667226460046</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"feat tout le code implementé et + &#10;et graphique avancé\">\n      <created>1667668937278</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1667668937278</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"feat : page recherche profile\">\n      <created>1667923126349</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1667923126349</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"feat : page recherche profile\">\n      <created>1667923474850</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1667923474850</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"feat : page recherche profile +modif sur les messages\">\n      <created>1667934679984</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1667934679984</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"feat : modification du theme du mur_commentaire.php\">\n      <created>1668090633754</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1668090633754</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"&lt;fix&gt; : affichage commentaire profile guest si il y a le nom de lutilisateur dans les commentaires\">\n      <created>1668262247644</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1668262247644</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"&lt;fix&gt; : grosse réduction de code,&#10;correction bug affichage de sous commentaire,&#10;affichage de messages si le pseudo si trouve (dans les profiles)\">\n      <created>1668354517871</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1668354517871</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ...\">\n      <created>1668355942032</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1668355942032</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ...\">\n      <created>1668357831616</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1668357831616</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ...\">\n      <created>1668357838514</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1668357838514</updated>\n    </task>\n    <task id=\"LOCAL-00013\" summary=\"feat : ne pas afficher le compte connecter lors de la recherche\">\n      <created>1668413871354</created>\n      <option name=\"number\" value=\"00013\" />\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1668413871354</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"14\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\n    <MESSAGE value=\"fix color&#10;feat log out\" />\n    <MESSAGE value=\"feat tout le code implementé et + &#10;et graphique avancé\" />\n    <MESSAGE value=\"feat : page recherche profile\" />\n    <MESSAGE value=\"feat : page recherche profile +modif sur les messages\" />\n    <MESSAGE value=\"feat : modification du theme du mur_commentaire.php\" />\n    <MESSAGE value=\"&lt;fix&gt; : affichage commentaire profile guest si il y a le nom de lutilisateur dans les commentaires\" />\n    <MESSAGE value=\"&lt;fix&gt; : grosse réduction de code,&#10;correction bug affichage de sous commentaire,&#10;affichage de messages si le pseudo si trouve (dans les profiles)\" />\n    <MESSAGE value=\"&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ...\" />\n    <MESSAGE value=\"feat : ne pas afficher le compte connecter lors de la recherche\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"feat : ne pas afficher le compte connecter lors de la recherche\" />\n  </component>\n</project>\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 31f66894a8cbbde03e1215bd4b8a4f949eddb2ed)
+-+++ b/.idea/workspace.xml	(date 1668503456004)
+-@@ -1,19 +1,12 @@
+- <?xml version="1.0" encoding="UTF-8"?>
+- <project version="4">
+-   <component name="ChangeListManager">
+--    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ...">
+--      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+-+    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="">
+-+      <change afterPath="$PROJECT_DIR$/image/Logo ESIEA Baseline blanc.png" afterDir="false" />
+-+      <change afterPath="$PROJECT_DIR$/join_data.json" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/css_code.php" beforeDir="false" afterPath="$PROJECT_DIR$/css_code.php" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/function_used.php" beforeDir="false" afterPath="$PROJECT_DIR$/function_used.php" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/join_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/join_data.json" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/page/log_in.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/log_in.php" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/page/mur_commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire.php" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/page/mur_commentaire_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire_guest.php" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/page/mur_commentaire_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire_profile.php" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/page/profile_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile_guest.php" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/page/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/search.php" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/page/sign_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/sign_up.php" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-@@ -107,7 +100,8 @@
+-       <workItem from="1668107193989" duration="2140000" />
+-       <workItem from="1668180695686" duration="7649000" />
+-       <workItem from="1668261563687" duration="21132000" />
+--      <workItem from="1668429510579" duration="6939000" />
+-+      <workItem from="1668429510579" duration="7942000" />
+-+      <workItem from="1668498854689" duration="3872000" />
+-     </task>
+-     <task id="LOCAL-00001" summary="fix color&#10;feat log out">
+-       <created>1666892569914</created>
+-@@ -200,7 +194,14 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1668413871354</updated>
+-     </task>
+--    <option name="localTasksCounter" value="14" />
+-+    <task id="LOCAL-00014" summary="&lt;fix&gt; : correction de l'affichage des messages">
+-+      <created>1668437257667</created>
+-+      <option name="number" value="00014" />
+-+      <option name="presentableId" value="LOCAL-00014" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1668437257668</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="15" />
+-     <servers />
+-   </component>
+-   <component name="TypeScriptGeneratedFilesManager">
+-@@ -228,6 +229,7 @@
+-     <MESSAGE value="&lt;fix&gt; : grosse réduction de code,&#10;correction bug affichage de sous commentaire,&#10;affichage de messages si le pseudo si trouve (dans les profiles)" />
+-     <MESSAGE value="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ..." />
+-     <MESSAGE value="feat : ne pas afficher le compte connecter lors de la recherche" />
+--    <option name="LAST_COMMIT_MESSAGE" value="feat : ne pas afficher le compte connecter lors de la recherche" />
+-+    <MESSAGE value="&lt;fix&gt; : correction de l'affichage des messages" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="&lt;fix&gt; : correction de l'affichage des messages" />
+-   </component>
+--</project>
+-+</project>
+-\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_14_11_2022_15_46_[Changes]1/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_2022_15_46_[Changes]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_2022_15_46_[Changes]1/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_2022_15_46_[Changes]1/shelved.patch	
++++ /dev/null	
+@@ -1,784 +0,0 @@
+-Index: page/mur_commentaire_profile.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/page/mur_commentaire_profile.php b/page/mur_commentaire_profile.php
+---- a/page/mur_commentaire_profile.php	
+-+++ b/page/mur_commentaire_profile.php	
+-@@ -47,8 +47,16 @@
+-                 </div>
+-                 <?php
+- 
+--                if($result_can && $com['ID_user'] == $result_can['id']){
+--                    form_delete($com);
+-+                if($result_can && $com['ID_user'] == $result_can['id']){?>
+-+                    <form action="" class="form_delete_list_comment" method="post">
+-+                    <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+-+                        <label>
+-+                            <input type="hidden" name="supp" value="<?php echo $row['id']?>"/>
+-+                            <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
+-+                        </label>
+-+                            <?php useless_div(); ?>
+-+                    </div>
+-+                    </form> <?php
+-                 }
+- 
+-                 // output data of each row
+-@@ -92,4 +100,4 @@
+-     } else {
+-         echo "<br>Error: " . $sql . "<br>" . $mysqli->error;
+-     }
+--}
+-\ No newline at end of file
+-+}
+-Index: page/mur_commentaire.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/page/mur_commentaire.php b/page/mur_commentaire.php
+---- a/page/mur_commentaire.php	
+-+++ b/page/mur_commentaire.php	
+-@@ -41,7 +41,7 @@
+-             ?>
+-             <div style="margin-top: 4%; margin-right: 2%; padding-bottom: 1%;" class='control block-cube block-input'>
+-             <?php
+--            if ($com["username_destinataire"] and $com["username_destinataire"] != $com["username_source"]){  //style="position : relative; z-index: 10"
+-+            if ($com["username_destinataire"] and $com["username_destinataire"] != $com["username_source"]){
+-                 ?>
+-                 <post style="position : relative; z-index: 10">
+-                     <b style=" max-width: 99%; word-wrap: break-word;  "><?=$username_proprio; ?><i style="opacity: 0.5;"> pour </i><?=$com["username_destinataire"]; ?> </b> <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i><p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; "><?=$com["post"]; ?></p>
+-@@ -64,7 +64,16 @@
+- 
+-             <?php
+-             if($result_can && $com['ID_user'] == $result_can['id']){
+--                form_delete($com);
+-+                ?>
+-+                <form action="" class="form_delete_list_comment" method="post">
+-+                    <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+-+                        <label>
+-+                            <input type="hidden" name="supp" value="<?php echo $com['id']?>"/>
+-+                            <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
+-+                        </label>
+-+                        <?php useless_div(); ?>
+-+                    </div>
+-+                </form> <?php
+-             }
+-             ?>
+-             <?php
+-@@ -81,7 +90,16 @@
+-                         like_button();
+-                     } ?>
+-                     <?php if($result_can!=NULL && $row['ID_user'] == $result_can['id']){
+--                        form_delete($row);
+-+                        ?>
+-+                        <form action="" class="form_delete_list_comment" method="post">
+-+                            <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+-+                                <label>
+-+                                    <input type="hidden" name="supp" value="<?php echo $row['id']?>"/>
+-+                                    <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
+-+                                </label>
+-+                                <?php useless_div(); ?>
+-+                            </div>
+-+                        </form> <?php
+-                     }
+-                     useless_div();
+-                     ?>
+-@@ -139,4 +157,4 @@
+-     }
+-     ?>
+- 
+--</div>
+-\ No newline at end of file
+-+</div>
+-Index: style.css
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/style.css b/style.css
+---- a/style.css	
+-+++ b/style.css	
+-@@ -83,11 +83,11 @@
+- .log_in_up .button_log_in {
+-     transition: 0.7s ease;
+-     border-radius: 9999px;
+--    background-color: darkred;
+--    color: aliceblue;
+-+    background-color: transparent;
+-+    color: #fff;
+-     margin-left: 10px;
+-     margin-right: 30px;
+--    border: 1px solid darkred;
+-+    border: 1px solid #fff;
+-     font-family: 'Teko', sans-serif;
+-     width: 110px;
+-     height: 50px;
+-@@ -98,9 +98,9 @@
+- .log_in_up .button_sign_up{
+-     transition: 0.7s ease;
+-     border-radius: 9999px;
+--    color: darkred;
+--    background-color: aliceblue;
+--    border: 1px solid darkred;
+-+    color: #fff;
+-+    background-color: transparent;
+-+    border: 1px solid #fff;
+-     margin-right: 10px;
+-     font-family: 'Teko', sans-serif;
+-     width: 110px;
+-@@ -111,15 +111,15 @@
+- }
+- .log_in_up .button_log_in:hover{
+-     transition: 0.7s ease;
+--    background-color: aliceblue;
+--    border: 1px solid darkred;
+--    color: darkred;
+-+    background-color: #212121;
+-+    border: 1px solid #fff;
+-+    color: #fff;
+- }
+- .log_in_up .button_sign_up:hover {
+-     transition: 0.7s ease;
+--    border: 1px solid aliceblue;
+--    background-color: darkred;
+--    color: aliceblue;
+-+    border: 1px solid #fff;
+-+    background-color: #212121;
+-+    color: #fff;
+- }
+- 
+- /*########## menue déroulant ##########*/
+-@@ -274,159 +274,6 @@
+- 
+- /*LOL*/
+- *,
+--::after,
+--::before {
+--    box-sizing: border-box;
+--}
+--
+--body {
+--    background-color: #212121;
+--    color: #fff;
+--    font-family: monospace, serif;
+--    letter-spacing: 0.05em;
+--}
+--
+--h1 {
+--    font-size: 23px;
+--}
+--
+--.form {
+--    width: 300px;
+--    padding: 64px 15px 24px;
+--    margin: 0 auto;
+--}
+--.form .control {
+--    margin: 0 0 24px;
+--}
+--.form .control input {
+--    width: 100%;
+--    padding: 14px 16px;
+--    border: 0;
+--    background: transparent;
+--    color: #fff;
+--    font-family: monospace, serif;
+--    letter-spacing: 0.05em;
+--    font-size: 16px;
+--}
+--.form .control input:hover, .form .control input:focus {
+--    outline: none;
+--    border: 0;
+--}
+--.form .btn {
+--    width: 100%;
+--    display: block;
+--    padding: 14px 16px;
+--    background: transparent;
+--    outline: none;
+--    border: 0;
+--    color: #fff;
+--    letter-spacing: 0.1em;
+--    font-weight: bold;
+--    font-family: monospace;
+--    font-size: 16px;
+--}
+--
+--.block-cube {
+--    position: relative;
+--}
+--.block-cube .bg-top {
+--    position: absolute;
+--    height: 10px;
+--    background: #020024;
+--    background: linear-gradient(90deg, #020024 0%, #340979 37%, #00d4ff 94%);
+--    bottom: 100%;
+--    left: 5px;
+--    right: -5px;
+--    transform: skew(-45deg, 0);
+--    margin: 0;
+--}
+--.block-cube .bg-top .bg-inner {
+--    bottom: 0;
+--}
+--.block-cube .bg {
+--    position: absolute;
+--    left: 0;
+--    top: 0;
+--    right: 0;
+--    bottom: 0;
+--    background: #020024;
+--    background: linear-gradient(90deg, #020024 0%, #340979 37%, #00d4ff 94%);
+--}
+--.block-cube .bg-right {
+--    position: absolute;
+--    background: #020024;
+--    background: #00d4ff;
+--    top: -5px;
+--    z-index: 0;
+--    bottom: 5px;
+--    width: 10px;
+--    left: 100%;
+--    transform: skew(0, -45deg);
+--}
+--.block-cube .bg-right .bg-inner {
+--    left: 0;
+--}
+--.block-cube .bg .bg-inner {
+--    transition: all 0.2s ease-in-out;
+--}
+--.block-cube .bg-inner {
+--    background: #212121;
+--    position: absolute;
+--    left: 2px;
+--    top: 2px;
+--    right: 2px;
+--    bottom: 2px;
+--}
+--.block-cube .text {
+--    position: relative;
+--    z-index: 2;
+--}
+--.block-cube.block-input input {
+--    position: relative;
+--    z-index: 2;
+--}
+--.block-cube.block-input input:focus ~ .bg-right .bg-inner, .block-cube.block-input input:focus ~ .bg-top .bg-inner, .block-cube.block-input input:focus ~ .bg-inner .bg-inner {
+--    top: 100%;
+--    background: rgba(255, 255, 255, 0.5);
+--}
+--.block-cube.block-input .bg-top,
+--.block-cube.block-input .bg-right,
+--.block-cube.block-input .bg {
+--    background: rgba(255, 255, 255, 0.5);
+--    transition: background 0.2s ease-in-out;
+--}
+--.block-cube.block-input .bg-right .bg-inner,
+--.block-cube.block-input .bg-top .bg-inner {
+--    transition: all 0.2s ease-in-out;
+--}
+--.block-cube.block-input:focus .bg-top,
+--.block-cube.block-input:focus .bg-right,
+--.block-cube.block-input:focus .bg, .block-cube.block-input:hover .bg-top,
+--.block-cube.block-input:hover .bg-right,
+--.block-cube.block-input:hover .bg {
+--    background: rgba(255, 255, 255, 0.8);
+--}
+--.block-cube.block-cube-hover:focus .bg .bg-inner, .block-cube.block-cube-hover:hover .bg .bg-inner {
+--    top: 100%;
+--}
+--
+--.credits {
+--    position: fixed;
+--    left: 0;
+--    bottom: 0;
+--    padding: 15px 15px;
+--    width: 100%;
+--    z-index: 111;
+--}
+--.credits a {
+--    opacity: 0.6;
+--    color: #fff;
+--    font-size: 11px;
+--    text-decoration: none;
+--}
+--.credits a:hover {
+--    opacity: 1;
+--}*,
+-  ::after,
+-  ::before {
+-      box-sizing: border-box;
+-Index: page/search.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/page/search.php b/page/search.php
+---- a/page/search.php	
+-+++ b/page/search.php	
+-@@ -12,12 +12,13 @@
+-             $output = '<div>No results!</div>';
+-         }else{
+-             while($row = mysqli_fetch_array($query)){
+--                ?>
+--                <!--                            <div>--><?php //echo "pseudo : ".$row['username']; ?><!--</div>-->
+--
+--                <?php
+--
+--                if ($row["username"] != $_COOKIE["username"]){
+-+                if(isset($_COOKIE["username"])){
+-+                    $username_utilisateur = $_COOKIE["username"];
+-+                }
+-+                else{
+-+                    $username_utilisateur = "";
+-+                }
+-+                if ($row["username"] != $username_utilisateur){
+-                 ?>
+-                 <div class='control block-cube block-input' style=" background-color: #212121; color: #fff; margin-top: 3%; margin-right: 3%;position: relative">
+-                     <a href="index.php?variable=profile_guest.php&profile_guest=<?php echo $row['username']?>" style="text-decoration: none; font-size: 1.2em; color: #fff; max-width: 99% ; position: relative; z-index: 11"">
+-Index: page/profile_guest.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/page/profile_guest.php b/page/profile_guest.php
+---- a/page/profile_guest.php	
+-+++ b/page/profile_guest.php	
+-@@ -6,7 +6,9 @@
+- $guest = $_GET['profile_guest'];
+- $username = mysqli_query($mysqli,"SELECT * FROM profile WHERE username = '{$_GET['profile_guest']}'");
+- $row_cnt = $username->num_rows;
+--$username = $username->fetch_assoc()
+-+$username = $username->fetch_assoc();
+-+$username2 = mysqli_query($mysqli,"SELECT * FROM user WHERE username = '{$_GET['profile_guest']}'");
+-+$username2 = $username2->fetch_assoc();
+- ?>
+- <?php
+- 
+-@@ -25,11 +27,10 @@
+-         <?php useless_div(); ?>
+-     </div>
+- 
+--<?php
+-+    <?php
+-     include ('mur_commentaire_guest.php');
+- }
+- else{
+-     echo "Le profile n'existe pas.";
+- }
+- ?>
+--
+-Index: css_code.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/css_code.php b/css_code.php
+---- a/css_code.php	
+-+++ b/css_code.php	
+-@@ -14,30 +14,14 @@
+-     <?php
+- }
+- 
+--// supprimer un message ou un commentaire
+--function form_delete($row){
+--    ?><form action="" class="form_delete_list_comment" method="post">
+--        <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+--            <label>
+--                <input type="hidden" name="supp" value="<?php echo $row['id']?>"/>
+--                <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
+--            </label>
+--                <?php useless_div(); ?>
+--        </div>
+--    </form>
+--<?php
+--
+--
+--}
+--
+- // poster un commentaire ou un message
+- function form_post(){
+-     ?>
+- 
+-     <div class='control block-cube block-input' style="margin-right: 5%; margin-bottom: 3%;">
+--        <div>
+-+        <div class='control block-cube block-input'>
+-             <input type="hidden" value="">
+--            <label for="message"></label><input type="text" id="message" name="message" placeholder="What's happening" style="margin-right: 2%; margin-left: 1%; margin-top: 1%; background-color: #212121; color: #fff">
+-+            <label for="message"></label><input type="text" id="message" name="message" placeholder="What's happening" style="margin-right: 2%; margin-left: 1%; margin-top: 1%; background-color: #212121; color: #fff" autocomplete="off">
+-             <div class='bg'>
+-                 <div class='bg-inner'></div>
+-             </div>
+-@@ -51,9 +35,9 @@
+- <?php
+- }
+- 
+--// profile, les .... pour ...
+-+// profile, les ... pour ...
+- function affi_pour($com){
+--    if ($com["username_destinataire"]){
+-+    if ($com["username_destinataire"] and $com["username_destinataire"] != $com["username_source"]){
+-         ?>
+-         <post style="position : relative; z-index: 10">
+-             <b style=" max-width: 99%; word-wrap: break-word;  ">
+-@@ -71,7 +55,7 @@
+-         ?>
+-         <post style="position : relative; z-index: 10">
+-             <b style=" max-width: 99%; word-wrap: break-word; ">
+--                <?=$com['username_source']; echo " ".$com['id'];?>
+-+                <?=$com['username_source'];?>
+-             </b>
+-             <i style="opacity: 0.5;">
+-                 <?=$com["post_date"]; ?>
+-@@ -144,8 +128,17 @@
+-         if ($result_can) {
+-             like_button();
+-         }
+--        if ($result_can != NULL && $row['ID_user'] == $result_can['id']) {
+--            form_delete($row);
+-+        if ($result_can != NULL && $row['ID_user'] == $result_can['id']) {?>
+-+            <form action="" class="form_delete_list_comment" method="post">
+-+                <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+-+                    <label>
+-+                        <input type="hidden" name="supp" value="<?php echo $row['id']?>"/>
+-+                        <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
+-+                    </label>
+-+                    <?php useless_div(); ?>
+-+                </div>
+-+            </form>
+-+        <?php
+-         }
+-         useless_div();
+-         ?>
+-@@ -157,7 +150,7 @@
+- function commenter($com){
+-     ?>
+-     <form method="POST" style="display: inline-block ; margin-left: 1%; margin-top: 2%">
+--        <div class='control block-cube block-input'>
+-+        <div class='control block-cube block-input' style="position: relative; z-index: 9">
+-             <label>
+-                 <input type="hidden" name="id_dest" value="<?php echo $com['ID_user']?>"/>
+-                 <input type="hidden" name="comment_id" value="<?php echo $com['id']?>"/>
+-Index: page/mur_commentaire_guest.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/page/mur_commentaire_guest.php b/page/mur_commentaire_guest.php
+---- a/page/mur_commentaire_guest.php	
+-+++ b/page/mur_commentaire_guest.php	
+-@@ -1,3 +1,9 @@
+-+<?php
+-+global $result_can;
+-+global $mysqli;
+-+global $guest;
+-+?>
+-+
+- <div id="post_message_profile" style="margin-top: 3%" >
+-     <form action="#" method="post" id="post_messages">
+-         <?php
+-@@ -30,22 +36,30 @@
+-                 $boolean = 1;
+-             }
+-         }
+--        if($boolean == 1 || $com['username_source'] == $guest || $com['username_destinataire'] == $guest){
+-+        if($boolean == 1 or $com['username_source'] == $guest or $com['username_destinataire'] == $guest){
+-             ?>
+-             <div style="margin-top: 4%; margin-right: 2%; padding-bottom: 4%;" class='control block-cube block-input'>
+-                 <?php
+-                 affi_pour($com);
+-                 ?>
+- 
+--                <div style="background-color: #2f2f2f;">
+-+                <div style="background-color: #212121;">
+-                     <?php if($result_can){
+-                         like_button();
+-                     } ?>
+-                 </div>
+-                 <?php
+- 
+--                if($result_can && $com['ID_user'] == $result_can['id']){
+--                    form_delete($com['id']);
+-+                if($result_can and $com['ID_user'] == $result_can['id']){ ?>
+-+                    <form action="" class="form_delete_list_comment" method="post">
+-+                    <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
+-+                        <label>
+-+                            <input type="hidden" name="supp" value="<?php echo $row['id']?>"/>
+-+                            <input id="delete" name="delete" type="submit" value="Delete message" style=" background-color: #212121; color: #fff;">
+-+                        </label>
+-+                            <?php useless_div(); ?>
+-+                    </div>
+-+                    </form> <?php
+-                 }
+-                 // output data of each row
+-                 foreach($coms2 as $row){
+-@@ -54,6 +68,7 @@
+-                 if($result_can){
+-                     commenter($com);
+-                 }
+-+
+-                 useless_div();
+-                 ?> </div> <?php
+-         }
+-@@ -65,7 +80,7 @@
+- //actionnement des formulaires
+- if(isset($_POST["delete"])) {
+-     if ($mysqli->query("DELETE FROM post WHERE comment_id_destinataire= '{$_POST['supp']}'") === TRUE) {
+--        echo "\nsupprimé";
+-+        echo "\nsupprimÃ©";
+-     }
+-     $mysqli->query("DELETE FROM post WHERE id = {$_POST['supp']}");
+-     ?>
+-@@ -88,4 +103,4 @@
+-     } else {
+-         echo "<br>Error: " . $sql . "<br>" . $mysqli->error;
+-     }
+--}
+-\ No newline at end of file
+-+}
+-Index: page/log_in.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/page/log_in.php b/page/log_in.php
+---- a/page/log_in.php	
+-+++ b/page/log_in.php	
+-@@ -3,14 +3,18 @@
+- <h1>Log In</h1>
+- 
+- <form class="formulaire_connexion" action="" method="POST">
+--    <label><b>Nom d'utilisateur</b></label>
+--    <label for="email"></label><input id="email" type="email" placeholder="Entrer votre adresse mail" name="email" required>
+--    <br>
+--    <label><b>Mot de passe</b></label>
+--    <label for="password"></label><input id="password" type="password" placeholder="Entrer le mot de passe" name="password" required>
+--    <br>
+--    <input type="submit" id='submit' value='valider' name="submit_log_in">
+--    <br>
+-+    <div class="control block-cube block-input">
+-+        <div id="a_remplir" >
+-+            <label for="email"></label><input id="email" type="email" placeholder="Entrer votre adresse mail" name="email" required>
+-+            <br>
+-+            <label for="password"></label><input id="password" type="password" placeholder="Entrer le mot de passe" name="password" required>
+-+
+-+        </div>
+-+
+-+        <input type="submit" id='submit' value='valider' name="submit_log_in">
+-+        <br>
+-+        <?php useless_div(); ?>
+-+    </div>
+-     <!--    <button onclick ="window.location='index.php?name=inscription.php'">Inscription</button>-->
+- </form>
+- <?php
+-Index: page/sign_up.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/page/sign_up.php b/page/sign_up.php
+---- a/page/sign_up.php	
+-+++ b/page/sign_up.php	
+-@@ -1,44 +1,46 @@
+- 
+--<h1>Sign Up</h1>
+-+<h1 style="font-size: 2em">Sign Up</h1>
+- 
+--    <form class="formulaire_inscription" action="" method="POST" style="word-spacing: 2px;">
+--        <label><b>Nom d'utilisateur</b></label>
+--        <label>
+--            <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+--        </label>
+--        <br>
+--        <label><b>Adresse e-mail</b></label>
+--        <label>
+--            <input type="email" placeholder="Entrer votre adresse nail" name="email" required>
+--        </label>
+--        <br>
+--        <label><b>Mot de passe</b></label>
+--        <label>
+--            <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+--        </label>
+--        <br>
+--        <label><b>Verification de mot de passe</b></label>
+--        <label>
+--            <input type="password" placeholder="Re entrer le mot de passe" name="repassword" required>
+--        </label>
+--        <br>
+--        <label><b>Genre</b></label>
+--        <label>
+--            <input type="radio" name="genre" value="Homme" checked>
+--        </label>
+--        <label for="H">Homme</label>
+--        <label>
+--            <input type="radio" name="genre" value="Femme">
+--        </label>
+--        <label for="F">Female</label>
+--        <br>
+--        <label><b>Age</b></label>
+--        <label>
+--            <input type="number" placeholder="Entrer votre age" name="age" min="18" max="100" required>
+--        </label>
+--        <br>
+--        <input type="submit" id='submit' value='valider' >
+--        <br>
+-+    <form class="formulaire_inscription" action="" method="POST" style="word-spacing: 2px; display: inline-block; padding-right: 2%;">
+-+        <div class='control block-cube block-input' style="">
+-+            <div id="a_remplir">
+-+                <label>
+-+                    <input style="background-color: #212121; color: #fff; " type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+-+                </label>
+-+                <br>
+-+                <label>
+-+                    <input style="background-color: #212121; color: #fff; " type="email" placeholder="Entrer votre adresse mail" name="email" required>
+-+                </label>
+-+                <br>
+-+                <label>
+-+                    <input style="background-color: #212121; color: #fff; " type="password" placeholder="Entrer le mot de passe" name="password" required>
+-+                </label>
+-+                <br>
+-+                <label>
+-+                    <input style="background-color: #212121; color: #fff; " type="password" placeholder="Re entrer le mot de passe" name="repassword" required>
+-+                </label>
+-+                <br>
+-+                <label>
+-+                    <input style="background-color: #212121; color: #fff; " type="radio" name="genre" value="Homme" checked>
+-+                </label>
+-+                <label for="H" style="position: relative; z-index: 5">Homme</label>
+-+                <label>
+-+                    <input style="background-color: #212121; color: #fff; " type="radio" name="genre" value="Femme">
+-+                </label>
+-+                <label for="F" style="position: relative; z-index: 5">Female</label>
+-+                <br>
+-+                <label>
+-+                    <input style="background-color: #212121; color: #fff; " type="number" placeholder="Entrer votre age" name="age" min="18" max="100" required>
+-+                </label>
+-+            </div>
+-+            <br>
+-+            <div class='btn block-cube block-cube-hover' id="input" style="margin-left: 1%; margin-bottom: 1%; display: inline-block; position: relative ;z-index: 11">
+-+                <input style="background-color: #212121; color: #fff; " type="submit" id='submit' value='valider' >
+-+                <?php useless_div(); ?>
+-+            </div>
+-+            <?php useless_div(); ?>
+-+        </div>
+-+
+-         <!--    <button onclick ="window.location='index.php?name=login.php'">Se connecter</button>-->
+-     </form>
+- 
+-Index: .idea/dataSources.local.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/dataSources.local.xml b/.idea/dataSources.local.xml
+---- a/.idea/dataSources.local.xml	
+-+++ b/.idea/dataSources.local.xml	
+-@@ -1,6 +1,6 @@
+- <?xml version="1.0" encoding="UTF-8"?>
+- <project version="4">
+--  <component name="dataSourceStorageLocal" created-in="PS-222.4345.15">
+-+  <component name="dataSourceStorageLocal" created-in="PS-222.3739.61">
+-     <data-source name="@localhost" uuid="08bebf5b-e11a-44f0-9579-a76a6528d967">
+-       <database-info product="MySQL" version="8.0.31-0ubuntu0.22.04.1" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0)" dbms="MYSQL" exact-version="8.0.31" exact-driver-version="8.0">
+-         <extra-name-characters>#@</extra-name-characters>
+-Index: function_used.php
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/function_used.php b/function_used.php
+---- a/function_used.php	
+-+++ b/function_used.php	
+-@@ -25,5 +25,17 @@
+-         echo "Error deleting record: " . $mysqli->error;
+-     }
+- }
+-+function abo_affi($n) {
+-+    // first strip any formatting;
+-+    $n = (0+str_replace(",","",$n));
+-+    // is this a number?
+-+    if(!is_numeric($n)) return false;
+-+    // now filter it;
+-+    if($n>1000000000000) return round(($n/1000000000000),1).' billion';
+-+    else if($n>1000000000) return round(($n/1000000000),1).' milliard';
+-+    else if($n>1000000) return round(($n/1000000),1).' million';
+- 
+-+
+-+    return number_format($n);
+-+}
+- ?>
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	
+-+++ b/.idea/workspace.xml	
+-@@ -2,8 +2,19 @@
+- <project version="4">
+-   <component name="ChangeListManager">
+-     <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ...">
+-+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/css_code.php" beforeDir="false" afterPath="$PROJECT_DIR$/css_code.php" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/function_used.php" beforeDir="false" afterPath="$PROJECT_DIR$/function_used.php" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/join_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/join_data.json" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/page/log_in.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/log_in.php" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/page/mur_commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire.php" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/page/mur_commentaire_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire_guest.php" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/page/mur_commentaire_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire_profile.php" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/page/profile_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile_guest.php" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/page/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/search.php" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/page/sign_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/sign_up.php" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -96,6 +107,7 @@
+-       <workItem from="1668107193989" duration="2140000" />
+-       <workItem from="1668180695686" duration="7649000" />
+-       <workItem from="1668261563687" duration="21132000" />
+-+      <workItem from="1668429510579" duration="6939000" />
+-     </task>
+-     <task id="LOCAL-00001" summary="fix color&#10;feat log out">
+-       <created>1666892569914</created>
+-@@ -181,7 +193,14 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1668357838514</updated>
+-     </task>
+--    <option name="localTasksCounter" value="13" />
+-+    <task id="LOCAL-00013" summary="feat : ne pas afficher le compte connecter lors de la recherche">
+-+      <created>1668413871354</created>
+-+      <option name="number" value="00013" />
+-+      <option name="presentableId" value="LOCAL-00013" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1668413871354</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="14" />
+-     <servers />
+-   </component>
+-   <component name="TypeScriptGeneratedFilesManager">
+-@@ -208,17 +227,7 @@
+-     <MESSAGE value="&lt;fix&gt; : affichage commentaire profile guest si il y a le nom de lutilisateur dans les commentaires" />
+-     <MESSAGE value="&lt;fix&gt; : grosse réduction de code,&#10;correction bug affichage de sous commentaire,&#10;affichage de messages si le pseudo si trouve (dans les profiles)" />
+-     <MESSAGE value="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ..." />
+--    <option name="LAST_COMMIT_MESSAGE" value="&lt;fix&gt; : mini correction, afin d'afficher les messages ... pour ..." />
+--  </component>
+--  <component name="XDebuggerManager">
+--    <breakpoint-manager>
+--      <breakpoints>
+--        <line-breakpoint enabled="true" type="php">
+--          <url>file://$PROJECT_DIR$/css_code.php</url>
+--          <line>139</line>
+--          <option name="timeStamp" value="1" />
+--        </line-breakpoint>
+--      </breakpoints>
+--    </breakpoint-manager>
+-+    <MESSAGE value="feat : ne pas afficher le compte connecter lors de la recherche" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="feat : ne pas afficher le compte connecter lors de la recherche" />
+-   </component>
+- </project>
+-\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_14_11_2022_15_46__Changes_1.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_2022_15_46__Changes_1.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_2022_15_46__Changes_1.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_2022_15_46__Changes_1.xml	
++++ /dev/null	
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_14_11_2022_15_46_[Changes]1" date="1668437174849" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_2022_15_46_[Changes]1/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 14/11/2022 15:46 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_10_11__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_10_11__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_10_11__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_10_11__Changes_.xml	
++++ /dev/null	
+@@ -1,9 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_15_11_2022_10_11_[Changes]" date="1668503596116" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_10_11_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 15/11/2022 10:11 [Changes]" />
+-  <binary>
+-    <option name="BEFORE_PATH" />
+-    <option name="AFTER_PATH" value="image/Logo ESIEA Baseline blanc.png" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_10_11_[Changes]/Logo ESIEA Baseline blanc.png" />
+-  </binary>
+-</changelist>
+\ No newline at end of file
+Index: site/test1.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/test1.php b/site/test1.php
+new file mode 100644
+--- /dev/null	
++++ b/site/test1.php	
+@@ -0,0 +1,133 @@
++<!DOCTYPE html>
++<html lang="fr">
++<head>
++    <meta charset="UTF-8">
++    <!-- <link rel="stylesheet" href="style.css"> -->
++    <title>titre1</title>
++
++    <script type="text/javascript" src="Like_Bouton.js"></script>
++
++</head>
++
++<body>
++
++
++<script>
++    function test(fichier){
++        var index = 0
++        var xhr = new XMLHttpRequest();
++        var title = document.querySelector('title');
++        console.log(title.text)
++
++
++        while(index == 0){
++            xhr.open("GET","websites/"+fichier,true);
++            xhr.responseType = "text";
++            xhr.onreadystatechange = function() {
++
++                if (this.readyState == 4 && this.status == 200){
++
++                    title = document.querySelector('title');
++                    // Pour envoyer le title (info sur le clien log)
++                    /*for (const element in data){
++                      query.push(encodeURIComponent(element) + "=" + encodeURIComponent(data[element]));
++                    }*/
++                }
++                else if (this.readyState == 4 && this.status == 404){
++                    alert('Error 404');
++                }
++
++            };
++            xhr.send();
++            index = 1;
++            //Cet boucle pour récupérer le title
++        }
++        if (index == 1) {
++
++
++            var http = new XMLHttpRequest();
++            var url = 'http://localhost/site/recep1.php';
++            //var params = encodeURIComponent("a") + "=" + encodeURIComponent("ma bite");
++            http.open('POST', url, true);
++
++            var params = new Object();
++            params.myparam1 = 'baptiste';
++            params.myparam2 = "svd";
++
++// Turn the data object into an array of URL-encoded key/value pairs.
++            let urlEncodedData = "",
++                urlEncodedDataPairs = [],
++                names;
++
++            for (names in params) {
++                //urlEncodedDataPairs.push(encodeURIComponent(names) + ' : ' + encodeURIComponent(params.names));
++            }
++            urlEncodedDataPairs.push(encodeURIComponent("titre") + "=" + encodeURIComponent(title.text));
++
++
++//Send the proper header information along with the request
++            http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
++
++
++            http.onreadystatechange = function () {//Call a function when the state changes.
++                if (http.readyState == 4 && http.status == 200) {
++                    alert("envoyé");
++                }
++            }
++            http.send(urlEncodedDataPairs);
++        }
++    }
++
++
++
++
++    function Info() {
++
++        var variable = 'test';
++
++        $.ajax({
++            type: "POST",
++            url: "heuresDispo.php",
++            data: { voyage:variable },
++            contentType: "application/json; charset=utf-8",
++            dataType: "txt", //Ton type de retour
++            success: function (data)
++            {
++                alert(data);
++                console.log("variable : "+ variable);
++            },
++
++            error: function (data)
++            {  alert(data[0]);
++                console.log('non non non');
++
++            }
++        });
++    }
++
++    const params = {
++        nom : "griffen",
++        age : 30,
++    }
++    // getData(
++    //     params,
++    //     reponse => console.log(reponse),
++    //     (status,statusText) => console.log(`${status} :: ${statusText}`)
++    // )
++
++
++
++    //
++    // postData(
++    //     params,
++    //     response => console.log(response),
++    //     (status,statusText) => console.log(`${status} :: ${statusText}`)
++    // )
++
++    test("site00.php")
++</script>
++
++</body>
++
++
++</html>
+Index: site/recep1.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/recep1.php b/site/recep1.php
+new file mode 100644
+--- /dev/null	
++++ b/site/recep1.php	
+@@ -0,0 +1,38 @@
++<!DOCTYPE html>
++<html lang="fr">
++<head>
++    <meta charset="UTF-8">
++    <title>LOG_IN</title>
++
++</head>
++
++<?php
++
++
++header('Centent-Type: text/html; charset=utf-8');
++if (isset($_POST["myparam1"]) || isset($_POST["myparam2"]) || isset($_POST["titre"])) {?>
++    <script type="application/javascript"> alert("Recu") </script>
++    <h1>Receptionné</h1>
++<?php
++}
++
++
++if (isset($_POST["myparam1"])) {
++    $value = $_POST["myparam1"];
++    echo "myparam1 : ";
++    print_r($value);
++}
++
++
++if (isset($_POST["myparam2"])){
++    $prenom = $_POST["myparam2"];
++    echo "myparam2 : ";
++    print_r($prenom);
++}
++
++if (isset($_POST["titre"])){
++    echo "titre : ";
++    print_r($_POST["titre"]);
++}
++?>
++</html>
+Index: site/websites/site10.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site10.php b/site/websites/site10.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site10.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "Tee shirt trop serré";
++$desc = "Des tee shirt trop serré pour des bourses trop petite!";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/tools.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/tools.php b/site/websites/tools.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/tools.php	
+@@ -0,0 +1,37 @@
++<?php
++
++function all_websites()
++{
++    $websites = [];
++    foreach (scandir(".") as $ws)
++	if (pathinfo($ws, PATHINFO_EXTENSION) == "php" && strncmp($ws, "site", 4) == 0)
++	    $websites[] = $ws;
++    return ($websites);
++}
++
++function pseudorandlist($websites, $seed)
++{
++    $lst = [];
++    $idx = crc32($seed);
++    for ($i = 0; $i < count($websites) / 3; ++$i)
++    {
++	$idx = crc32($idx);
++	$tmp = $websites[$idx % count($websites)];
++	$lst[$tmp] = $tmp;
++    }
++    return ($lst);
++}
++
++ob_start();
++?>
++Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sagittis eget mi quis consectetur. Vivamus pellentesque, nunc nec sagittis congue, justo nisi maximus purus, a egestas tortor velit sit amet est. Sed placerat ac leo id efficitur. Duis ultricies convallis ipsum, ac lobortis enim. Morbi dapibus volutpat augue, in posuere leo tristique eget. Integer elementum diam eget enim faucibus, sit amet bibendum felis condimentum. Donec vel scelerisque ex. Quisque laoreet justo non eros pellentesque, quis molestie ante semper. Aliquam id commodo risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse eu auctor leo.
++
++Quisque leo ipsum, pharetra vitae iaculis sed, dapibus quis risus. Nunc tincidunt, nibh ac efficitur vehicula, sem est gravida lectus, at commodo augue sem ut eros. Mauris sagittis mi ut lorem commodo dignissim. Pellentesque convallis odio a tristique placerat. Aliquam blandit leo tortor, id dapibus lorem tristique fermentum. Ut tincidunt ipsum eu rhoncus maximus. Duis elementum lectus lacus, at ornare est fermentum id. Duis in vestibulum mi. Proin elementum hendrerit tortor eu facilisis. Praesent ullamcorper augue vel libero fermentum, vitae euismod massa egestas. Praesent sit amet volutpat tortor, eu lobortis turpis. Nunc arcu elit, aliquam sit amet consectetur vitae, malesuada nec mi. Mauris vestibulum, felis et rhoncus gravida, diam orci tristique est, eget condimentum eros enim eget risus. Integer accumsan est a erat tempus, sed vestibulum nisi euismod. Nulla commodo, purus vitae tristique efficitur, magna magna tempus mauris, varius rutrum arcu metus nec ante.
++
++Vestibulum nisl diam, luctus eu iaculis a, maximus vel nunc. Fusce eu gravida quam. Etiam porttitor molestie consequat. Ut nec rutrum nisl, quis vulputate eros. Cras porta aliquet venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed libero turpis, eleifend nec justo nec, mattis vestibulum velit. Maecenas sollicitudin erat nulla, vitae tincidunt sapien consequat in. Cras ac maximus dolor. In eu purus at justo euismod suscipit vel vitae lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque a rutrum magna. Curabitur suscipit, lacus nec congue bibendum, risus arcu iaculis dolor, et vulputate nulla est non enim.
++
++Maecenas at diam neque. Etiam ac ornare nunc. Suspendisse eget mi id risus euismod feugiat sit amet at felis. Quisque metus massa, fringilla eu varius in, cursus id ipsum. Nam non justo aliquet, scelerisque purus nec, lobortis tellus. Vestibulum viverra, felis in imperdiet pretium, libero mi volutpat ligula, in scelerisque magna lectus a arcu. Sed eros sapien, vulputate at nibh ac, ultricies hendrerit nunc. Suspendisse ut tristique purus. Maecenas venenatis turpis sit amet rhoncus pretium. Vivamus lacinia eu ipsum id condimentum. Donec tempus fermentum lectus, ut consequat risus varius et.
++
++Integer iaculis sapien id lobortis pharetra. Curabitur vel orci gravida, iaculis ex quis, ultrices mi. Sed finibus eros eget consequat convallis. Curabitur vehicula imperdiet ultricies. Mauris laoreet, metus nec ultrices ultricies, sem dui volutpat magna, non lobortis erat velit ut sem. Sed vulputate magna sed consectetur consequat. Donec eu dui egestas, viverra nibh sed, posuere neque. Ut ex ligula, semper vitae feugiat sollicitudin, tempus nec velit. Curabitur ultricies interdum purus vitae commodo. Nulla imperdiet velit ex, sit amet posuere nisi maximus vel. Etiam augue urna, efficitur vitae iaculis vestibulum, rhoncus ac tortor. Ut vestibulum vitae metus eget facilisis. Praesent vitae felis non sapien eleifend laoreet et ut nulla. Donec blandit commodo ex, quis dictum nisi fringilla eget. Quisque hendrerit congue urna, eu pulvinar libero pharetra eget. Nam egestas, enim sed imperdiet auctor, mauris mi lacinia ligula, id commodo orci leo tempus urna.
++<?php
++  $lorem_ipsum = ob_get_clean();
+Index: site/websites/site06.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site06.php b/site/websites/site06.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site06.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "Assurance mort";
++$desc = "Vous vous inquietez de rester mort après votre trépas? Souscrivez a notre assurance mort, payé par votre famille, et en cas de résurection, vous êtes intégralement remboursé!";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site03.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site03.php b/site/websites/site03.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site03.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "Hotel belle étoile";
++$desc = "Vous trouverez moins cher que notre hotel sans toit, sans sol et sans mur, on vous rembourse vingt fois la différence!";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site01.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site01.php b/site/websites/site01.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site01.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "Peluches presque officielle";
++$desc = "Vous manquez de moyen pour acheter une peluche officielle Naintando? La contrefacon est faite pour vous.";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site16.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site16.php b/site/websites/site16.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site16.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "Au site numéro 16";
++$desc = "Sautez sur l'occasion de lire cette description suivant le site 15 et - attention, fait exclusif - précédent le site 17.";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site05.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site05.php b/site/websites/site05.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site05.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "Aux dons désinteressés";
++$desc = "Vous croisez des offres seulement pour pauvre et vous êtes riche? Procedez immédiatement au don de tout votre fortune pour pouvoir pleinement profiter des offres!";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -2,15 +2,39 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/page/message_follower.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/08bebf5b-e11a-44f0-9579-a76a6528d967.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/08bebf5b-e11a-44f0-9579-a76a6528d967.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/recep1.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/test1.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site00.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site01.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site02.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site03.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site04.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site05.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site06.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site07.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site08.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site09.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site10.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site11.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site12.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site13.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site14.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site15.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site16.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site17.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site18.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/site19.php" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/site/websites/tools.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_2022_15_46_[Changes]1/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_2022_15_46__Changes_1.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_10_11_[Changes]/Logo ESIEA Baseline blanc.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_10_11_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_10_11__Changes_.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/css_code.php" beforeDir="false" afterPath="$PROJECT_DIR$/css_code.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/page/mur_commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/page/mur_commentaire_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire_guest.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/page/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/page/profile_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile_guest.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/site/Like_Bouton.js" beforeDir="false" afterPath="$PROJECT_DIR$/site/Like_Bouton.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/site/site1.php" beforeDir="false" afterPath="$PROJECT_DIR$/site/site1.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -72,6 +96,8 @@
+       <recent name="$PROJECT_DIR$" />
+     </key>
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/site" />
++      <recent name="$PROJECT_DIR$/site/" />
+       <recent name="$PROJECT_DIR$/page" />
+       <recent name="$PROJECT_DIR$" />
+     </key>
+@@ -112,6 +138,11 @@
+       <workItem from="1668788023829" duration="13750000" />
+       <workItem from="1668847542068" duration="5938000" />
+       <workItem from="1669035545301" duration="2493000" />
++      <workItem from="1669297746193" duration="8772000" />
++      <workItem from="1669314500576" duration="1785000" />
++      <workItem from="1669362126432" duration="6225000" />
++      <workItem from="1669383466288" duration="2837000" />
++      <workItem from="1669465914760" duration="1073000" />
+     </task>
+     <task id="LOCAL-00001" summary="fix color&#10;feat log out">
+       <created>1666892569914</created>
+@@ -302,7 +333,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1669025687600</updated>
+     </task>
+-    <option name="localTasksCounter" value="28" />
++    <task id="LOCAL-00028" summary="&lt;feat&gt; : premier site supplémentaire + avancement suivie">
++      <created>1669042770240</created>
++      <option name="number" value="00028" />
++      <option name="presentableId" value="LOCAL-00028" />
++      <option name="project" value="LOCAL" />
++      <updated>1669042770240</updated>
++    </task>
++    <option name="localTasksCounter" value="29" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -340,6 +378,7 @@
+     <MESSAGE value="&lt;fix&gt; : div des commentaire des messages qui s'aggrandissais quand le message était trop grand" />
+     <MESSAGE value="&lt;fix&gt; : plein de chose dans profile , profile_guest.php et les mur commentaire" />
+     <MESSAGE value="&lt;fix&gt; : petit beug dans l'affichage des commentaires qui était en double" />
+-    <option name="LAST_COMMIT_MESSAGE" value="&lt;fix&gt; : petit beug dans l'affichage des commentaires qui était en double" />
++    <MESSAGE value="&lt;feat&gt; : premier site supplémentaire + avancement suivie" />
++    <option name="LAST_COMMIT_MESSAGE" value="&lt;feat&gt; : premier site supplémentaire + avancement suivie" />
+   </component>
+-</project>
++</project>
+\ No newline at end of file
+Index: site/websites/site08.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site08.php b/site/websites/site08.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site08.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "Aux belles chaussettes";
++$desc = "Les plus belles chaussettes du monde, de la cheville jusqu'au millieu de la cuisse.";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site15.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site15.php b/site/websites/site15.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site15.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "Ombre en boite";
++$desc = "Boite de conserve enfermant une authentique ombre. Attention à bien ouvrir la conserve dans l'obscurité afin de la conserver à l'interieur.";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site14.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site14.php b/site/websites/site14.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site14.php	
+@@ -0,0 +1,30 @@
++<?php
++$title = "Perri-Air - Made in Druidia";
++$desc = "Si vous aussi, vous ne manquez absolument pas d'air mais habitez la planète spaceball, optez pour une canette de Perri-Air.";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++
++	<iframe width="560" height="315" src="https://www.youtube.com/embed/Hw0RDzUsWtA?start=853" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
++
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site12.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site12.php b/site/websites/site12.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site12.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "Chaussures sans semelle";
++$desc = "Faites a chaque instant l'experience de l'environnement qui vous entoure par la plante de vos pieds avec nos chaussures sans semelle";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site13.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site13.php b/site/websites/site13.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site13.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "String Epita";
++$desc = "Parmi les pires idées qu'un BDE ai jamais eu pour promouvoir l'école. #truestory";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site19.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site19.php b/site/websites/site19.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site19.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "Au dernier site";
++$desc = "Ca y est, j'y suis, vous y êtes, c'est le dernier site.";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site09.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site09.php b/site/websites/site09.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site09.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "Idées de noms de site webs!";
++$desc = "En panne d'idées pour vos noms de sites webs de test? Profitez des dernières soldes avant l'épuisement.";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site17.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site17.php b/site/websites/site17.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site17.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "CRUSSIAL: Disque SSD écriture seule";
++$desc = "Notre premier modèle écrase la concurrence: sa capacité est de 4 000 yotta octets.";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site11.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site11.php b/site/websites/site11.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site11.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "Pantalons mono-jambe";
++$desc = "Epargnez votre budget en profitant d'un achat immédiatement d'un pantalon moitié prix couvrant exclusivement la jambe gauche. En exclusivité bientôt, notre gamme jambe droite.";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site07.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site07.php b/site/websites/site07.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site07.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "La colle supérieure en programmatation Soup'Tech-Coding";
++$desc = "Vous avez toujours rêvé de coding et de devenir programmateur cybersécurité? Rejoignez nous, apprenez comment développer notre entreprise tout en étant formé par les meilleurs crypteurs digitaux à notre disposition.";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site00.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site00.php b/site/websites/site00.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site00.php	
+@@ -0,0 +1,32 @@
++<?php
++$title = "Micro-processeur pas cher";
++$desc = "Pas les moyens pour un micro processeur? Optez pour un micro-processeur en panne!";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background-image: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++    <script type="text/javascript" src="../script/test.js"></script>
++	<title id = "title"><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++
++	<button class="like_button" onclick="requete('site00.php')">
++		<span id = "count">0</span> Likes
++	</button>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site18.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site18.php b/site/websites/site18.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site18.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "Emacs";
++$desc = "Rejoignez l'église de Saint IGNUCIUS, frappez votre ordinateur de la bénédiction 'sudo apt-get install emacs-nox', combattez Vi, mal incarné, et surtout ignorez les autres cacas du genre de nano ou sublime text.";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site02.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site02.php b/site/websites/site02.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site02.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "Nourripresqu'";
++$desc = "Un peu a court? Ce n'est pas grave: choisissez Nourripresq' et mangez de l'air tous les jours.";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
+Index: site/websites/site04.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/site/websites/site04.php b/site/websites/site04.php
+new file mode 100644
+--- /dev/null	
++++ b/site/websites/site04.php	
+@@ -0,0 +1,27 @@
++<?php
++$title = "Voiture pour pente";
++$desc = "Qui a besoin d'un moteur si la route est en pente? Garanti aller simple.";
++
++require_once("tools.php");
++$colors = ["red", "green", "blue", "teal", "purple", "yellow", "white", "gray"];
++$from_color = crc32(__FILE__);
++$to_color = crc32($from_color);
++$background = crc32($to_color);
++$from_color = $colors[$from_color % count($colors)];
++$to_color = $colors[$to_color % count($colors)];
++$background = "background: linear-gradient(".($background % 360)."deg, $from_color, $to_color)";
++?>
++<html>
++    <head>
++	<title><?=$title; ?></title>
++	<meta name="description" content="<?=$desc; ?>" />
++    </head>
++    <body style="<?=$background; ?>">
++	<h1><?=$title; ?></h1>
++	<p><?=$desc; ?></p>
++	<p><?=substr($lorem_ipsum, 0, crc32($background) % strlen($lorem_ipsum)); ?></p>
++	<?php foreach (pseudorandlist(all_websites(), __FILE__) as $ws) { ?>
++	    <a href="<?=$ws; ?>"><?=$ws; ?></a><br />
++	<?php } ?>
++    </body>
++</html>
