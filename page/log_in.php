@@ -21,12 +21,7 @@ if($result_can){
     <br>
     <!--    <button onclick ="window.location='index.php?name=inscription.php'">Inscription</button>-->
 </form>
-<?php
 
 
-//gestion des messages d'erreurs
- // fermer la connexion
 
-
-?>
 

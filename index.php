@@ -28,8 +28,6 @@
             $_SESSION['email'] = !isset($_COOKIE['email']) ? $_SESSION['password'] : $_COOKIE['email'] ;
             $_SESSION['password'] = !isset($_COOKIE['password']) ? $_SESSION['password'] : $_COOKIE['password'] ;
             setcookie("password", "", time() - 3600);
-            echo "[" . $_SESSION['username'] . "]";
-            echo "\n[" . $_SERVER['REMOTE_ADDR'] . "]";
             $result_can = $mysqli->query("SELECT * FROM user WHERE email = '{$_SESSION['email']}' AND password ='{$_SESSION['password']}'");
             $result_can = $result_can->fetch_assoc();
 
@@ -375,7 +373,6 @@ if (!$result_can) {
                     $result_can = $result_can->fetch_assoc();
                     $bio = "INSERT INTO profile (biographie, id_user ,username) VALUES ('Biographie de $user', '{$result_can['id']}', '$user')";
                     $mysqli->query($bio);
-                    $mysqli->query($ajout);
                 } else {
                     echo "<br>Error: " . $sql . "<br>" . $mysqli->error;
                 }

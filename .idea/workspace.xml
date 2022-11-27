@@ -2,7 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;fix&gt; : fun">
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Acetaminophen.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Adderall.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Amlodipine.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Amoxicillin.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Ativan.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Atorvastatin.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Azithromycin.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Benzonatate.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Brilinta.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Bunavail.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Buprenorphine.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Cephalexin.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Ciprofloxacin.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Citalopram.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Clindamycin.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Fentanyl.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Hydrochlorothiazide.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Invokana.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Metformin.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Omeprazole.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Pantoprazole.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/Zubsolv.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/amitriptyline.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/lol.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/bonbon/lol2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2022_19_10_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2022_19_10__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/log_in.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/log_in.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/poke.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/poke.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +139,8 @@
       <workItem from="1668847542068" duration="5938000" />
       <workItem from="1669044029841" duration="10304000" />
       <workItem from="1669567514447" duration="2685000" />
-      <workItem from="1669570980737" duration="246000" />
+      <workItem from="1669570980737" duration="748000" />
+      <workItem from="1669578577063" duration="5331000" />
     </task>
     <task id="LOCAL-00001" summary="fix color&#10;feat log out">
       <created>1666892569914</created>
@@ -364,7 +394,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669570045414</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="&lt;fix&gt; : fun">
+      <created>1669571296043</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1669571296043</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
