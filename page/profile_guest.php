@@ -9,7 +9,7 @@ $username2 = mysqli_query($mysqli,"SELECT * FROM user WHERE username = '{$_GET['
 $username2 = $username2->fetch_assoc();
 
 if($row_cnt==1){
-    if($full_droit == 1){
+    if($log_a){
     ?>
         <div>
             <form action="" class="form_delete_list_comment" method="post" onsubmit="return confirm('Etes vous sur de supprimer le compte ?');">
@@ -86,7 +86,7 @@ if($row_cnt==1){
                 ?>
             </div>
             <?php
-            if($full_droit == 1){
+            if($log_a){
             ?>
             <form action="" id="modif_bio" method="POST" style="margin-left: 1%; margin-top: 3%">
                 <div class='control block-cube block-input' style="position: relative; z-index: 11; display: inline-block ; margin-bottom: 1%">

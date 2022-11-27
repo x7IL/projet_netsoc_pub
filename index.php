@@ -8,32 +8,14 @@
         <title>GMK</title>
 
     </head>
-    <script>
-        document.addEventListener("DOMContentLoaded", function (event) {
-            var scrollpos = localStorage.getItem("scrollpos");
-            if (scrollpos) window.scrollTo(0, scrollpos);
-        });
-
-        window.onscroll = function (e) {
-            localStorage.setItem("scrollpos", window.scrollY);
-        };
-    </script>
+    <script src="js/reload.js"></script>
+    <script src="js/admin.js"></script>
 
     <body style="color:white">
 
     <?php
     session_start();
 
-                                                #avoir les droits admin --> mettre son ip lorsque le site sera en ligne ou laisser en localhost
-                            #avoir les droits permet de modifier le profil de quelqu'un ou de le supprimer.mer
-
-
-################################################################################################################################################
-        $full_droit = 0;
-        if ($_SERVER['REMOTE_ADDR'] == 'localhost'){
-            $full_droit = 1;
-        }
-################################################################################################################################################
 
         require "join_db.php";
 
@@ -51,9 +33,13 @@
             $result_can = $mysqli->query("SELECT * FROM user WHERE email = '{$_SESSION['email']}' AND password ='{$_SESSION['password']}'");
             $result_can = $result_can->fetch_assoc();
 
+
+            $log_a = $mysqli->query("SELECT * FROM admin_u WHERE username_a = '{$_SESSION['username']}' AND password_a ='{$_SESSION['password']}'");
+            $log_a = $log_a->fetch_assoc();
         }
         else{
 
+            $log_a = null;
             $result_can = null;
 
         }

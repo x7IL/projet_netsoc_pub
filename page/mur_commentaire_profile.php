@@ -42,7 +42,7 @@
                 </div>
                 <?php
 
-                if(($result_can && $com['ID_user'] == $result_can['id']) || $full_droit == 1){
+                if(($result_can && $com['ID_user'] == $result_can['id']) || $log_a){
                     delete_comment($com);
                 }
                 // output data of each row

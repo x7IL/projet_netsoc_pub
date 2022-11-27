@@ -104,7 +104,7 @@ function affi_sous_comment($row){
         if ($result_can) {
             like_button("like_comment",$row);
         }
-        if ($result_can != NULL && $row['ID_user'] == $result_can['id']) {
+        if (($result_can != NULL && $row['ID_user'] == $result_can['id']) || $log_a) {
             delete_comment($row);
         }
         useless_div();
