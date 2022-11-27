@@ -81,15 +81,15 @@ if(!$result_can){
                 ?>
                 <a href="index.php?variable=message_suivis.php" id="suivie" style="text-decoration: none; color: #fff">Suivis : <?=$nb_abo ?></a>
                 <br>
-                <a href="index.php?variable=liste_following.php" id="suivie" style="text-decoration: none; color: #fff">Liste des suicides en Algérie</a>
+                <a href="index.php?variable=liste_following.php" id="suivie" style="text-decoration: none; color: #fff">Following</a>
                 <br>
-                <a href="index.php?variable=liste_follower.php" id="suivie" style="text-decoration: none; color: #fff">Liste des suiveurs en suicides en Algérie</a>
+                <a href="index.php?variable=liste_follower.php" id="suivie" style="text-decoration: none; color: #fff">Follower</a>
                 <br>
 
             </div>
         </div>
 
-        <form action="" id="modif_bio" method="POST" style="margin-left: 1%; margin-top: 3%">
+        <form action="" id="modif_bio" method="POST" style="margin-left: 1%; margin-top: 3%" onsubmit="return confirm('Etes vous sur de modifier la bio ?');">
             <div class='control block-cube block-input' style="position: relative; z-index: 11; display: inline-block ; margin-bottom: 1%">
                 <label for="">
                     <label for="modifier"></label><input type="text" id="modifier" name="modifier" placeholder="Inserez le message à remplacer"  style="background-color: #212121 ;color: #fff; "/>

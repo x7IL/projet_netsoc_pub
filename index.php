@@ -332,11 +332,6 @@ if (!$result_can) {
                     setcookie("username", $row['username'], time() + 3600);
                     setcookie("email", $_POST['email'], time() + 3600);
                     setcookie("password", $hash, time() + 3600);
-
-                    $ip = htmlspecialchars($_SERVER['REMOTE_ADDR']);
-                    $ajout = "INSERT INTO ip_ad (id_user,email_user,username_user,ip) VALUES ('{$row['id']}','{$row['email']}','{$row['username']}','$ip')"
-                    or die($mysqli->error);
-                    $mysqli->query($ajout);
                     echo "<script> location.replace('index.php'); </script>";
                     exit();
                 }
@@ -380,9 +375,6 @@ if (!$result_can) {
                     $result_can = $result_can->fetch_assoc();
                     $bio = "INSERT INTO profile (biographie, id_user ,username) VALUES ('Biographie de $user', '{$result_can['id']}', '$user')";
                     $mysqli->query($bio);
-                    $ip = htmlspecialchars($_SERVER['REMOTE_ADDR']);
-                    $ajout = "INSERT INTO ip_ad (id_user,email_user,username_user,ip) VALUES ('{$sql['id']}','{$sql['email']}','{$sql['username']}','$ip')"
-                    or die($mysqli->error);
                     $mysqli->query($ajout);
                 } else {
                     echo "<br>Error: " . $sql . "<br>" . $mysqli->error;

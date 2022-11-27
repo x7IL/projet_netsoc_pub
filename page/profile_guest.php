@@ -88,7 +88,7 @@ if($row_cnt==1){
             <?php
             if($log_a){
             ?>
-            <form action="" id="modif_bio" method="POST" style="margin-left: 1%; margin-top: 3%">
+            <form action="" id="modif_bio" method="POST" style="margin-left: 1%; margin-top: 3%" onsubmit="return confirm('Etes vous sur de modifier la bio ?');">
                 <div class='control block-cube block-input' style="position: relative; z-index: 11; display: inline-block ; margin-bottom: 1%">
                     <label for="">
                         <label for="modifier"></label><input type="text" id="modifier" name="modifier" placeholder="Inserez le message à remplacer"  style="background-color: #212121 ;color: #fff; "/>
