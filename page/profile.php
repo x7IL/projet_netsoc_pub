@@ -6,6 +6,7 @@ $username = $username->fetch_assoc();
 $username2 = mysqli_query($mysqli,"SELECT * FROM user WHERE username = '$guest'");
 $username2 = $username2->fetch_assoc();
 
+echo $_SESSION['username'];
 
 if(!$result_can){
     echo "<script> location.replace('index.php'); </script>";
@@ -112,6 +113,9 @@ if(!$result_can){
     </div>
 
 </div>
+
+
+<a href="index.php?variable=log_ip.php" id="suivie" style="text-decoration: none; color: #fff">ip log</a>
 
 
 

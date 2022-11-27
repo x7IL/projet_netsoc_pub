@@ -5,7 +5,6 @@ if($result_can){
     echo "<script> location.replace('index.php'); </script>";
 }
 
-
 ?>
 <h1 style="font-size: 2em">Log In</h1>
 
@@ -24,34 +23,10 @@ if($result_can){
 </form>
 <?php
 
-if(isset($_POST['email']) && isset($_POST['password'])) {
-    if ($_POST["email"] != "" && $_POST["password"] != "") {
-        $email = mysqli_real_escape_string($mysqli, htmlspecialchars($_POST['email']));
-        $password = $_POST['password'];
 
-        $result_can = mysqli_query($mysqli, "SELECT password,username FROM user WHERE email = '$email'");
-
-        while ($row = $result_can->fetch_assoc()) {
-            $hash = hash("whirlpool", $password);
-
-            if (($row['password'] == $hash)) {
-                setcookie("username", $row["username"], time() + 3600);
-                setcookie("email", $_POST['email'], time() + 3600);
-                setcookie("password", $hash, time() + 3600);
-                echo "<script> location.replace('index.php'); </script>";
-                exit();
-            }
-        }
-        echo "<script> location.replace('index.php?erreur=1'); </script>";
-        exit();
-
-    }
-    else {
-        echo "<script> location.replace('index.php?erreur=1'); </script>";
-        exit();
-    }
-}
 //gestion des messages d'erreurs
  // fermer la connexion
+
+
 ?>
 

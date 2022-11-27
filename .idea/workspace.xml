@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/page/message_follower.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/08bebf5b-e11a-44f0-9579-a76a6528d967.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/08bebf5b-e11a-44f0-9579-a76a6528d967.xml" afterDir="false" />
+    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;fix&gt; : fix mini bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css_code.php" beforeDir="false" afterPath="$PROJECT_DIR$/css_code.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/mur_commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/mur_commentaire_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire_guest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/deco.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/deco.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/log_in.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/log_in.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/profile_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile_guest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/sign_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/sign_up.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/recep1.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/test1.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site00.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site01.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site02.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site03.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site04.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site05.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site06.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site07.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site08.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site09.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site10.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site11.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site12.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site13.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site14.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site15.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site16.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site17.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site18.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/site19.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/websites/tools.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +92,9 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../site2" />
+      <recent name="$PROJECT_DIR$/../" />
+      <recent name="$PROJECT_DIR$/.." />
       <recent name="$PROJECT_DIR$/page" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -111,7 +134,7 @@
       <workItem from="1668535689606" duration="6224000" />
       <workItem from="1668788023829" duration="13750000" />
       <workItem from="1668847542068" duration="5938000" />
-      <workItem from="1669035545301" duration="2493000" />
+      <workItem from="1669044029841" duration="10304000" />
     </task>
     <task id="LOCAL-00001" summary="fix color&#10;feat log out">
       <created>1666892569914</created>
@@ -288,21 +311,70 @@
       <option name="project" value="LOCAL" />
       <updated>1668969224074</updated>
     </task>
-    <task id="LOCAL-00026" summary="&lt;fix&gt; : plein de chose dans profile , profile_guest.php et les mur commentaire">
-      <created>1669020960272</created>
+    <task id="LOCAL-00026" summary="&lt;feat&gt; : message_suivis.php done">
+      <created>1669052594002</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1669020960273</updated>
+      <updated>1669052594002</updated>
     </task>
-    <task id="LOCAL-00027" summary="&lt;fix&gt; : petit beug dans l'affichage des commentaires qui était en double">
-      <created>1669025687600</created>
+    <task id="LOCAL-00027" summary="&lt;fix&gt; : correction bug message_suivis.php">
+      <created>1669054249427</created>
       <option name="number" value="00027" />
       <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
-      <updated>1669025687600</updated>
+      <updated>1669054249427</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="&lt;feat&gt; : liste follower et following">
+      <created>1669056212627</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1669056212627</updated>
+    </task>
+    <task id="LOCAL-00029" summary="&lt;fix&gt; : bloque l'auto follow de sois emme dans profile guest">
+      <created>1669056444660</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1669056444660</updated>
+    </task>
+    <task id="LOCAL-00030" summary="&lt;fix&gt; : renvoie a la page index.php lorsqu'on est connecté et qu'on se trouve dans sign or login&#10;renvoie a la page index.php si on est pas connecté et qu'on se trouve sur profil">
+      <created>1669056700667</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1669056700667</updated>
+    </task>
+    <task id="LOCAL-00031" summary="&lt;fix&gt; : droit admin si ip == localhost&#10;on pourra supp le compte des autres ou bien modifier la biographie des autres">
+      <created>1669058413516</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1669058413516</updated>
+    </task>
+    <task id="LOCAL-00032" summary="&lt;fix&gt; : fix mini bug">
+      <created>1669058746178</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1669058746178</updated>
+    </task>
+    <task id="LOCAL-00033" summary="&lt;fix&gt; : fix mini bug">
+      <created>1669058767106</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1669058767106</updated>
+    </task>
+    <task id="LOCAL-00034" summary="&lt;fix&gt; : fix mini bug">
+      <created>1669058859853</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1669058859853</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,8 +410,13 @@
     <MESSAGE value="&lt;feat&gt; : zone pub" />
     <MESSAGE value="&lt;feat&gt; : zone pub css" />
     <MESSAGE value="&lt;fix&gt; : div des commentaire des messages qui s'aggrandissais quand le message était trop grand" />
-    <MESSAGE value="&lt;fix&gt; : plein de chose dans profile , profile_guest.php et les mur commentaire" />
-    <MESSAGE value="&lt;fix&gt; : petit beug dans l'affichage des commentaires qui était en double" />
-    <option name="LAST_COMMIT_MESSAGE" value="&lt;fix&gt; : petit beug dans l'affichage des commentaires qui était en double" />
+    <MESSAGE value="&lt;feat&gt; : message_suivis.php done" />
+    <MESSAGE value="&lt;fix&gt; : correction bug message_suivis.php" />
+    <MESSAGE value="&lt;feat&gt; : liste follower et following" />
+    <MESSAGE value="&lt;fix&gt; : bloque l'auto follow de sois emme dans profile guest" />
+    <MESSAGE value="&lt;fix&gt; : renvoie a la page index.php lorsqu'on est connecté et qu'on se trouve dans sign or login&#10;renvoie a la page index.php si on est pas connecté et qu'on se trouve sur profil" />
+    <MESSAGE value="&lt;fix&gt; : droit admin si ip == localhost&#10;on pourra supp le compte des autres ou bien modifier la biographie des autres" />
+    <MESSAGE value="&lt;fix&gt; : fix mini bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="&lt;fix&gt; : fix mini bug" />
   </component>
 </project>
