@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;feat&gt; : bonbons">
+    <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;feat&gt; : debug carac &gt; 500 30 20 commentaire bio email user">
+      <change afterPath="$PROJECT_DIR$/image/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_11_2022_09_12_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_11_2022_09_12__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css_code.php" beforeDir="false" afterPath="$PROJECT_DIR$/css_code.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/reload.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/reload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/liste_follower.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/liste_follower.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/liste_following.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/liste_following.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/log_in.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/log_in.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/mur_commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/mur_commentaire.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/poke.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/poke.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/profile_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/profile_guest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/secret_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/secret_login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/sign_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/sign_up.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,28 +57,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Applications/XAMPP/xamppfiles/htdocs/netsoc/page&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Applications/XAMPP/xamppfiles/htdocs/netsoc",
+    "list.type.of.created.stylesheet": "SCSS",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/page" />
@@ -113,7 +131,9 @@
       <workItem from="1669567514447" duration="2685000" />
       <workItem from="1669570980737" duration="748000" />
       <workItem from="1669578577063" duration="5580000" />
-      <workItem from="1669617465491" duration="668000" />
+      <workItem from="1669617465491" duration="843000" />
+      <workItem from="1669623385891" duration="558000" />
+      <workItem from="1669626851938" duration="15263000" />
     </task>
     <task id="LOCAL-00001" summary="fix color&#10;feat log out">
       <created>1666892569914</created>
@@ -381,7 +401,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669585215380</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="&lt;feat&gt; : debug carac &gt; 500 30 20 commentaire bio email user">
+      <created>1669618317422</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1669618317422</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,7 +427,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat : page recherche profile" />
     <MESSAGE value="feat : page recherche profile +modif sur les messages" />
     <MESSAGE value="feat : modification du theme du mur_commentaire.php" />
     <MESSAGE value="&lt;fix&gt; : affichage commentaire profile guest si il y a le nom de lutilisateur dans les commentaires" />
@@ -425,6 +451,7 @@
     <MESSAGE value="&lt;feat&gt; : droit admin" />
     <MESSAGE value="&lt;fix&gt; : fun" />
     <MESSAGE value="&lt;feat&gt; : bonbons" />
-    <option name="LAST_COMMIT_MESSAGE" value="&lt;feat&gt; : bonbons" />
+    <MESSAGE value="&lt;feat&gt; : debug carac &gt; 500 30 20 commentaire bio email user" />
+    <option name="LAST_COMMIT_MESSAGE" value="&lt;feat&gt; : debug carac &gt; 500 30 20 commentaire bio email user" />
   </component>
 </project>

@@ -6,18 +6,18 @@ if($result_can){
 }
 
 ?>
-<h1 style="font-size: 2em">Log In</h1>
+<h1 style="font-size: 2em; color: black">Log In</h1>
 
 <form class="formulaire_connexion" action="" method="POST">
-    <label><b>Adresse e-mail</b></label>
-    <label for="email"></label><input style="background-color: #212121; color: #fff " id="email" type="email" placeholder="Entrer votre adresse mail" name="email" required>
+    <label><b style="color: black">Adresse e-mail</b></label>
+    <label for="email"></label><input style="background-color: #212121; color: black " id="email" type="email" placeholder="Entrer votre adresse mail" name="email" required>
 
     <br>
-    <label><b>Mot de passe</b></label>
-    <label for="password"></label><input style="background-color: #212121; color: #fff " id="password" type="password" placeholder="Entrer le mot de passe" name="password" required>
+    <label><b style="color: black">Mot de passe</b></label>
+    <label for="password"></label><input style="background-color: #212121; color: black " id="password" type="password" placeholder="Entrer le mot de passe" name="password" required>
 
     <br>
-    <input style="background-color: #212121; color: #fff " type="submit" id='submit' value='valider' name="submit_log_in">
+    <input style="background-color: #212121; color: #fff " type="submit" id='submit' value='valider' name="submit">
     <br>
     <!--    <button onclick ="window.location='index.php?name=inscription.php'">Inscription</button>-->
 </form>

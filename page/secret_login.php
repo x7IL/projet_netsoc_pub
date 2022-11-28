@@ -6,7 +6,7 @@
         </h1>
     </div>
     <div class='control block-cube block-input'>
-        <input name='username_u' placeholder='username' type='text' >
+        <input name='username_u' placeholder='Utilisateur' type='text' >
         <div class='bg-top'>
             <div class='bg-inner'></div>
         </div>
@@ -19,7 +19,7 @@
     </div>
 
     <div class='control block-cube block-input'>
-        <input name='password_u' placeholder='password' type='password' >
+        <input name='password_u' placeholder='mot de passe' type='password' >
         <div class='bg-top'>
             <div class='bg-inner'></div>
         </div>

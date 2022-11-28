@@ -38,15 +38,15 @@ function form_post(){
 function affi_pour($com){
     if ($com["username_destinataire"] and $com["username_destinataire"] != $com["username_source"]){
         ?>
-        <post style="position : relative; z-index: 10">
-            <b style=" max-width: 99%; word-wrap: break-word;  ">
+        <post style="position : relative; z-index: 10; color: white">
+            <b style=" max-width: 99%; word-wrap: break-word; color: white ">
                 <a href="index.php?variable=profile_guest.php&profile_guest=<?=$com['username_source'];?>" style="text-decoration: none ; color: #fff"><?=$com['username_source'];?></a>
-                <i style="opacity: 0.5;"> pour </i>
+                <i style="opacity: 0.5;; color: white"> pour </i>
                 <a href="index.php?variable=profile_guest.php&profile_guest=<?=$com["username_destinataire"]; ?>" style="text-decoration: none ; color: #fff"><?=$com["username_destinataire"]; ?></a>
             </b>
-            <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i>
-            <br><b style=" max-width: 99%; word-wrap: break-word;  "><?= "   ".$com["likes"]." likes"; ?></b>
-            <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; overflow-wrap: anywhere">
+            <i style="opacity: 0.5; color: white"><?=$com["post_date"]; ?></i>
+            <br><b style=" max-width: 99%; word-wrap: break-word; ; color: white "><?= "   ".$com["likes"]." likes"; ?></b>
+            <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; overflow-wrap: anywhere; color: white">
                 <?=$com["post"]; ?>
             </p>
         </post>
@@ -54,15 +54,15 @@ function affi_pour($com){
     }
     else{
         ?>
-        <post style="position : relative; z-index: 10">
-            <b style=" max-width: 99%; word-wrap: break-word; overflow-wrap: anywhere">
+        <post style="position : relative; z-index: 10; color: white">
+            <b style=" max-width: 99%; word-wrap: break-word; overflow-wrap: anywhere; color: white">
                 <a href="index.php?variable=profile_guest.php&profile_guest=<?=$com['username_source'];?>" style="text-decoration: none ; color: #fff"><?=$com['username_source'];?></a>
             </b>
-            <i style="opacity: 0.5;">
+            <i style="opacity: 0.5; color: white">
                 <?=$com["post_date"]; ?>
             </i>
-            <br><b style=" max-width: 99%; word-wrap: break-word;  "><?= "   ".$com["likes"]." likes"; ?></b>
-            <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; overflow-wrap: anywhere">
+            <br><b style=" max-width: 99%; word-wrap: break-word; color: white "><?= "   ".$com["likes"]." likes"; ?></b>
+            <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; overflow-wrap: anywhere; color: white">
                 <?=$com["post"]; ?>
             </p>
         </post>
@@ -95,11 +95,12 @@ function like_button($id,$com){
 // guest
 function affi_sous_comment($row){
     global $result_can;
+    global $log_a;
     ?>
-    <b style=" max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "> <a href="index.php?variable=profile_guest.php&profile_guest=<?=$row["username_destinataire"]?>" style="text-decoration: none ; color: #fff"><?=$row["username_destinataire"]?></a></b>
-        <i style="opacity: 0.5;position: relative; z-index: 11;"><?=$row["post_date"]; ?></i>
-        <br><b style=" max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; "><?= "   ".$row["likes"]." likes"; ?></b>
-        <p style="font-size: 1.2em; margin-bottom: 0; max-width: 99%; word-wrap: break-word ; overflow-wrap: anywhere ;position: relative; z-index: 11; "><?=$row["post"]; ?></p>
+    <b style=" max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; color: white "> <a href="index.php?variable=profile_guest.php&profile_guest=<?=$row["username_destinataire"]?>" style="text-decoration: none ; color: #fff"><?=$row["username_destinataire"]?></a></b>
+        <i style="opacity: 0.5;position: relative; z-index: 11; color: white"><?=$row["post_date"]; ?></i>
+        <br><b style=" max-width: 99%; word-wrap: break-word;position: relative; z-index: 11; color: white "><?= "   ".$row["likes"]." likes"; ?></b>
+        <p style="font-size: 1.2em; margin-bottom: 0; max-width: 99%; word-wrap: break-word ; overflow-wrap: anywhere ;position: relative; z-index: 11; color: white "><?=$row["post"]; ?></p>
         <?php
         if ($result_can) {
             like_button("like_comment",$row);

@@ -34,23 +34,23 @@
             if ($com["username_destinataire"] and $com["username_destinataire"] != $com["username_source"]){
                 ?>
                 <post style="position : relative; z-index: 10">
-                    <b style=" max-width: 99%; word-wrap: break-word;  "><a href="index.php?variable=profile_guest.php&profile_guest=<?=$username_proprio?>" style="text-decoration: none ; color: #fff"><?=$username_proprio?></a>
+                    <b style=" max-width: 99%; word-wrap: break-word;  "><a href="index.php?variable=profile_guest.php&profile_guest=<?=$username_proprio?>" style="text-decoration: none ; color: white"><?=$username_proprio?></a>
                         <i style="opacity: 0.5;"> pour </i>
-                        <a href="index.php?variable=profile_guest.php&profile_guest=<?=$com["username_destinataire"]; ?>" style="text-decoration: none ; color: #fff"><?=$com["username_destinataire"]; ?></a>
+                        <a href="index.php?variable=profile_guest.php&profile_guest=<?=$com["username_destinataire"]; ?>" style="text-decoration: none ; color: white"><?=$com["username_destinataire"]; ?></a>
                     </b>
-                    <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i>
-                    <br><b style=" max-width: 99%; word-wrap: break-word;  "><?= "    ".$com["likes"]." likes"; ?></b>
-                    <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; ; overflow-wrap: anywhere"><?=$com["post"]; ?></p>
+                    <i style="opacity: 0.5;; color: white"><?=$com["post_date"]; ?></i>
+                    <br><b style=" max-width: 99%; word-wrap: break-word; color: white "><?= "    ".$com["likes"]." likes"; ?></b>
+                    <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; ; overflow-wrap: anywhere; color: white"><?=$com["post"]; ?></p>
                 </post>
                 <?php
             }
             else{
                 ?>
-                <post style="position : relative; z-index: 10">
-                    <b style=" max-width: 99%; word-wrap: break-word; overflow-wrap: anywhere"><a href="index.php?variable=profile_guest.php&profile_guest=<?=$username_proprio?>" style="text-decoration: none ; color: #fff"><?=$username_proprio?></a></b>
-                    <i style="opacity: 0.5;"><?=$com["post_date"]; ?></i>
-                    <br><b style=" max-width: 99%; word-wrap: break-word;  "><?= "   ".$com["likes"]." likes"; ?></b>
-                    <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; overflow-wrap: anywhere "><?=$com["post"]; ?></p>
+                <post style="position : relative; z-index: 10; color: white">
+                    <b style=" max-width: 99%; word-wrap: break-word; overflow-wrap: anywhere; color: white"><a href="index.php?variable=profile_guest.php&profile_guest=<?=$username_proprio?>" style="text-decoration: none ; color: white"><?=$username_proprio?></a></b>
+                    <i style="opacity: 0.5; color: white"><?=$com["post_date"]; ?></i>
+                    <br><b style=" max-width: 99%; word-wrap: break-word; color: white"><?= "   ".$com["likes"]." likes"; ?></b>
+                    <p style="font-size: 1.2em; margin-bottom: 0 ; max-width: 99%; word-wrap: break-word; overflow-wrap: anywhere; color: white "><?=$com["post"]; ?></p>
                 </post>
                 <?php
             }

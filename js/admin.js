@@ -9,5 +9,7 @@ document.onkeydown = function(e) {
     }
     else if(e.key === 'F8'){
         location.replace('index.php?variable=poke.php');
+
     }
+
 }

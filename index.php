@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -8,13 +10,15 @@
         <title>GMK</title>
 
     </head>
+
+
+    <body style="color:black">
     <script src="js/reload.js"></script>
     <script src="js/admin.js"></script>
 
-    <body style="color:white">
-
     <?php
-    session_start();
+
+        session_start();
 
 
         require "join_db.php";
@@ -30,7 +34,6 @@
             setcookie("password", "", time() - 3600);
             $result_can = $mysqli->query("SELECT * FROM user WHERE email = '{$_SESSION['email']}' AND password ='{$_SESSION['password']}'");
             $result_can = $result_can->fetch_assoc();
-
 
             $log_a = $mysqli->query("SELECT * FROM admin_u WHERE username_a = '{$_SESSION['username']}' AND password_a ='{$_SESSION['password']}'");
             $log_a = $log_a->fetch_assoc();
@@ -60,7 +63,7 @@
                 <form name="formulaire_search" method="get">
                     <input type="hidden" name="variable" value="search.php">
                     <label>
-                        <input class="bar_search" type="text" placeholder="Search GJK 🔎" name="searchVal" value="" style="color: #fff">
+                        <input class="bar_search" type="text" placeholder="Search GJK 🔎" name="searchVal" value="" style="color: black">
                     </label> <!--onkeyup="searchq()-->
                 </form>
 
@@ -68,7 +71,7 @@
             </div>
 
 <!--#####################################################################################################################################-->
-            <?php if($result_can) echo"<h3 style='font-family: Teko, sans-serif'>Connecté sous {$result_can["username"]}</h3>";
+<!--            --><?php //if($result_can) echo"<h3 style='font-family: Teko, sans-serif'>Connecté sous {$result_can["username"]}</h3>";
             ?>
 <!--#####################################################################################################################################-->
             <div class="collapse navbar-collapse">
@@ -108,14 +111,31 @@
 
     <!-- #################################### div pub #################################### -->
 
+    <?php if(!$log_a){?>
 
-        <div class="pub_gauche" >
-            test
+        <div class="pub_gauche" style="border: 1px solid black;">
+            <?php
+                if(isset($_COOKIE['sujet'])){
+                    echo $_COOKIE['sujet'];
+                }
+                else{
+                    echo "pas de pub1";
+                }
+            ?>
         </div >
 
-        <div class="pub_droite">
-            test2
+        <div class="pub_droite" style="border: 1px solid black;">
+            <?php
+            if(isset($_COOKIE['sujet2'])){
+                echo $_COOKIE['sujet2'];
+            }
+            else{
+                echo "pas de pub2";
+            }
+            ?>
         </div>
+
+    <?php } ?>
 
 
     <!-- #################################### div center #################################### -->
@@ -126,15 +146,15 @@
             if(isset($_GET['erreur'])){
                 $err = $_GET['erreur'];
                 if($err==1)
-                    echo "<h3  id='expres' style='color:white;margin-top:10%'>Utilisateur ou mot de passe incorrect</h3>";
+                    echo "<h3  id='expres' style='color:black;margin-top:10%'>Utilisateur ou mot de passe incorrect</h3>";
                 if($err==2)
-                    echo "<h1 style='color:white;margin-top:10%'>le nom d'utilisateur existe deja</h1>";
+                    echo "<h1 style='color:black;margin-top:10%'>le nom d'utilisateur existe deja</h1>";
                 if($err==3)
-                    echo "<h1 style='color:white;margin-top:10%'>les mots de passe ne correspondent pas</h1>";
+                    echo "<h1 style='color:black;margin-top:10%'>les mots de passe ne correspondent pas</h1>";
                 if($err==4)
-                    echo "<h1 style='color:white;margin-top:10%'>Ce que vous avez ecrit depasse 500 caracteres !!</h1>";
+                    echo "<h1 style='color:black;margin-top:10%'>Ce que vous avez ecrit depasse 500 caracteres !!</h1>";
                 if($err==5)
-                    echo "<h1 style='color:white;margin-top:10%'>L'email ne doit pas depasser 30 caracteres et le nom d'utilisateur 20 caracteres</h1>";
+                    echo "<h1 style='color:black;margin-top:10%'>L'email ne doit pas depasser 30 caracteres et le nom d'utilisateur 20 caracteres</h1>";
             }
             ?>
 
@@ -147,8 +167,9 @@
                 }
                 elseif(!isset($_GET['variable']) || $_GET['variable']==''){
                     $title = "mur_commentaire.php";
-                    echo "<h1 style='font-size: 2em'>Commentaire</h1>";
-                    include("page/mur_commentaire.php");
+                    echo'<img style="margin-left: 20%;" src="image/logo.png" alt="Italian Trulli">';
+//                    echo "<h1 style='font-size: 2em'>Commentaire</h1>";
+//                    include("page/mur_commentaire.php");
                 }
                 else{
                     $title = "ERROR 404";
@@ -338,6 +359,57 @@ if (isset($row_cnt) && $row_cnt==1){
 }
 
 if (!$result_can) {
+
+    if (isset($_POST["password"]) && isset($_POST["username"]) && isset($_POST["repassword"]) && isset($_POST["email"])) {
+        $mysqli = join_database();
+        $user = $_POST["username"];
+        $password = $_POST["password"];
+        $repassword = $_POST["repassword"];
+        $email = $_POST["email"];
+        $genre = $_POST["genre"];
+        $age = $_POST["age"];
+
+//        if(strlen($email)>30 || strlen($user)>20){
+//            echo "<script> location.replace('index.php?erreur=5'); </script>";
+//            exit();
+//        }
+
+        $result_can = mysqli_query($mysqli, "SELECT email FROM user WHERE email = '$email'");
+        $result_can_login = mysqli_query($mysqli, "SELECT username FROM user WHERE username = '$user'");
+
+
+        if (mysqli_num_rows($result_can) == 0 and mysqli_num_rows($result_can_login) == 0) {
+            if ($repassword == $password) {
+                global $mysqli;
+                $message = "ok";
+                $hash = hash("whirlpool", $password);
+                $user = htmlspecialchars($user);
+                $email = htmlspecialchars($email);
+
+                // Password Hashing is used here.
+                $sql = "INSERT INTO user (username, password, email, genre, age) VALUES ('$user', '$hash','$email','$genre','$age')";
+                if ($mysqli->query($sql) === TRUE) {
+
+                    setcookie("username", $user, time() + 3600);
+                    setcookie("email", $email, time() + 3600);
+                    setcookie("password", $hash, time() + 3600);
+
+                    $result_can = $mysqli->query("SELECT * FROM user WHERE email = '$email' AND password ='$hash'");
+                    $result_can = $result_can->fetch_assoc();
+                    $bio = "INSERT INTO profile (biographie, id_user ,username) VALUES ('Biographie de $user', '{$result_can['id']}', '$user')";
+                    $mysqli->query($bio);
+                    echo "<script> location.replace('index.php'); </script>";
+                    exit();
+                }
+            } else {
+                echo "<script> location.replace('index.php?erreur=3'); </script>";
+                exit();
+            }
+        } else {
+            echo "<script> location.replace('index.php?erreur=2'); </script>";
+            exit();
+        }
+    }
     if (isset($_POST['email']) && isset($_POST['password']) && !isset($_POST['repassword'])) {
         if ($_POST["email"] != "" && $_POST["password"] != "") {
             $email = mysqli_real_escape_string($mysqli, htmlspecialchars($_POST['email']));
@@ -362,56 +434,6 @@ if (!$result_can) {
 
         } else {
             echo "<script> location.replace('index.php?erreur=1'); </script>";
-            exit();
-        }
-    }
-
-    if (isset($_POST["password"]) && isset($_POST["username"]) && isset($_POST["repassword"]) && isset($_POST["email"])) {
-        $mysqli = join_database();
-        $user = htmlspecialchars($_POST["username"]);
-        $password = htmlspecialchars($_POST["password"]);
-        $repassword = htmlspecialchars($_POST["repassword"]);
-        $email = htmlspecialchars($_POST["email"]);
-        $genre = htmlspecialchars($_POST["genre"]);
-        $age = htmlspecialchars($_POST["age"]);
-
-//        if(strlen($email)>30 || strlen($user)>20){
-//            echo "<script> location.replace('index.php?erreur=5'); </script>";
-//            exit();
-//        }
-
-        $result_can = mysqli_query($mysqli, "SELECT email FROM user WHERE email = '$email'");
-        $result_can_login = mysqli_query($mysqli, "SELECT username FROM user WHERE username = '$user'");
-
-
-        if (mysqli_num_rows($result_can) == 0 and mysqli_num_rows($result_can_login) == 0) {
-            if ($repassword == $password) {
-                global $mysqli;
-                $message = "ok";
-                $hash = hash("whirlpool", $password);
-                // Password Hashing is used here.
-                $sql = "INSERT INTO user (username, password, email, genre, age) VALUES ('$user', '$hash','$email','$genre','$age')";
-                if ($mysqli->query($sql) === TRUE) {
-
-                    setcookie("username", $user, time() + 3600);
-                    setcookie("email", $_POST['email'], time() + 3600);
-                    setcookie("password", $hash, time() + 3600);
-
-                    $result_can = $mysqli->query("SELECT * FROM user WHERE email = '$email' AND password ='$hash'");
-                    $result_can = $result_can->fetch_assoc();
-                    $bio = "INSERT INTO profile (biographie, id_user ,username) VALUES ('Biographie de $user', '{$result_can['id']}', '$user')";
-                    $mysqli->query($bio);
-                } else {
-                    echo "<br>Error: " . $sql . "<br>" . $mysqli->error;
-                }
-                echo "<script> location.replace('index.php'); </script>";
-                exit();
-            } else {
-                echo "<script> location.replace('index.php?erreur=3'); </script>";
-                exit();
-            }
-        } else {
-            echo "<script> location.replace('index.php?erreur=2'); </script>";
             exit();
         }
     }

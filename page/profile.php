@@ -6,7 +6,6 @@ $username = $username->fetch_assoc();
 $username2 = mysqli_query($mysqli,"SELECT * FROM user WHERE username = '$guest'");
 $username2 = $username2->fetch_assoc();
 
-echo $_SESSION['username'];
 
 if(!$result_can){
     echo "<script> location.replace('index.php'); </script>";
@@ -45,7 +44,7 @@ if(!$result_can){
         <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
             <label>
                 <input type="hidden" name="supp_compte" value="<?php echo $username2['id']?>"/>
-                <input name="supprime" type="submit" value="Supprimer le compte" style=" background-color: #212121; color: #fff;">
+                <input name="supprime" type="submit" value="Supprimer le compte" style=" background-color: #212121; color: white;">
             </label>
             <?php useless_div(); ?>
         </div>
@@ -55,21 +54,21 @@ if(!$result_can){
 <br>
 
 <div>
-    <div class='control block-cube block-input' style="margin-right: 5%; margin-bottom: 5%">
+    <div class='control block-cube block-input' style="margin-right: 5%; margin-bottom: 5%;color:white">
         <h1 style="position: relative ; z-index: 11 ;font-size: 2em; ">Profile de <?php echo $guest; ?></h1>
         <div>
             <div id="div_bio" style="position: relative; z-index: 11; margin-left: 2px">
 
                 <?php
 
-                echo '<h3 style="position: relative;z-index: 5 ;">Biographie:</h3>';
+                echo '<h3 style="position: relative;z-index: 5 ;color:white"">Biographie:</h3>';
                 ?>
                 <div>
-                    <div class="typing-demo" style="">
+                    <div class="typing-demo" style="color:white"">
                         <?php echo "<h1>{$username['biographie']}</h1>" ?>
                     </div>
                 </div>
-                <a href="" id="follower" style="text-decoration: none; color: #fff">Follower : <?=$username2['follower'] ;?></a>
+                <a href="" id="follower" style="text-decoration: none; color: white">Follower : <?=$username2['follower'] ;?></a>
                 <br>
                 <?php
                 $abo = [];
@@ -79,11 +78,11 @@ if(!$result_can){
 
                 $nb_abo = count($abo);
                 ?>
-                <a href="index.php?variable=message_suivis.php" id="suivie" style="text-decoration: none; color: #fff">Suivis : <?=$nb_abo ?></a>
+                <a href="index.php?variable=message_suivis.php" id="suivie" style="text-decoration: none; color: white">Suivis : <?=$nb_abo ?></a>
                 <br>
-                <a href="index.php?variable=liste_following.php" id="suivie" style="text-decoration: none; color: #fff">Following</a>
+                <a href="index.php?variable=liste_following.php" id="suivie" style="text-decoration: none; color: white">Following</a>
                 <br>
-                <a href="index.php?variable=liste_follower.php" id="suivie" style="text-decoration: none; color: #fff">Follower</a>
+                <a href="index.php?variable=liste_follower.php" id="suivie" style="text-decoration: none; color: white">Follower</a>
                 <br>
 
             </div>
@@ -92,9 +91,9 @@ if(!$result_can){
         <form action="" id="modif_bio" method="POST" style="margin-left: 1%; margin-top: 3%" onsubmit="return confirm('Etes vous sur de modifier la bio ?');">
             <div class='control block-cube block-input' style="position: relative; z-index: 11; display: inline-block ; margin-bottom: 1%">
                 <label for="">
-                    <label for="modifier"></label><input type="text" id="modifier" name="modifier" placeholder="Inserez le message à remplacer"  style="background-color: #212121 ;color: #fff; "/>
+                    <label for="modifier"></label><input type="text" id="modifier" name="modifier" placeholder="Inserez le message à remplacer"  style="background-color: #212121 ;color: white; "/>
                     <input type="hidden" id="modif_bio_submit" name="idz"  value="<?php echo $username['id']?>" /><br>
-                    <input type="submit" value="modifier la bio"  style="background-color: #212121 ;color: #fff;" autocomplete="off">
+                    <input type="submit" value="modifier la bio"  style="background-color: #212121 ;color: white;" autocomplete="off">
                     <?php
                     useless_div();
                     ?>
@@ -113,10 +112,6 @@ if(!$result_can){
     </div>
 
 </div>
-
-
-<a href="index.php?variable=log_ip.php" id="suivie" style="text-decoration: none; color: #fff">ip log</a>
-
 
 
 

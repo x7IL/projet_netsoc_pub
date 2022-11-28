@@ -16,7 +16,7 @@ if($row_cnt==1){
                 <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
                     <label>
                         <input type="hidden" name="supp_compte" value="<?php echo $username2['id']?>"/>
-                        <input name="supprime" type="submit" value="Supprimer le compte" style=" background-color: #212121; color: #fff;">
+                        <input name="supprime" type="submit" value="Supprimer le compte" style=" background-color: #212121; color: black;">
                     </label>
                     <?php useless_div(); ?>
                 </div>
@@ -49,7 +49,7 @@ if($row_cnt==1){
                         <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
                             <label>
                                 <input type="hidden" name="abo_id" value="<?php echo $username2['id']?>"/>
-                                <input name="sabo" type="submit" value="<?php echo $row_cnt2 ==0 ? 'follow' : 'Unfollow' ?>" style=" background-color: #212121; color: #fff;">
+                                <input name="sabo" type="submit" value="<?php echo $row_cnt2 ==0 ? 'follow' : 'Unfollow' ?>" style=" background-color: #212121; color: black;">
                             </label>
                             <?php useless_div(); ?>
                         </div>
@@ -91,9 +91,9 @@ if($row_cnt==1){
             <form action="" id="modif_bio" method="POST" style="margin-left: 1%; margin-top: 3%" onsubmit="return confirm('Etes vous sur de modifier la bio ?');">
                 <div class='control block-cube block-input' style="position: relative; z-index: 11; display: inline-block ; margin-bottom: 1%">
                     <label for="">
-                        <label for="modifier"></label><input type="text" id="modifier" name="modifier" placeholder="Inserez le message à remplacer"  style="background-color: #212121 ;color: #fff; "/>
+                        <label for="modifier"></label><input type="text" id="modifier" name="modifier" placeholder="Inserez le message à remplacer"  style="background-color: #212121 ;color: black; "/>
                         <input type="hidden" id="modif_bio_submit" name="idz"  value="<?php echo $username2['id']?>" /><br>
-                        <input type="submit" value="modifier la bio de l'utilisateur"  style="background-color: #212121 ;color: #fff;" autocomplete="off">
+                        <input type="submit" value="modifier la bio de l'utilisateur"  style="background-color: #212121 ;color: black;" autocomplete="off">
                         <?php
                         useless_div();
                         ?>

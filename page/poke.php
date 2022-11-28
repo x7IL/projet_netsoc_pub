@@ -6,7 +6,7 @@
         margin: auto;
         text-align: center;
         font-family: arial;
-        border: 2px solid greenyellow;
+        border: 2px solid white;
     }
 
     .price {
@@ -19,7 +19,7 @@
         outline: 0;
         padding: 12px;
         color: white;
-        background-color: #000;
+        background-color: slategray;
         text-align: center;
         cursor: pointer;
         width: 100%;
@@ -29,6 +29,10 @@
     .card button:hover {
         opacity: 0.7;
     }
+    body{
+        background: linear-gradient(45deg, #2a040f, #2a0a28,#180e2a,#0e1f2a,#1d050e);
+
+    }
 </style>
 
 
@@ -36,28 +40,23 @@
 
 
 
-<?php
 
-
-
-?>
-
-<h1 style="position: fixed">Filtrer par :</h1>
+<h1 style="position: fixed;color: white">Filtrer par :</h1>
 <br>
 <br>
-<form method="post" style="position: fixed">
-    <input type="radio" name="trie" value="prix" > Prix
-    <input type="radio" name="trie" value="prixd" > Prix Desc
+<form method="post" style="position: fixed;color: white"">
+    <input style="color: white" " type="radio" name="trie" value="prix" > Prix
+    <input style="color: white"type="radio" name="trie" value="prixd" > Prix Desc
     <br>
-    <input type="radio" name="trie" value="stock" > Stock
-    <input type="radio" name="trie" value="stockd" > Stock Desc
+    <input style="color: white"type="radio" name="trie" value="stock" > Stock
+    <input style="color: white"type="radio" name="trie" value="stockd" > Stock Desc
     <br>
-    <input type="radio" name="trie" value="nom" > Nom
-    <input type="radio" name="trie" value="nomd" > Nom Desc
+    <input style="color: white"type="radio" name="trie" value="nom" > Nom
+    <input style="color: white"type="radio" name="trie" value="nomd" > Nom Desc
     <br>
-    <input type="text" name="recherche" placeholder="recherche" autocomplete="on">
+    <input style="color: white"type="text" name="recherche" placeholder="recherche" autocomplete="on">
     <br>
-    <input type="submit" value="filtrer">
+    <input style="color: black"type="submit" value="filtrer">
 </form>
 <?php
 
@@ -104,12 +103,12 @@ else{
 <?php
 while (($line = $bb->fetch_assoc())){
 ?>
-    <div class="card">
+    <div style="color: white"class="card">
         <img src="image/bonbon/<?php echo $line['img']?>" style="width:100%">
-        <h1><?php echo $line['nom']?></h1>
-        <p class="price"><?php echo $line['prix']?> Euros/Kg</p>
-        <h5>En stock : <?php echo $line['stock'] ?></h5>
-        <p><?php echo $line['description']?></p>
+        <h1 style="color: white"><?php echo $line['nom']?></h1>
+        <p style="color: white"class="price"><?php echo $line['prix']?> Euros/Kg</p>
+        <h5 style="color: white">En stock : <?php echo $line['stock'] ?></h5>
+        <p style="color: white"><?php echo $line['description']?></p>
         <p><button onclick="aa()">Commander</button></p>
 
     </div>

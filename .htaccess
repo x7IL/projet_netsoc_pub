@@ -9,5 +9,10 @@ Order deny,allow
 Allow from all
 </FilesMatch>
 
+<FilesMatch "^test\.php$">
+Order deny,allow
+Allow from all
+</FilesMatch>
+
 # bloque l'access aux dossiers
 Options All -Indexes
