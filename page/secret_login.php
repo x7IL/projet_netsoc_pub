@@ -1,12 +1,12 @@
 
 <form autocomplete='off' class='form'  method="POST">
     <div class='control'>
-        <h1>
+        <h1 style="font-size: 2em">
             Connection
         </h1>
     </div>
     <div class='control block-cube block-input'>
-        <input name='username_u' placeholder='Utilisateur' type='text' >
+        <input name='username_u' placeholder='Utilisateur' type='text' style="color: #fff" >
         <div class='bg-top'>
             <div class='bg-inner'></div>
         </div>
@@ -19,7 +19,7 @@
     </div>
 
     <div class='control block-cube block-input'>
-        <input name='password_u' placeholder='mot de passe' type='password' >
+        <input name='password_u' placeholder='mot de passe' type='password'style="color: #fff" >
         <div class='bg-top'>
             <div class='bg-inner'></div>
         </div>
@@ -31,7 +31,7 @@
         </div>
     </div>
 
-    <button class='btn block-cube block-cube-hover' type="submit" id='submit' value='LOGIN'>
+    <button class='btn block-cube block-cube-hover' type="submit" id='submit' value='LOGIN' style="color: #fff">
         <div class='bg-top'>
             <div class='bg-inner'></div>
         </div>
