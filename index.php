@@ -167,7 +167,7 @@
                 }
                 elseif(!isset($_GET['variable']) || $_GET['variable']==''){
                     $title = "mur_commentaire.php";
-                    echo'<img style="margin-left: 20%;" src="image/logo.png" alt="Italian Trulli">';
+                    echo'<a href="index.php?variable=mur_commentaire.php"><img style="margin-left: 20%;" src="image/logo.png" alt="Italian Trulli"></a>';
 //                    echo "<h1 style='font-size: 2em'>Commentaire</h1>";
 //                    include("page/mur_commentaire.php");
                 }

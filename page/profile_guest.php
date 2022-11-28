@@ -16,7 +16,7 @@ if($row_cnt==1){
                 <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
                     <label>
                         <input type="hidden" name="supp_compte" value="<?php echo $username2['id']?>"/>
-                        <input name="supprime" type="submit" value="Supprimer le compte" style=" background-color: #212121; color: black;">
+                        <input name="supprime" type="submit" value="Supprimer le compte" style=" background-color: #212121; color: white;">
                     </label>
                     <?php useless_div(); ?>
                 </div>
@@ -31,15 +31,15 @@ if($row_cnt==1){
 
 
     <div class='control block-cube block-input' style="margin-right: 5%; margin-bottom: 5%">
-        <h1 style="position: relative ; z-index: 11 ;font-size: 2em; ">Profile de <?php echo $guest; ?></h1>
+        <h1 style="position: relative ; z-index: 11 ;font-size: 2em; color: pink">Profile de <?php echo $guest; ?></h1>
         <div>
             <div id="div_bio" style="position: relative; z-index: 11">
                 <?php
-                echo '<h3>Biographie:</h3>';
-                echo "<p style='font-size: 1.1em'>{$username['biographie']}</p> <br>";
+                echo '<h3 style="color: white">Biographie:</h3>';
+                echo "<p style='font-size: 1.1em; color: white'>{$username['biographie']}</p> <br>";
 
 
-                echo "Follower : ".$username2['follower'] ;
+                echo "<h1 style='color:white'>Follower : ".$username2['follower']."</h1>";
 
                 if($result_can && $result_can['id'] != $username2['id']){
                     $test = $mysqli->query("SELECT * FROM abo WHERE id_follo = '{$username2['id']}'AND id_user = '{$result_can['id']}'");
@@ -49,7 +49,7 @@ if($row_cnt==1){
                         <div class='control block-cube block-input' style="position: relative;z-index: 11 ; display: inline-block; margin-bottom: 1%; margin-left: 1%;">
                             <label>
                                 <input type="hidden" name="abo_id" value="<?php echo $username2['id']?>"/>
-                                <input name="sabo" type="submit" value="<?php echo $row_cnt2 ==0 ? 'follow' : 'Unfollow' ?>" style=" background-color: #212121; color: black;">
+                                <input name="sabo" type="submit" value="<?php echo $row_cnt2 ==0 ? 'follow' : 'Unfollow' ?>" style=" background-color: #212121; color: white;">
                             </label>
                             <?php useless_div(); ?>
                         </div>
@@ -91,9 +91,9 @@ if($row_cnt==1){
             <form action="" id="modif_bio" method="POST" style="margin-left: 1%; margin-top: 3%" onsubmit="return confirm('Etes vous sur de modifier la bio ?');">
                 <div class='control block-cube block-input' style="position: relative; z-index: 11; display: inline-block ; margin-bottom: 1%">
                     <label for="">
-                        <label for="modifier"></label><input type="text" id="modifier" name="modifier" placeholder="Inserez le message à remplacer"  style="background-color: #212121 ;color: black; "/>
+                        <label for="modifier"></label><input type="text" id="modifier" name="modifier" placeholder="Inserez le message à remplacer"  style="background-color: #212121 ;color: white; "/>
                         <input type="hidden" id="modif_bio_submit" name="idz"  value="<?php echo $username2['id']?>" /><br>
-                        <input type="submit" value="modifier la bio de l'utilisateur"  style="background-color: #212121 ;color: black;" autocomplete="off">
+                        <input type="submit" value="modifier la bio de l'utilisateur"  style="background-color: #212121 ;color: white;" autocomplete="off">
                         <?php
                         useless_div();
                         ?>
