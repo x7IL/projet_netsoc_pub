@@ -131,6 +131,10 @@
                     echo "<h1 style='color:white;margin-top:10%'>le nom d'utilisateur existe deja</h1>";
                 if($err==3)
                     echo "<h1 style='color:white;margin-top:10%'>les mots de passe ne correspondent pas</h1>";
+                if($err==4)
+                    echo "<h1 style='color:white;margin-top:10%'>Ce que vous avez ecrit depasse 500 caracteres !!</h1>";
+                if($err==5)
+                    echo "<h1 style='color:white;margin-top:10%'>L'email ne doit pas depasser 30 caracteres et le nom d'utilisateur 20 caracteres</h1>";
             }
             ?>
 
@@ -189,20 +193,33 @@ if (isset($row_cnt) && $row_cnt==1){
     }
     if (isset($_POST["message"]) && !empty(trim(str_replace("'","\'",$_POST["message"])))) {
         $message_replace = htmlspecialchars(str_replace("'","\'",$_POST["message"]));
-        insert_fields('post', ["ID_user" => $result_can['id'], "post" => $message_replace,"username_source" => $result_can['username'], "username_destinataire" => $guest]);  //mettre l'id user dans la requets
-        echo '<meta http-equiv="refresh" content="0">';
+        if(strlen($message_replace)>500){
+            echo "<script> location.replace('index.php?erreur=4'); </script>";
+            exit();
+        }
+        else {
+            insert_fields('post', ["ID_user" => $result_can['id'], "post" => $message_replace, "username_source" => $result_can['username'], "username_destinataire" => $guest]);  //mettre l'id user dans la requets
+            echo '<meta http-equiv="refresh" content="0">';
+        }
     }
     if(isset($_POST['comment']) && !empty(trim(str_replace("'","\'",$_POST["comment"])))){
         $commentaire = htmlspecialchars(str_replace("'","\'",$_POST['comment']));
-        $sql = ("INSERT INTO post (ID_user,comment_id_destinataire,post,username_destinataire,username_source)
-                VALUES ({$result_can['id']},{$_POST['comment_id']},'$commentaire','{$result_can['username']}','{$_POST['username_source2']}')")
-        or die($mysqli->error);
 
-        if ($mysqli->query($sql) === TRUE) {
-            echo "envoye ?asdasdasd";
-            ?><meta http-equiv="refresh" content="0"><?php
-        } else {
-            echo "<br>Error: " . $sql . "<br>" . $mysqli->error;
+        if(strlen($commentaire)>500){
+            echo "<script> location.replace('index.php?erreur=4'); </script>";
+            exit();
+        }
+        else{
+            $sql = ("INSERT INTO post (ID_user,comment_id_destinataire,post,username_destinataire,username_source)
+                    VALUES ({$result_can['id']},{$_POST['comment_id']},'$commentaire','{$result_can['username']}','{$_POST['username_source2']}')")
+            or die($mysqli->error);
+
+            if ($mysqli->query($sql) === TRUE) {
+                echo "envoye ?asdasdasd";
+                ?><meta http-equiv="refresh" content="0"><?php
+            } else {
+                echo "<br>Error: " . $sql . "<br>" . $mysqli->error;
+            }
         }
     }
 
@@ -305,17 +322,23 @@ if (isset($row_cnt) && $row_cnt==1){
 
     if (isset($_POST['modifier']) && isset($_POST['idz'])) {
         $modifier_ver = htmlspecialchars(str_replace("'","\'",$_POST['modifier']));
-        $sql = "UPDATE profile SET biographie='$modifier_ver' WHERE id_user ='{$username2['id']}'";
-        if ($mysqli->query($sql) === TRUE) {
-        } else {
-            echo "Error updating record: " . $mysqli->error;
+        if(strlen($modifier_ver)>500){
+            echo "<script> location.replace('index.php?erreur=4'); </script>";
+            exit();
         }
-        echo "<meta http-equiv='refresh' content='0'>";
+        else {
+            $sql = "UPDATE profile SET biographie='$modifier_ver' WHERE id_user ='{$username2['id']}'";
+            if ($mysqli->query($sql) === TRUE) {
+            } else {
+                echo "Error updating record: " . $mysqli->error;
+            }
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
     }
 }
 
 if (!$result_can) {
-    if (isset($_POST['email']) && isset($_POST['password'])) {
+    if (isset($_POST['email']) && isset($_POST['password']) && !isset($_POST['repassword'])) {
         if ($_POST["email"] != "" && $_POST["password"] != "") {
             $email = mysqli_real_escape_string($mysqli, htmlspecialchars($_POST['email']));
             $password = $_POST['password'];
@@ -351,6 +374,11 @@ if (!$result_can) {
         $email = htmlspecialchars($_POST["email"]);
         $genre = htmlspecialchars($_POST["genre"]);
         $age = htmlspecialchars($_POST["age"]);
+
+//        if(strlen($email)>30 || strlen($user)>20){
+//            echo "<script> location.replace('index.php?erreur=5'); </script>";
+//            exit();
+//        }
 
         $result_can = mysqli_query($mysqli, "SELECT email FROM user WHERE email = '$email'");
         $result_can_login = mysqli_query($mysqli, "SELECT username FROM user WHERE username = '$user'");

@@ -49,9 +49,4 @@ if($result_can){
     <!--    <button onclick ="window.location='index.php?name=login.php'">Se connecter</button>-->
 </form>
 
-<?php
-//include "join_db.php";
-
-
-?>
 
