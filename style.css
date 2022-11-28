@@ -3,13 +3,13 @@ font-family: 'Teko', sans-serif;
 */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Teko:wght@300&display=swap');
 
-/*
+
 html, body {
-    width: 100%;
-    height:100%;
-}*/
+
+}
 html{
     height: 100%;
+    background-color: #F6F0C4;
 
 }
 body, .bar_search, .log_in_up .button_log_in:hover,.log_in_up .button_sign_up:hover {
