@@ -111,7 +111,7 @@
 
     <!-- #################################### div pub #################################### -->
 
-    <?php if(!$log_a){?>
+    <?php if(!$log_a && $result_can){?>
 
         <div class="pub_gauche" style="border: 1px solid black;">
             <?php
@@ -173,9 +173,7 @@
                 }
                 else{
                     $title = "ERROR 404";
-                }
-                ?>
-
+                } ?>
             </div>
         </div>
     </body>
@@ -389,7 +387,6 @@ if (!$result_can) {
                 // Password Hashing is used here.
                 $sql = "INSERT INTO user (username, password, email, genre, age) VALUES ('$user', '$hash','$email','$genre','$age')";
                 if ($mysqli->query($sql) === TRUE) {
-
                     setcookie("username", $user, time() + 3600);
                     setcookie("email", $email, time() + 3600);
                     setcookie("password", $hash, time() + 3600);

@@ -10,14 +10,14 @@ if($result_can){
 
 <form class="formulaire_connexion" action="" method="POST">
     <label><b style="color: black">Adresse e-mail</b></label>
-    <label for="email"></label><input style="background-color: #212121; color: black " id="email" type="email" placeholder="Entrer votre adresse mail" name="email" required>
+    <label for="email"></label><input style="  " id="email" type="email" placeholder="Entrer votre adresse mail" name="email" required>
 
     <br>
     <label><b style="color: black">Mot de passe</b></label>
-    <label for="password"></label><input style="background-color: #212121; color: black " id="password" type="password" placeholder="Entrer le mot de passe" name="password" required>
+    <label for="password"></label><input style="  " id="password" type="password" placeholder="Entrer le mot de passe" name="password" required>
 
     <br>
-    <input style="background-color: #212121; color: #fff " type="submit" id='submit' value='valider' name="submit">
+    <input style=" " type="submit" id='submit' value='valider' name="submit">
     <br>
     <!--    <button onclick ="window.location='index.php?name=inscription.php'">Inscription</button>-->
 </form>

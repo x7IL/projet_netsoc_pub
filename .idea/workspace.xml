@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1610e11-f370-4b26-a785-d3162e738077" name="Changes" comment="&lt;feat&gt; : debug carac &gt; 500 30 20 commentaire bio email user">
-      <change afterPath="$PROJECT_DIR$/site/test2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/08bebf5b-e11a-44f0-9579-a76a6528d967.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/08bebf5b-e11a-44f0-9579-a76a6528d967.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/join_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/join_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/log_in.php" beforeDir="false" afterPath="$PROJECT_DIR$/page/log_in.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -393,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669618317422</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="&lt;fix&gt; : beug background body">
+      <created>1669652476468</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1669652476468</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,7 +417,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat : page recherche profile +modif sur les messages" />
     <MESSAGE value="feat : modification du theme du mur_commentaire.php" />
     <MESSAGE value="&lt;fix&gt; : affichage commentaire profile guest si il y a le nom de lutilisateur dans les commentaires" />
     <MESSAGE value="&lt;fix&gt; : grosse réduction de code,&#10;correction bug affichage de sous commentaire,&#10;affichage de messages si le pseudo si trouve (dans les profiles)" />
@@ -437,6 +441,7 @@
     <MESSAGE value="&lt;fix&gt; : fun" />
     <MESSAGE value="&lt;feat&gt; : bonbons" />
     <MESSAGE value="&lt;feat&gt; : debug carac &gt; 500 30 20 commentaire bio email user" />
-    <option name="LAST_COMMIT_MESSAGE" value="&lt;feat&gt; : debug carac &gt; 500 30 20 commentaire bio email user" />
+    <MESSAGE value="&lt;fix&gt; : beug background body" />
+    <option name="LAST_COMMIT_MESSAGE" value="&lt;fix&gt; : beug background body" />
   </component>
 </project>
