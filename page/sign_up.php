@@ -6,7 +6,7 @@ if($result_can){
 }
 
 ?>
-<h1 style="font-size: 2em;color: black">Sign Up</h1>
+<h1 style="font-size: 2em">Sign Up</h1>
 
 <form class="formulaire_inscription" action="" method="POST" style="word-spacing: 2px;">
     <label><b style="color: black">Nom d'utilisateur</b></label>
@@ -44,7 +44,7 @@ if($result_can){
         <input  style="color: black"  type="number" placeholder="Entrer votre age" name="age" min="18" max="100" required>
     </label>
     <br>
-    <input  name="submit" type="submit" id='submit' value='valider' >
+    <input  name="submit_sign" type="submit" id='submit' value='valider' >
     <br>
     <!--    <button onclick ="window.location='index.php?name=login.php'">Se connecter</button>-->
 </form>

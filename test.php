@@ -1,5 +1,4 @@
 <?php
-
 header("Content-type: application/json; charset=utf-8");
 $json_params = file_get_contents("php://input");
 $json_url = json_decode($json_params);
