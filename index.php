@@ -111,7 +111,7 @@
 
     <!-- #################################### div pub #################################### -->
 
-    <?php if(!$log_a && $result_can){?>
+    <?php if(!$log_a && !$result_can){?>
 
         <div class="pub_gauche" style="border: 1px solid black;">
             <?php

@@ -10,13 +10,14 @@ html{
     /*background-color: #F6F0C4;*/
 
 }
+html,body{
+    width: 100%;
+}
 html, body, .bar_search, .log_in_up .button_log_in:hover,.log_in_up .button_sign_up:hover {
     background-image: linear-gradient(45deg, #F6F0C4, #F6F0C4,#86dcc6,#b7fb87);
     background-position: center;
     background-repeat: no-repeat;
     animation: gradient 15s ease infinite;
-
-
 
 }
 
