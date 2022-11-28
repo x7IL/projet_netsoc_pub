@@ -17,7 +17,7 @@ if($result_can){
     <label for="password"></label><input style="background-color: #212121; color: black " id="password" type="password" placeholder="Entrer le mot de passe" name="password" required>
 
     <br>
-    <input style="background-color: #212121; color: #fff " type="submit" id='submit' value='valider' name="submit_log">
+    <input style="background-color: #212121; color: #fff " type="submit" id='submit' value='valider' name="submit">
     <br>
     <!--    <button onclick ="window.location='index.php?name=inscription.php'">Inscription</button>-->
 </form>
